@@ -1,0 +1,2272 @@
+fileFormatVersion: 2
+guid: b8cbb77a36136ba42b1d29a444162da2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1977078321294826332
+    second: BigCitySmallBuildings_damaged_0
+  - first:
+      213: -6854091178327650370
+    second: BigCitySmallBuildings_damaged_1
+  - first:
+      213: 2003805908883541754
+    second: BigCitySmallBuildings_damaged_2
+  - first:
+      213: -3405302287589058275
+    second: BigCitySmallBuildings_damaged_3
+  - first:
+      213: 2917146678596483020
+    second: BigCitySmallBuildings_damaged_4
+  - first:
+      213: 3615739706839350809
+    second: BigCitySmallBuildings_damaged_5
+  - first:
+      213: 1973458976969449129
+    second: BigCitySmallBuildings_damaged_6
+  - first:
+      213: 107605953189895841
+    second: BigCitySmallBuildings_damaged_7
+  - first:
+      213: -8228920237298917905
+    second: BigCitySmallBuildings_damaged_8
+  - first:
+      213: 3911095756936279062
+    second: BigCitySmallBuildings_damaged_9
+  - first:
+      213: 6992618176848263594
+    second: BigCitySmallBuildings_damaged_10
+  - first:
+      213: -2450714351776524076
+    second: BigCitySmallBuildings_damaged_11
+  - first:
+      213: -5266892248641717738
+    second: BigCitySmallBuildings_damaged_12
+  - first:
+      213: 2591592586922550318
+    second: BigCitySmallBuildings_damaged_13
+  - first:
+      213: -7947501704640925043
+    second: BigCitySmallBuildings_damaged_14
+  - first:
+      213: 6578582760544262840
+    second: BigCitySmallBuildings_damaged_15
+  - first:
+      213: 4520283128370175544
+    second: BigCitySmallBuildings_damaged_16
+  - first:
+      213: -9176779703364089629
+    second: BigCitySmallBuildings_damaged_17
+  - first:
+      213: -8492744602708523628
+    second: BigCitySmallBuildings_damaged_18
+  - first:
+      213: 8808440688714003957
+    second: BigCitySmallBuildings_damaged_19
+  - first:
+      213: 5530081792812497359
+    second: BigCitySmallBuildings_damaged_20
+  - first:
+      213: 1570329024416529610
+    second: BigCitySmallBuildings_damaged_21
+  - first:
+      213: -511178126989674385
+    second: BigCitySmallBuildings_damaged_22
+  - first:
+      213: -5710351173683922565
+    second: BigCitySmallBuildings_damaged_23
+  - first:
+      213: -6212600764537876223
+    second: BigCitySmallBuildings_damaged_24
+  - first:
+      213: -5487214393049148404
+    second: BigCitySmallBuildings_damaged_25
+  - first:
+      213: -4526744715618352663
+    second: BigCitySmallBuildings_damaged_26
+  - first:
+      213: -9021359724538571908
+    second: BigCitySmallBuildings_damaged_27
+  - first:
+      213: 476244666152022876
+    second: BigCitySmallBuildings_damaged_28
+  - first:
+      213: -7415969866471712115
+    second: BigCitySmallBuildings_damaged_29
+  - first:
+      213: 7885095788108351075
+    second: BigCitySmallBuildings_damaged_30
+  - first:
+      213: 4635164008293156788
+    second: BigCitySmallBuildings_damaged_31
+  - first:
+      213: 3266819002752085829
+    second: BigCitySmallBuildings_damaged_32
+  - first:
+      213: 866171665333823207
+    second: BigCitySmallBuildings_damaged_33
+  - first:
+      213: 7429627732867489184
+    second: BigCitySmallBuildings_damaged_34
+  - first:
+      213: -683469821403769452
+    second: BigCitySmallBuildings_damaged_35
+  - first:
+      213: -2159066665347782750
+    second: BigCitySmallBuildings_damaged_36
+  - first:
+      213: -7813124348071120878
+    second: BigCitySmallBuildings_damaged_37
+  - first:
+      213: 1055168495389155070
+    second: BigCitySmallBuildings_damaged_38
+  - first:
+      213: -2677296202950654035
+    second: BigCitySmallBuildings_damaged_39
+  - first:
+      213: -1591842992559776591
+    second: BigCitySmallBuildings_damaged_40
+  - first:
+      213: -8137780087738974704
+    second: BigCitySmallBuildings_damaged_41
+  - first:
+      213: -6356832944768562906
+    second: BigCitySmallBuildings_damaged_42
+  - first:
+      213: 3968784678637420149
+    second: BigCitySmallBuildings_damaged_43
+  - first:
+      213: -379154399996174017
+    second: BigCitySmallBuildings_damaged_44
+  - first:
+      213: -594927714468995619
+    second: BigCitySmallBuildings_damaged_45
+  - first:
+      213: -6861516917336639038
+    second: BigCitySmallBuildings_damaged_46
+  - first:
+      213: -5566544873540732040
+    second: BigCitySmallBuildings_damaged_47
+  - first:
+      213: -9213345126527615652
+    second: BigCitySmallBuildings_damaged_48
+  - first:
+      213: 835800188282237351
+    second: BigCitySmallBuildings_damaged_49
+  - first:
+      213: -9202195032026111364
+    second: BigCitySmallBuildings_damaged_50
+  - first:
+      213: 5314696194743526158
+    second: BigCitySmallBuildings_damaged_51
+  - first:
+      213: 2050155387318184615
+    second: BigCitySmallBuildings_damaged_52
+  - first:
+      213: -3379317082783259986
+    second: BigCitySmallBuildings_damaged_53
+  - first:
+      213: -4888951265721242516
+    second: BigCitySmallBuildings_damaged_54
+  - first:
+      213: -9146914694873218277
+    second: BigCitySmallBuildings_damaged_55
+  - first:
+      213: 5755060587161102528
+    second: BigCitySmallBuildings_damaged_56
+  - first:
+      213: 2454440531310115552
+    second: BigCitySmallBuildings_damaged_57
+  - first:
+      213: -1748665201525017983
+    second: BigCitySmallBuildings_damaged_58
+  - first:
+      213: -3728468008784669251
+    second: BigCitySmallBuildings_damaged_59
+  - first:
+      213: 4847076427280728018
+    second: BigCitySmallBuildings_damaged_60
+  - first:
+      213: -2434232945129391211
+    second: BigCitySmallBuildings_damaged_61
+  - first:
+      213: 6561645672182385697
+    second: BigCitySmallBuildings_damaged_62
+  - first:
+      213: 7490035376285762928
+    second: BigCitySmallBuildings_damaged_63
+  - first:
+      213: -2823108554841188190
+    second: BigCitySmallBuildings_damaged_64
+  - first:
+      213: -2458747464342654927
+    second: BigCitySmallBuildings_damaged_65
+  - first:
+      213: -3576686087863585063
+    second: BigCitySmallBuildings_damaged_66
+  - first:
+      213: -405180729698960267
+    second: BigCitySmallBuildings_damaged_67
+  - first:
+      213: -1292860015741064225
+    second: BigCitySmallBuildings_damaged_68
+  - first:
+      213: -4447683532638046704
+    second: BigCitySmallBuildings_damaged_69
+  - first:
+      213: -7038044650793314303
+    second: BigCitySmallBuildings_damaged_70
+  - first:
+      213: -4471038053412842901
+    second: BigCitySmallBuildings_damaged_71
+  - first:
+      213: 1362056199731549456
+    second: BigCitySmallBuildings_damaged_72
+  - first:
+      213: -1681735003762880394
+    second: BigCitySmallBuildings_damaged_73
+  - first:
+      213: 1784084119872312108
+    second: BigCitySmallBuildings_damaged_74
+  - first:
+      213: -6239403192236640945
+    second: BigCitySmallBuildings_damaged_75
+  - first:
+      213: 270180904579813
+    second: BigCitySmallBuildings_damaged_76
+  - first:
+      213: 2721576177659395386
+    second: BigCitySmallBuildings_damaged_77
+  - first:
+      213: 4831670951157696484
+    second: BigCitySmallBuildings_damaged_78
+  - first:
+      213: 7155667815812541840
+    second: BigCitySmallBuildings_damaged_79
+  - first:
+      213: -7140749075978647500
+    second: BigCitySmallBuildings_damaged_80
+  - first:
+      213: 5650769344927447218
+    second: BigCitySmallBuildings_damaged_81
+  - first:
+      213: 6279356227182746490
+    second: BigCitySmallBuildings_damaged_82
+  - first:
+      213: 4707574161480654339
+    second: BigCitySmallBuildings_damaged_83
+  - first:
+      213: 2645731763933499630
+    second: BigCitySmallBuildings_damaged_84
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5b57e9124eff6b10800000000000000
+      internalID: 1977078321294826332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebf44a9436061e0a0800000000000000
+      internalID: -6854091178327650370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afe05d58bd2fecb10800000000000000
+      internalID: 2003805908883541754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_3
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d19dd6b8c9fedb0d0800000000000000
+      internalID: -3405302287589058275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_4
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc7347fc279cb7820800000000000000
+      internalID: 2917146678596483020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_5
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91e3f6a3b10bd2230800000000000000
+      internalID: 3615739706839350809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_6
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aed115db72236b10800000000000000
+      internalID: 1973458976969449129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_7
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aed9975b0b4e7100800000000000000
+      internalID: 107605953189895841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_8
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fed56c294a00dcd80800000000000000
+      internalID: -8228920237298917905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_9
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61479ba7ed0074630800000000000000
+      internalID: 3911095756936279062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_10
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa9faf0fe25ca0160800000000000000
+      internalID: 6992618176848263594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_11
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d8986018405dfdd0800000000000000
+      internalID: -2450714351776524076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_12
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61ab371b76d38e6b0800000000000000
+      internalID: -5266892248641717738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_13
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e24ed0a1abf27f320800000000000000
+      internalID: 2591592586922550318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_14
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d82f01bae4dc4b190800000000000000
+      internalID: -7947501704640925043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_15
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8badfb77a22db4b50800000000000000
+      internalID: 6578582760544262840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_16
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83e12b64e854bbe30800000000000000
+      internalID: 4520283128370175544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_17
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e808fefa7785a080800000000000000
+      internalID: -9176779703364089629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_18
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4954173c7c5b32a80800000000000000
+      internalID: -8492744602708523628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_19
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f535e3232edd3a70800000000000000
+      internalID: 8808440688714003957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_20
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc9b177471ccebc40800000000000000
+      internalID: 5530081792812497359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_21
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acc35d08dedeac510800000000000000
+      internalID: 1570329024416529610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_22
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f68b4dba33ee7e8f0800000000000000
+      internalID: -511178126989674385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_23
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b79b5ddbcd1c0c0b0800000000000000
+      internalID: -5710351173683922565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_24
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 101566a358868c9a0800000000000000
+      internalID: -6212600764537876223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_25
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0415eff49f79d3b0800000000000000
+      internalID: -5487214393049148404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_26
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e101b43aa5cd21c0800000000000000
+      internalID: -4526744715618352663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_27
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c73dcd3b021bdc280800000000000000
+      internalID: -9021359724538571908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_28
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c537a282006fb9600800000000000000
+      internalID: 476244666152022876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_29
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8ad3fba2be251990800000000000000
+      internalID: -7415969866471712115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_30
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 366802e97dc7d6d60800000000000000
+      internalID: 7885095788108351075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_31
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b74dfd7b19635040800000000000000
+      internalID: 4635164008293156788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_32
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54fa88c1392165d20800000000000000
+      internalID: 3266819002752085829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_33
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e62bba5a82450c00800000000000000
+      internalID: 866171665333823207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_34
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ad15f62f075b1760800000000000000
+      internalID: 7429627732867489184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_35
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 495578091d3d386f0800000000000000
+      internalID: -683469821403769452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_36
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a7ee8d9e447902e0800000000000000
+      internalID: -2159066665347782750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_37
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 210f3471dc4329390800000000000000
+      internalID: -7813124348071120878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_38
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efe9ad1f726b4ae00800000000000000
+      internalID: 1055168495389155070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_39
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da7cf90d94558dad0800000000000000
+      internalID: -2677296202950654035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_40
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 48
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bc97427b33a8e9e0800000000000000
+      internalID: -1591842992559776591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_41
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01e3212402cc01f80800000000000000
+      internalID: -8137780087738974704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_42
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 629c19edd1ef7c7a0800000000000000
+      internalID: -6356832944768562906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_43
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57e323043a4f31730800000000000000
+      internalID: 3968784678637420149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_44
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f31a3310519fcbaf0800000000000000
+      internalID: -379154399996174017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_45
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddd5a0055646eb7f0800000000000000
+      internalID: -594927714468995619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_46
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c9f0d1b7bef6c0a0800000000000000
+      internalID: -6861516917336639038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_47
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87b355a2ee8afb2b0800000000000000
+      internalID: -5566544873540732040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_48
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5dbe3cfb6f932080800000000000000
+      internalID: -9213345126527615652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_49
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a174cdc7db599b00800000000000000
+      internalID: 835800188282237351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_50
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c72283aaf5c3b4080800000000000000
+      internalID: -9202195032026111364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_51
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e03eec8d70891c940800000000000000
+      internalID: 5314696194743526158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_52
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aa247b667d937c10800000000000000
+      internalID: 2050155387318184615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_53
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea26b4184014a11d0800000000000000
+      internalID: -3379317082783259986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_54
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c2d720ab4f62cb0800000000000000
+      internalID: -4888951265721242516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_55
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1308452c81af0180800000000000000
+      internalID: -9146914694873218277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_56
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c8a696cc151edf40800000000000000
+      internalID: 5755060587161102528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_57
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ea7f07b8acef0220800000000000000
+      internalID: 2454440531310115552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_58
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 182b308934e7bb7e0800000000000000
+      internalID: -1748665201525017983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_59
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db55bfba912d14cc0800000000000000
+      internalID: -3728468008784669251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_60
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dfbc376456444340800000000000000
+      internalID: 4847076427280728018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_61
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59b7205980ed73ed0800000000000000
+      internalID: -2434232945129391211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_62
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12c096849f5af0b50800000000000000
+      internalID: 6561645672182385697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_63
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0754f96ad73f1f760800000000000000
+      internalID: 7490035376285762928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_64
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a813521abd42d8d0800000000000000
+      internalID: -2823108554841188190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_65
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 130b67b4536c0edd0800000000000000
+      internalID: -2458747464342654927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_66
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d63fc304fe0d5ec0800000000000000
+      internalID: -3576686087863585063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_67
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57cb578e542806af0800000000000000
+      internalID: -405180729698960267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_68
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdba2716aa6de0ee0800000000000000
+      internalID: -1292860015741064225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_69
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01631c35467a642c0800000000000000
+      internalID: -4447683532638046704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_70
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1085024eda7d35e90800000000000000
+      internalID: -7038044650793314303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_71
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b62d219349ea3f1c0800000000000000
+      internalID: -4471038053412842901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_72
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0151e1da5eef6e210800000000000000
+      internalID: 1362056199731549456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_73
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6709f5e9ce649a8e0800000000000000
+      internalID: -1681735003762880394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_74
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c239766fd0752c810800000000000000
+      internalID: 1784084119872312108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_75
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f45fb4cbadf2969a0800000000000000
+      internalID: -6239403192236640945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_76
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e2b7d46ab5f00000800000000000000
+      internalID: 270180904579813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_77
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3dbd823d1bf4c520800000000000000
+      internalID: 2721576177659395386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_78
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e7045b712b8d0340800000000000000
+      internalID: 4831670951157696484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_79
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09da33457f90e4360800000000000000
+      internalID: 7155667815812541840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_80
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43808187c86f6ec90800000000000000
+      internalID: -7140749075978647500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_81
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 24
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b83118b7c09b6e40800000000000000
+      internalID: 5650769344927447218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_82
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7b5d5b1831c42750800000000000000
+      internalID: 6279356227182746490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_83
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30e9cd012c9a45140800000000000000
+      internalID: 4707574161480654339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigCitySmallBuildings_damaged_84
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee05938850787b420800000000000000
+      internalID: 2645731763933499630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      BigCitySmallBuildings_damaged_32: 3266819002752085829
+      BigCitySmallBuildings_damaged_5: 3615739706839350809
+      BigCitySmallBuildings_damaged_80: -7140749075978647500
+      BigCitySmallBuildings_damaged_45: -594927714468995619
+      BigCitySmallBuildings_damaged_20: 5530081792812497359
+      BigCitySmallBuildings_damaged_63: 7490035376285762928
+      BigCitySmallBuildings_damaged_9: 3911095756936279062
+      BigCitySmallBuildings_damaged_11: -2450714351776524076
+      BigCitySmallBuildings_damaged_27: -9021359724538571908
+      BigCitySmallBuildings_damaged_77: 2721576177659395386
+      BigCitySmallBuildings_damaged_14: -7947501704640925043
+      BigCitySmallBuildings_damaged_64: -2823108554841188190
+      BigCitySmallBuildings_damaged_6: 1973458976969449129
+      BigCitySmallBuildings_damaged_17: -9176779703364089629
+      BigCitySmallBuildings_damaged_65: -2458747464342654927
+      BigCitySmallBuildings_damaged_30: 7885095788108351075
+      BigCitySmallBuildings_damaged_40: -1591842992559776591
+      BigCitySmallBuildings_damaged_7: 107605953189895841
+      BigCitySmallBuildings_damaged_69: -4447683532638046704
+      BigCitySmallBuildings_damaged_71: -4471038053412842901
+      BigCitySmallBuildings_damaged_4: 2917146678596483020
+      BigCitySmallBuildings_damaged_36: -2159066665347782750
+      BigCitySmallBuildings_damaged_15: 6578582760544262840
+      BigCitySmallBuildings_damaged_2: 2003805908883541754
+      BigCitySmallBuildings_damaged_22: -511178126989674385
+      BigCitySmallBuildings_damaged_3: -3405302287589058275
+      BigCitySmallBuildings_damaged_34: 7429627732867489184
+      BigCitySmallBuildings_damaged_73: -1681735003762880394
+      BigCitySmallBuildings_damaged_39: -2677296202950654035
+      BigCitySmallBuildings_damaged_35: -683469821403769452
+      BigCitySmallBuildings_damaged_54: -4888951265721242516
+      BigCitySmallBuildings_damaged_55: -9146914694873218277
+      BigCitySmallBuildings_damaged_70: -7038044650793314303
+      BigCitySmallBuildings_damaged_50: -9202195032026111364
+      BigCitySmallBuildings_damaged_60: 4847076427280728018
+      BigCitySmallBuildings_damaged_0: 1977078321294826332
+      BigCitySmallBuildings_damaged_67: -405180729698960267
+      BigCitySmallBuildings_damaged_81: 5650769344927447218
+      BigCitySmallBuildings_damaged_26: -4526744715618352663
+      BigCitySmallBuildings_damaged_44: -379154399996174017
+      BigCitySmallBuildings_damaged_24: -6212600764537876223
+      BigCitySmallBuildings_damaged_37: -7813124348071120878
+      BigCitySmallBuildings_damaged_51: 5314696194743526158
+      BigCitySmallBuildings_damaged_49: 835800188282237351
+      BigCitySmallBuildings_damaged_46: -6861516917336639038
+      BigCitySmallBuildings_damaged_12: -5266892248641717738
+      BigCitySmallBuildings_damaged_38: 1055168495389155070
+      BigCitySmallBuildings_damaged_59: -3728468008784669251
+      BigCitySmallBuildings_damaged_48: -9213345126527615652
+      BigCitySmallBuildings_damaged_28: 476244666152022876
+      BigCitySmallBuildings_damaged_18: -8492744602708523628
+      BigCitySmallBuildings_damaged_41: -8137780087738974704
+      BigCitySmallBuildings_damaged_16: 4520283128370175544
+      BigCitySmallBuildings_damaged_21: 1570329024416529610
+      BigCitySmallBuildings_damaged_76: 270180904579813
+      BigCitySmallBuildings_damaged_66: -3576686087863585063
+      BigCitySmallBuildings_damaged_68: -1292860015741064225
+      BigCitySmallBuildings_damaged_75: -6239403192236640945
+      BigCitySmallBuildings_damaged_58: -1748665201525017983
+      BigCitySmallBuildings_damaged_1: -6854091178327650370
+      BigCitySmallBuildings_damaged_47: -5566544873540732040
+      BigCitySmallBuildings_damaged_79: 7155667815812541840
+      BigCitySmallBuildings_damaged_42: -6356832944768562906
+      BigCitySmallBuildings_damaged_78: 4831670951157696484
+      BigCitySmallBuildings_damaged_13: 2591592586922550318
+      BigCitySmallBuildings_damaged_25: -5487214393049148404
+      BigCitySmallBuildings_damaged_29: -7415969866471712115
+      BigCitySmallBuildings_damaged_31: 4635164008293156788
+      BigCitySmallBuildings_damaged_56: 5755060587161102528
+      BigCitySmallBuildings_damaged_19: 8808440688714003957
+      BigCitySmallBuildings_damaged_62: 6561645672182385697
+      BigCitySmallBuildings_damaged_52: 2050155387318184615
+      BigCitySmallBuildings_damaged_61: -2434232945129391211
+      BigCitySmallBuildings_damaged_84: 2645731763933499630
+      BigCitySmallBuildings_damaged_82: 6279356227182746490
+      BigCitySmallBuildings_damaged_23: -5710351173683922565
+      BigCitySmallBuildings_damaged_8: -8228920237298917905
+      BigCitySmallBuildings_damaged_72: 1362056199731549456
+      BigCitySmallBuildings_damaged_53: -3379317082783259986
+      BigCitySmallBuildings_damaged_83: 4707574161480654339
+      BigCitySmallBuildings_damaged_74: 1784084119872312108
+      BigCitySmallBuildings_damaged_57: 2454440531310115552
+      BigCitySmallBuildings_damaged_43: 3968784678637420149
+      BigCitySmallBuildings_damaged_33: 866171665333823207
+      BigCitySmallBuildings_damaged_10: 6992618176848263594
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

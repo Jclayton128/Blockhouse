@@ -1,0 +1,1172 @@
+fileFormatVersion: 2
+guid: 19d336afbf631aa47acee3d886105de0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2343796854255364448
+    second: TinyCitySmallBuildings_0
+  - first:
+      213: 2777586234065200397
+    second: TinyCitySmallBuildings_1
+  - first:
+      213: -1660596421197174812
+    second: TinyCitySmallBuildings_2
+  - first:
+      213: -6591576503734762442
+    second: TinyCitySmallBuildings_3
+  - first:
+      213: 1322794189614270548
+    second: TinyCitySmallBuildings_4
+  - first:
+      213: -7865654232168060120
+    second: TinyCitySmallBuildings_5
+  - first:
+      213: -7171720567591374153
+    second: TinyCitySmallBuildings_6
+  - first:
+      213: 8435464994036691980
+    second: TinyCitySmallBuildings_7
+  - first:
+      213: 5014846661322328362
+    second: TinyCitySmallBuildings_8
+  - first:
+      213: -6819414822758665470
+    second: TinyCitySmallBuildings_9
+  - first:
+      213: 5338610586144993996
+    second: TinyCitySmallBuildings_10
+  - first:
+      213: -6268570904534555402
+    second: TinyCitySmallBuildings_11
+  - first:
+      213: -1117039894552656157
+    second: TinyCitySmallBuildings_12
+  - first:
+      213: -4571353239979611699
+    second: TinyCitySmallBuildings_13
+  - first:
+      213: -5277019095439163025
+    second: TinyCitySmallBuildings_14
+  - first:
+      213: 8131697759611698250
+    second: TinyCitySmallBuildings_15
+  - first:
+      213: -7751771430003657285
+    second: TinyCitySmallBuildings_16
+  - first:
+      213: 8411309381407205032
+    second: TinyCitySmallBuildings_17
+  - first:
+      213: -2091076408179715106
+    second: TinyCitySmallBuildings_18
+  - first:
+      213: -4347591099020992740
+    second: TinyCitySmallBuildings_19
+  - first:
+      213: -8106301816409963658
+    second: TinyCitySmallBuildings_20
+  - first:
+      213: -3297148683321907834
+    second: TinyCitySmallBuildings_21
+  - first:
+      213: -1689330202689880380
+    second: TinyCitySmallBuildings_22
+  - first:
+      213: -7405800602629292238
+    second: TinyCitySmallBuildings_23
+  - first:
+      213: -5288322993636016821
+    second: TinyCitySmallBuildings_24
+  - first:
+      213: -2087812875846289719
+    second: TinyCitySmallBuildings_25
+  - first:
+      213: 4535057876161478559
+    second: TinyCitySmallBuildings_26
+  - first:
+      213: -6110954571901885720
+    second: TinyCitySmallBuildings_27
+  - first:
+      213: -1559422860659687984
+    second: TinyCitySmallBuildings_28
+  - first:
+      213: 7715930243506305110
+    second: TinyCitySmallBuildings_29
+  - first:
+      213: -7473108222475057403
+    second: TinyCitySmallBuildings_30
+  - first:
+      213: 4046020379878653994
+    second: TinyCitySmallBuildings_31
+  - first:
+      213: -7600547623046341107
+    second: TinyCitySmallBuildings_32
+  - first:
+      213: 1465314651264284396
+    second: TinyCitySmallBuildings_33
+  - first:
+      213: -4737718862336856944
+    second: TinyCitySmallBuildings_34
+  - first:
+      213: 8460509287440273340
+    second: TinyCitySmallBuildings_35
+  - first:
+      213: -9207034545006723898
+    second: TinyCitySmallBuildings_36
+  - first:
+      213: 206723003930676301
+    second: TinyCitySmallBuildings_37
+  - first:
+      213: 7374149563860143178
+    second: TinyCitySmallBuildings_38
+  - first:
+      213: 221654551251364041
+    second: TinyCitySmallBuildings_39
+  - first:
+      213: 8842225655093139089
+    second: TinyCitySmallBuildings_40
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 80
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 069a19b22d6d68020800000000000000
+      internalID: 2343796854255364448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 80
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d05a87ea6f7fb8620800000000000000
+      internalID: 2777586234065200397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_2
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 80
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e7e1476a5064f8e0800000000000000
+      internalID: -1660596421197174812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_3
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 80
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6340411f7140684a0800000000000000
+      internalID: -6591576503734762442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_4
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 80
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 458c8e69e428b5210800000000000000
+      internalID: 1322794189614270548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_5
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 80
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82b239d562597d290800000000000000
+      internalID: -7865654232168060120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_6
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 80
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b27a54242ee87c90800000000000000
+      internalID: -7171720567591374153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_7
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 80
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c04bcc418bac01570800000000000000
+      internalID: 8435464994036691980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_8
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 64
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a29cb2bf770589540800000000000000
+      internalID: 5014846661322328362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_9
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 64
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 203bf6979529c51a0800000000000000
+      internalID: -6819414822758665470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_10
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 64
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc2ff4dfa0e861a40800000000000000
+      internalID: 5338610586144993996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_11
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 64
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f46ed189ff8109a0800000000000000
+      internalID: -6268570904534555402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_12
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 64
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e6cf3d522a7f70f0800000000000000
+      internalID: -1117039894552656157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_13
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 64
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc92f24c27a4f80c0800000000000000
+      internalID: -4571353239979611699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_14
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 64
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f61456f671344c6b0800000000000000
+      internalID: -5277019095439163025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_15
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 64
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4cbe7e570899d070800000000000000
+      internalID: 8131697759611698250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_16
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 48
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb53c9e74fc2c6490800000000000000
+      internalID: -7751771430003657285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_17
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 48
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a6efae3159fab470800000000000000
+      internalID: 8411309381407205032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_18
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 48
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed39f34f5110bf2e0800000000000000
+      internalID: -2091076408179715106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_19
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 48
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1f14321ee04aa3c0800000000000000
+      internalID: -4347591099020992740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_20
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 48
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 673c7ce6271a08f80800000000000000
+      internalID: -8106301816409963658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_21
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 48
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68563f6ddbc2e32d0800000000000000
+      internalID: -3297148683321907834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_22
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 48
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ceb450912b4e88e0800000000000000
+      internalID: -1689330202689880380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_23
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 48
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23f38eae69f493990800000000000000
+      internalID: -7405800602629292238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_24
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 32
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4d7bca814a1c96b0800000000000000
+      internalID: -5288322993636016821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_25
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 32
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c6f1b940499603e0800000000000000
+      internalID: -2087812875846289719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_26
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 32
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9f31705c13cfee30800000000000000
+      internalID: 4535057876161478559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_27
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 32
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e22d3fa137813ba0800000000000000
+      internalID: -6110954571901885720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_28
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 16
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dd71cf9b21db5ae0800000000000000
+      internalID: -1559422860659687984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_29
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 16
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 658f2ebfcad741b60800000000000000
+      internalID: 7715930243506305110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_30
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 507c2577aaf2a4890800000000000000
+      internalID: -7473108222475057403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_31
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 16
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2088a8491a562830800000000000000
+      internalID: 4046020379878653994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_32
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0e12edc43e658690800000000000000
+      internalID: -7600547623046341107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_33
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 16
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce678c869e7d55410800000000000000
+      internalID: 1465314651264284396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_34
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 16
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09c6eb4dbcd304eb0800000000000000
+      internalID: -4737718862336856944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_35
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 16
+        width: 10
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbf45c80f54c96570800000000000000
+      internalID: 8460509287440273340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_36
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ccbf1ebcda0a3080800000000000000
+      internalID: -9207034545006723898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_37
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 0
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4c80301a7d6ed200800000000000000
+      internalID: 206723003930676301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_38
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 0
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4c4c7a55fd365660800000000000000
+      internalID: 7374149563860143178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_39
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c8af26d3a9731300800000000000000
+      internalID: 221654551251364041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCitySmallBuildings_40
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 0
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1961cab9265e5ba70800000000000000
+      internalID: 8842225655093139089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      TinyCitySmallBuildings_31: 4046020379878653994
+      TinyCitySmallBuildings_26: 4535057876161478559
+      TinyCitySmallBuildings_38: 7374149563860143178
+      TinyCitySmallBuildings_25: -2087812875846289719
+      TinyCitySmallBuildings_36: -9207034545006723898
+      TinyCitySmallBuildings_34: -4737718862336856944
+      TinyCitySmallBuildings_24: -5288322993636016821
+      TinyCitySmallBuildings_9: -6819414822758665470
+      TinyCitySmallBuildings_4: 1322794189614270548
+      TinyCitySmallBuildings_12: -1117039894552656157
+      TinyCitySmallBuildings_17: 8411309381407205032
+      TinyCitySmallBuildings_20: -8106301816409963658
+      TinyCitySmallBuildings_7: 8435464994036691980
+      TinyCitySmallBuildings_2: -1660596421197174812
+      TinyCitySmallBuildings_18: -2091076408179715106
+      TinyCitySmallBuildings_15: 8131697759611698250
+      TinyCitySmallBuildings_6: -7171720567591374153
+      TinyCitySmallBuildings_39: 221654551251364041
+      TinyCitySmallBuildings_33: 1465314651264284396
+      TinyCitySmallBuildings_0: 2343796854255364448
+      TinyCitySmallBuildings_30: -7473108222475057403
+      TinyCitySmallBuildings_1: 2777586234065200397
+      TinyCitySmallBuildings_21: -3297148683321907834
+      TinyCitySmallBuildings_10: 5338610586144993996
+      TinyCitySmallBuildings_29: 7715930243506305110
+      TinyCitySmallBuildings_28: -1559422860659687984
+      TinyCitySmallBuildings_35: 8460509287440273340
+      TinyCitySmallBuildings_5: -7865654232168060120
+      TinyCitySmallBuildings_32: -7600547623046341107
+      TinyCitySmallBuildings_23: -7405800602629292238
+      TinyCitySmallBuildings_27: -6110954571901885720
+      TinyCitySmallBuildings_37: 206723003930676301
+      TinyCitySmallBuildings_13: -4571353239979611699
+      TinyCitySmallBuildings_22: -1689330202689880380
+      TinyCitySmallBuildings_40: 8842225655093139089
+      TinyCitySmallBuildings_14: -5277019095439163025
+      TinyCitySmallBuildings_3: -6591576503734762442
+      TinyCitySmallBuildings_11: -6268570904534555402
+      TinyCitySmallBuildings_16: -7751771430003657285
+      TinyCitySmallBuildings_8: 5014846661322328362
+      TinyCitySmallBuildings_19: -4347591099020992740
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
