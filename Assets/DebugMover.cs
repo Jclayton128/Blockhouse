@@ -18,27 +18,14 @@ public class DebugMover : MonoBehaviour
 
     private void Update()
     {
-        UpdateCommandedMovement();
         UpdateMovement();
-        UpdateLook();
+        //UpdateLook();
     }
 
 
     private void UpdateCommandedMovement()
     {
-        if (Input.GetKey(KeyCode.A))
-        {
-            _moveDir = -1;
-            transform.position += Vector3.left * _moveSpeed * Time.deltaTime;
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            _moveDir = 1;
-        }
-        else
-        {
-            _moveDir = 0;
-        }
+        
     }
 
 
