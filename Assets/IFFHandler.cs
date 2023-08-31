@@ -6,4 +6,5 @@ public class IFFHandler : MonoBehaviour
 {
     public bool IsPlayer = false;
     public bool IsGood = true;
+    public ActorLibrary.ActorType ActorType_ = ActorLibrary.ActorType.Cleric0;
 }

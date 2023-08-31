@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class MovementHandler : MonoBehaviour
 {
-    Rigidbody2D _rb;
+    //Rigidbody2D _rb;
     Animator _anim;
 
     //settings
-    [SerializeField] float _moveSpeed = 3f;
+    [SerializeField] float _moveSpeed_Max = 3f;
+
 
     //state
     private int _commandedMoveDir;
     private int _commandedLookDir;
+    float _moveSpeed_Current;
     private bool _isMovementPaused = false;
+    Vector2 _pos;
 
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();  
+        //_rb = GetComponent<Rigidbody2D>();  
         _anim = GetComponent<Animator>();
     }
 
@@ -29,6 +32,7 @@ public class MovementHandler : MonoBehaviour
             InputController.Instance.CommandedLookDirectionChanged += HandleCommandedLookDirectionChanged;
             InputController.Instance.AttackCommanded += HandleAttackCommanded;
         }
+        _pos = transform.position;
     }
 
     private void HandleCommandedMoveDirectionChanged(int dir)
@@ -55,7 +59,8 @@ public class MovementHandler : MonoBehaviour
     {
         _isMovementPaused = true;
         _anim.SetTrigger("TriggerAttack");
-        _rb.velocity = Vector2.zero;
+        //_rb.velocity = Vector2.zero;
+        _moveSpeed_Current = 0;
 
     }
 
@@ -65,11 +70,14 @@ public class MovementHandler : MonoBehaviour
     }
 
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (!_isMovementPaused)
         {
-            _rb.velocity = _moveSpeed * _commandedMoveDir * Vector2.right;
+            //_rb.velocity = _moveSpeed * _commandedMoveDir * Vector2.right;
+            _moveSpeed_Current = _moveSpeed_Max * _commandedMoveDir;
+            _pos.x += _moveSpeed_Current * Time.deltaTime;
+            transform.position = _pos;
         }
 
     }
