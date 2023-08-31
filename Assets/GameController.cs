@@ -17,5 +17,6 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         PlayerController.Instance.SpawnPlayer(_playerStartingPosition);
+        CameraController.Instance.SetCameraFocus(PlayerController.Instance.Player.transform);
     }
 }
