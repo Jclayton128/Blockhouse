@@ -5884,8 +5884,11 @@ GameObject:
   - component: {fileID: 706940982}
   - component: {fileID: 706940981}
   - component: {fileID: 706940983}
+  - component: {fileID: 706940984}
+  - component: {fileID: 706940985}
+  - component: {fileID: 706940986}
   m_Layer: 0
-  m_Name: GameController
+  m_Name: Controllers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5931,6 +5934,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _selectedActorType: 0
+--- !u!114 &706940984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706940980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d791b06e6fd78e94cb8aa3c0a2a2b242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerPrefab: {fileID: 354193389211028573, guid: 553b586a1af7e1d41b7722a81cff1a50, type: 3}
+  Pos: {x: 0, y: 0, z: 0}
+--- !u!114 &706940985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706940980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e5d3f1d6b50d78468a60a86d410d456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerStartingPosition: {x: 0, y: 3}
+--- !u!114 &706940986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706940980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac33f71d94d53034690b6661289ef6a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minX: -50
+  _maxX: 50
+  _minY: 0
+  _maxY: 7
 --- !u!1 &711754670
 GameObject:
   m_ObjectHideFlags: 0

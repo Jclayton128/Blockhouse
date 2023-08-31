@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,9 +16,20 @@ public class ActorController : MonoBehaviour
         Instance = this;
     }
 
-    public GameObject SpawnActor(ActorLibrary.ActorType actorType, Vector3 spawnPos)
+    private void Start()
+    {
+        InputController.Instance.Space_Down += SpawnSelectedActorUnderPlayer;
+    }
+
+    private void SpawnSelectedActorUnderPlayer()
+    {
+        SpawnActor(_selectedActorType, PlayerController.Instance.Pos);
+    }
+
+    public void SpawnActor(ActorLibrary.ActorType actorType, Vector3 spawnPos)
     {
         GameObject prefabGO = ActorLibrary.Instance.GetActorPrefabFromActorType(actorType);
+        if (!prefabGO) return;
         GameObject newGO = Instantiate(prefabGO, spawnPos, Quaternion.identity);
         if (_currentActors.ContainsKey(actorType))
         {
@@ -29,7 +41,7 @@ public class ActorController : MonoBehaviour
             list.Add(newGO);
             _currentActors.Add(actorType, list);
         }
-        return newGO;
+        //return newGO;
     }
 
     public void SelectActorType(ActorLibrary.ActorType actorType)

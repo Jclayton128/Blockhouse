@@ -9,8 +9,11 @@ public class InputController : MonoBehaviour
 
     public static InputController Instance { get; private set; }
     public Action<int> CommandedMoveDirectionChanged;
+    public Action<int> CommandedFlyDirectionChanged;
     public Action<int> CommandedLookDirectionChanged;
-    public Action AttackCommanded;
+    public Action LMB_Down;
+    public Action LMB_Up;
+    public Action Space_Down;
 
 
     //state
@@ -18,7 +21,10 @@ public class InputController : MonoBehaviour
     private int _previousCommandedMoveDir = 0;
     private int _commandedLookDir = 0;
     private int _previousCommandedLookDir = 0;
+    private int _commandedFlyDir = 0;
+    private int _previousCommandedFlyDir = 0;
     float _rawLookDir;
+    public Vector2 MousePos { get; private set; }
 
     private void Awake()
     {
@@ -33,15 +39,31 @@ public class InputController : MonoBehaviour
     private void Update()
     {
         UpdateCommandedMoveDir();
+        UpdateCommandedFlyDir();
         UpdateCommandedLookDir();
         UpdateMouseClick();
+        UpdateMousePos();
+        UpdateKeyboard();
+    }
+
+    private void UpdateKeyboard()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Space_Down?.Invoke();
+        }
+    }
+
+    private void UpdateMousePos()
+    {
+        MousePos = _cam.ScreenToViewportPoint(Input.mousePosition);
     }
 
     private void UpdateMouseClick()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            AttackCommanded?.Invoke();
+            LMB_Down?.Invoke();
         }
     }
 
@@ -90,4 +112,29 @@ public class InputController : MonoBehaviour
         }
 
     }
+
+    private void UpdateCommandedFlyDir()
+    {
+        _previousCommandedFlyDir = _commandedFlyDir;
+        if (Input.GetKey(KeyCode.S))
+        {
+            _commandedFlyDir = -1;
+        }
+        else if (Input.GetKey(KeyCode.W))
+        {
+            _commandedFlyDir = 1;
+        }
+        else
+        {
+            _commandedFlyDir = 0;
+        }
+
+        if (_commandedFlyDir != _previousCommandedFlyDir)
+        {
+            CommandedFlyDirectionChanged?.Invoke(_commandedFlyDir);
+        }
+
+    }
+
+
 }

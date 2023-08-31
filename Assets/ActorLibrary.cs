@@ -10,7 +10,7 @@ public class ActorLibrary : SerializedMonoBehaviour
     public enum ActorType
     {
         Cleric0, Crossbowman1, Farmer2, Knight3, Monk4, Peasant5, Ranger6, Wizard7,
-        Goblin8, Ogre9, Orc10, Skeleton11, Slime12, Summoner13, Wraith14, Count
+        Goblin8, Ogre9, Orc10, Skeleton11, Slime12, Summoner13, Wraith14, Player15, Count
     }
 
     [SerializeField] Dictionary<ActorType, GameObject> _actorMenu;
