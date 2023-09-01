@@ -11,11 +11,12 @@ public class CameraController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        _cvc = Camera.main.GetComponentInChildren<CinemachineVirtualCamera>();
     }
 
     private void Start()
     {
-        _cvc = Camera.main.GetComponentInChildren<CinemachineVirtualCamera>();
+
     }
 
     public void SetCameraFocus(Transform targetTransform)

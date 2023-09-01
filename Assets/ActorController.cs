@@ -23,7 +23,7 @@ public class ActorController : MonoBehaviour
 
     private void SpawnSelectedActorUnderPlayer()
     {
-        SpawnActor(_selectedActorType, PlayerController.Instance.Pos);
+        SpawnActor(_selectedActorType, new Vector2(PlayerController.Instance.Pos.x, 0));
     }
 
     public void SpawnActor(ActorLibrary.ActorType actorType, Vector3 spawnPos)

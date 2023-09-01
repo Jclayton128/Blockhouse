@@ -10,7 +10,6 @@ public class PlayerBrainProfile : MonoBehaviour, BrainProfile
     public void ExecuteStartup(ActorBrain actorBrain)
     {
         _actorBrain = actorBrain;
-        Debug.Log("starting up this actor as a player");
         if (actorBrain.GetComponent<IFFHandler>().IsPlayer)
         {
             InputController.Instance.CommandedMoveDirectionChanged += HandleCommandedMoveDirectionChanged;
@@ -37,6 +36,6 @@ public class PlayerBrainProfile : MonoBehaviour, BrainProfile
 
     public void ExecuteUpdate(ActorBrain actorBrain)
     {
-        Debug.Log("updating up this actor as a player");
+
     }
 }

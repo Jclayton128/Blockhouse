@@ -9,8 +9,12 @@ public class PlayerController : MonoBehaviour
 
 
     //state
-    public Vector3 Pos = new Vector3(0, 0, 0);
-    public GameObject Player { get; private set; }
+    public Vector2 Pos 
+    {
+        get => Player != null ? Player.transform.position : new Vector3(-2, 0,0);
+    }
+
+public GameObject Player { get; private set; }
 
     private void Awake()
     {
@@ -29,4 +33,6 @@ public class PlayerController : MonoBehaviour
             Player = Instantiate(_playerPrefab, position, Quaternion.identity);
         }
     }
+
+    
 }

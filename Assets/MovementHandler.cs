@@ -26,6 +26,7 @@ public class MovementHandler : MonoBehaviour
         //_rb = GetComponent<Rigidbody2D>();  
         _anim = GetComponent<Animator>();
         _brain = GetComponent<ActorBrain>();
+        _pos = transform.position;
     }
 
     private void Start()

@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: _name
       value: Crossbowman
       objectReference: {fileID: 0}
+    - target: {fileID: 1074018158, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f4cee7a1cc5f30748969634f0e7c427d, type: 2}
     - target: {fileID: 1074018159, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: ActorType_
       value: 1
