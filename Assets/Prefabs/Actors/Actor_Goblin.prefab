@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1154895309049658914, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _icon
+      value: 
+      objectReference: {fileID: 21300000, guid: af70b1bc61531cf48b50707aa2865897, type: 3}
+    - target: {fileID: -1154895309049658914, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _name
+      value: Goblin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074018158, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 511e9f4bf623a6a4b84dd2ea078c640f, type: 2}
     - target: {fileID: 1074018159, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: IsGood
       value: 0
@@ -69,3 +81,21 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: af70b1bc61531cf48b50707aa2865897, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+--- !u!1 &5965496561236054993 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8165240443598985202, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+  m_PrefabInstance: {fileID: 2565206154306438179}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1067696540201985400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5965496561236054993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68696ed5079801e4b90d8b88195ea414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pacingDistance: 6

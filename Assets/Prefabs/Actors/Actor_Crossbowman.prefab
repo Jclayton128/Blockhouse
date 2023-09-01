@@ -23,6 +23,10 @@ PrefabInstance:
       propertyPath: ActorType_
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1074018160, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _moveSpeed_Max
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8165240443598985202, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: m_Name
       value: Actor_Crossbowman
@@ -77,3 +81,21 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 8ee851741f5a52d40bb454a6bc3f0ef6, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+--- !u!1 &1386748180914146790 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8165240443598985202, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+  m_PrefabInstance: {fileID: 7092741649902623252}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1116939655601347568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386748180914146790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68696ed5079801e4b90d8b88195ea414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pacingDistance: 6

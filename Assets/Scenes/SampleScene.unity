@@ -5948,7 +5948,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerPrefab: {fileID: 354193389211028573, guid: 553b586a1af7e1d41b7722a81cff1a50, type: 3}
-  Pos: {x: 0, y: 0, z: 0}
 --- !u!114 &706940985
 MonoBehaviour:
   m_ObjectHideFlags: 0
