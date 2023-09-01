@@ -27,9 +27,21 @@ PrefabInstance:
       propertyPath: ActorType_
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3313727708246599041, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: m_Size.y
+      value: 0.8344923
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313727708246599041, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.469433
+      objectReference: {fileID: 0}
     - target: {fileID: 8165240443598985202, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: m_Name
       value: Actor_Goblin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8165240443598985202, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8165240443598985204, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: m_RootOrder

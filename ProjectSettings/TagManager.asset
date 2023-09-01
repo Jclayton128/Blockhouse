@@ -12,10 +12,10 @@ TagManager:
   - Water
   - UI
   - Unwalkable
-  - 
-  - 
-  - 
-  - 
+  - GoodActors
+  - BadActors
+  - GoodProjectiles
+  - BadProjectiles
   - 
   - 
   - 
