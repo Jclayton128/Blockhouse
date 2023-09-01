@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class ActorBrain : MonoBehaviour
 {
+    public Action EnemyDetected;
+    public Action EnemyNotDetected;
+    public Action AllyDetected;
+
+
     //settings
     float _timeBetweenScans = 0.1f;
     [SerializeField] float _scanRange = 3f;
@@ -66,6 +71,7 @@ public class ActorBrain : MonoBehaviour
         if (hit)
         {
             AllyTarget = hit.transform.GetComponent<IFFHandler>();
+            AllyDetected?.Invoke();
         }
         else
         {
@@ -80,10 +86,12 @@ public class ActorBrain : MonoBehaviour
         if (hit)
         {
             EnemyTarget = hit.transform.GetComponent<IFFHandler>();
+            EnemyDetected?.Invoke();
         }
         else
         {
             EnemyTarget = null;
+            EnemyNotDetected?.Invoke();
         }          
     }
 
