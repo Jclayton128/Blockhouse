@@ -21,7 +21,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1074018160, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: _flySpeed_Max
-      value: 1.5
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074018160, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _moveSpeed_Max
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8165240443598985202, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: m_Name

@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1074018160, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: _moveSpeed_Max
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3313727708246599041, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: m_Size.x
@@ -102,7 +102,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8165240443598985202, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
   m_PrefabInstance: {fileID: 7092741649902623252}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1116939655601347568
+--- !u!114 &2326552759609193209
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,7 +111,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1386748180914146790}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68696ed5079801e4b90d8b88195ea414, type: 3}
+  m_Script: {fileID: 11500000, guid: db0c0797f2215014c8cb95947b131360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pacingDistance: 6
+  _projectileType: 1
+  _damage: 1
+  _speed: 3
+  _range: 6
+  _yHeight: -0.38
+  _timeBetweenAttacks: 2
+--- !u!114 &8649203940566176273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386748180914146790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90879df4c31836348b9120a8187fe8b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

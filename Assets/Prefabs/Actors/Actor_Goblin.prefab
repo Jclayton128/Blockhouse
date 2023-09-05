@@ -27,6 +27,10 @@ PrefabInstance:
       propertyPath: ActorType_
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1074018160, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _moveSpeed_Max
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3313727708246599041, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: m_Size.y
       value: 0.8344923
@@ -110,4 +114,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68696ed5079801e4b90d8b88195ea414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pacingDistance: 6
+  _pacingDistance: 3

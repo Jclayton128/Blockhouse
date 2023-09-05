@@ -4096,7 +4096,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 
@@ -5888,6 +5888,7 @@ GameObject:
   - component: {fileID: 706940985}
   - component: {fileID: 706940986}
   - component: {fileID: 706940987}
+  - component: {fileID: 706940988}
   m_Layer: 0
   m_Name: Controllers
   m_TagString: Untagged
@@ -5989,6 +5990,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d67a6830d67324a43b41c13bd69418e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &706940988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706940980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1edbfab18c5424b43936e92a489d4a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &711754670
 GameObject:
   m_ObjectHideFlags: 0
@@ -6083,6 +6096,7 @@ GameObject:
   m_Component:
   - component: {fileID: 718530019}
   - component: {fileID: 718530018}
+  - component: {fileID: 718530020}
   m_Layer: 0
   m_Name: Library
   m_TagString: Untagged
@@ -6191,6 +6205,66 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &718530020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718530017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01e67225b3084f4d91a8afd08c1f8c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 6146078103245834206, guid: e821800fe0b497c4dbe060a0c60efd9e, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _projectileMenu
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[ProjectileHandler+ProjectileType,
+        Assembly-CSharp],[ProjectileHandler, Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[ProjectileHandler+ProjectileType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!1 &721829477
 GameObject:
   m_ObjectHideFlags: 0

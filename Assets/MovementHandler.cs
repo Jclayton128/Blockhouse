@@ -60,19 +60,25 @@ public class MovementHandler : MonoBehaviour
     //    //}
     //}
 
-    //public void HandleAttackCommanded()
-    //{
-    //    _brain.IsMovementPaused = true;
-    //    _anim.SetTrigger("TriggerAttack");
-    //    //_rb.velocity = Vector2.zero;
-    //    _moveSpeed_Current = 0;
+    /// <summary>
+    /// This should be called by a BrainProfile when an attack is needed.
+    /// </summary>
+    public void DisplayAttack()
+    {
+        _brain.IsMovementPaused = true;
+        _anim.SetTrigger("TriggerAttack");
+        //_rb.velocity = Vector2.zero;
+        _moveSpeed_Current = 0;
 
-    //}
+    }
 
-    //public void HandleCompletedAttack()
-    //{
-    //    _isMovementPaused = false;
-    //}
+    /// <summary>
+    /// This should be called via AnimationEvent once the attack anim is complete.
+    /// </summary>
+    public void HandleCompletedAttack()
+    {
+        _brain.IsMovementPaused = false;
+    }
 
 
     private void Update()
