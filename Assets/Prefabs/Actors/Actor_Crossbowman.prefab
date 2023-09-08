@@ -47,6 +47,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Actor_Crossbowman
       objectReference: {fileID: 0}
+    - target: {fileID: 8165240443598985202, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8165240443598985204, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -119,7 +123,6 @@ MonoBehaviour:
   _speed: 3
   _range: 6
   _yHeight: -0.38
-  _timeBetweenAttacks: 2
 --- !u!114 &8649203940566176273
 MonoBehaviour:
   m_ObjectHideFlags: 0

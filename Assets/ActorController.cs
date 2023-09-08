@@ -7,6 +7,10 @@ public class ActorController : MonoBehaviour
 {
     public static ActorController Instance { get; private set; }
 
+    //settings
+    [SerializeField] Vector2 _goodOffset = new Vector2(-7, 0);
+    [SerializeField] Vector2 _badOffset = new Vector2(7, 0);
+
     //state
     Dictionary<ActorLibrary.ActorType, List<GameObject>> _currentActors = new Dictionary<ActorLibrary.ActorType, List<GameObject>>();
     [SerializeField] ActorLibrary.ActorType _selectedActorType;
@@ -18,15 +22,29 @@ public class ActorController : MonoBehaviour
 
     private void Start()
     {
-        InputController.Instance.Space_Down += SpawnSelectedActorUnderPlayer;
+        InputController.Instance.Space_Down += SpawnSelectedActorInAppropriateCorner;
+    }
+
+    private void SpawnSelectedActorInAppropriateCorner()
+    {
+        Vector2 pos;
+        if (ActorLibrary.Instance.GetActorPrefabFromActorType(_selectedActorType).GetComponent<IFFHandler>().IsGood)
+        {
+            pos = new Vector2(PlayerController.Instance.Pos.x, 0) + _goodOffset;
+        }
+        else
+        {
+            pos = new Vector2(PlayerController.Instance.Pos.x, 0) + _badOffset;
+        }
+        SpawnActor(_selectedActorType, pos);
     }
 
     private void SpawnSelectedActorUnderPlayer()
     {
-        SpawnActor(_selectedActorType, new Vector2(PlayerController.Instance.Pos.x, 0));
+
     }
 
-    public void SpawnActor(ActorLibrary.ActorType actorType, Vector3 spawnPos)
+    private void SpawnActor(ActorLibrary.ActorType actorType, Vector3 spawnPos)
     {
         GameObject prefabGO = ActorLibrary.Instance.GetActorPrefabFromActorType(actorType);
         if (!prefabGO) return;

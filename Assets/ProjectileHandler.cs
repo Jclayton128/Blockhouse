@@ -14,14 +14,25 @@ public class ProjectileHandler : MonoBehaviour
     float _timeToDeactivate;
     Vector2 _pos;
     float _speed;
-    float _damage;
+    int _damage;
+    public int Damage => _damage;
     bool _hasStartedDeactivating = false;
 
     public void Initialize(float projectileSpeed, float projectileRange, int moveDir, Vector2 pos,
-        float damage)
+        int damage)
     {
         _timeToDeactivate = Time.time + (projectileRange / projectileSpeed);
         _moveDir = moveDir;
+
+        if (_moveDir > 0)
+        {
+            gameObject.layer = LayerLibrary.GoodProjectile_Layer;
+        }
+        else if (_moveDir < 0)
+        {
+            gameObject.layer = LayerLibrary.BadProjectile_Layer;
+        }
+
         _pos = pos;
         transform.position = pos;
         _speed = projectileSpeed;
@@ -31,6 +42,7 @@ public class ProjectileHandler : MonoBehaviour
 
     private void Update()
     {
+        if (_hasStartedDeactivating) return;
         if (Time.time >= _timeToDeactivate)
         {
             Deactivate();
@@ -55,8 +67,9 @@ public class ProjectileHandler : MonoBehaviour
     {
         if (_hasStartedDeactivating) return;
         _hasStartedDeactivating = true;
-        Debug.Log("Deactivating");
+        //Debug.Log("Deactivating");
         _sr.color = Color.clear;
+        gameObject.layer = 0;
         //begin fadeout
         //disable colliders
         //stop emitting particles

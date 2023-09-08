@@ -8,7 +8,7 @@ public class AttackHandler : MonoBehaviour
     MovementHandler _mh;
 
     [SerializeField] ProjectileHandler.ProjectileType _projectileType = ProjectileHandler.ProjectileType.Undefined;
-    [SerializeField] float _damage = 1;
+    [SerializeField] int _damage = 1;
     [SerializeField] float _speed = 1;
     [SerializeField] float _range = 5;
     [SerializeField] float _yHeight = 1f;

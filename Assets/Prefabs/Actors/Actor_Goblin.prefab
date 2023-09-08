@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4370768808966091748, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _health_Starting
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -1154895309049658914, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: _icon
       value: 
@@ -45,7 +49,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8165240443598985202, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8165240443598985204, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: m_RootOrder
@@ -114,4 +118,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68696ed5079801e4b90d8b88195ea414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pacingDistance: 3
+  _pacingDistance: 1

@@ -39,6 +39,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Actor_Cleric
       objectReference: {fileID: 0}
+    - target: {fileID: 8165240443598985202, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8165240443598985204, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: m_RootOrder
       value: 0

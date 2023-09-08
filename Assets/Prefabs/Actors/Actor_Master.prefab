@@ -101,6 +101,8 @@ GameObject:
   - component: {fileID: 5376789511033212466}
   - component: {fileID: 3313727708246599041}
   - component: {fileID: 1788891955372608971}
+  - component: {fileID: -4370768808966091748}
+  - component: {fileID: 6416635713307521850}
   m_Layer: 0
   m_Name: Actor_Master
   m_TagString: Untagged
@@ -288,3 +290,38 @@ MonoBehaviour:
   _thoughtBubbleIcon: {fileID: 3390801321124777551}
   _searchIcon: {fileID: 21300000, guid: e999c3b393e7717429b82b76fcd47453, type: 3}
   _attackIcon: {fileID: 21300000, guid: dc313caafa80eb248bb67d07871f6f08, type: 3}
+--- !u!114 &-4370768808966091748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8165240443598985202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c9437cb2ab6fce4c946ca0cd31061d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health_Starting: 1
+  _health_Current: 0
+--- !u!50 &6416635713307521850
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8165240443598985202}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

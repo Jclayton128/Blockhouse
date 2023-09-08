@@ -15,9 +15,11 @@ public class ActorBrain : MonoBehaviour
     [SerializeField] float _scanRange = 3f;
 
     //state
+    public bool IsDead { get; private set; } = false;
     public int CommandedMoveDir = 0;
     public int CommandedFlyDir = 0;
-    public bool IsMovementPaused = false;
+    public bool IsAttacking = false;
+    public bool IsFlinching = false;
 
     public IFFHandler EnemyTarget = null;
     public IFFHandler AllyTarget = null;
@@ -93,6 +95,11 @@ public class ActorBrain : MonoBehaviour
             EnemyTarget = null;
             EnemyNotDetected?.Invoke();
         }          
+    }
+
+    public void SetDeathStatus(bool shouldBeDead)
+    {
+        IsDead = shouldBeDead;
     }
 
     //private RaycastHit2D GetClosestEnemyToCurrentXPos(RaycastHit2D[] hits)

@@ -31,41 +31,16 @@ public class MovementHandler : MonoBehaviour
 
     private void Start()
     {
-        //if (GetComponent<IFFHandler>().IsPlayer)
-        //{
-        //    InputController.Instance.CommandedMoveDirectionChanged += HandleCommandedMoveDirectionChanged;
-        //    //InputController.Instance.CommandedLookDirectionChanged += HandleCommandedLookDirectionChanged;
-        //    InputController.Instance.LMB_Down += HandleAttackCommanded;
-        //}
-        //_pos = transform.position;
-    }
 
-    private void HandleCommandedMoveDirectionChanged(int dir)
-    {
-        //_commandedMoveDir = dir;
-        //_anim.SetInteger("WalkDir", dir);
-        //if (dir != 0)
-        //{
-        //    transform.localScale = new Vector2(dir, 1);
-
-        //}
-    }
-
-    //private void HandleCommandedLookDirectionChanged(int dir)
-    //{
-    //    //if (dir != 0)
-    //    //{
-    //    //    _commandedLookDir = dir;
-    //    //    transform.localScale = new Vector2(dir, 1);
-    //    //}
-    //}
+    }    
 
     /// <summary>
     /// This should be called by a BrainProfile when an attack is needed.
     /// </summary>
     public void DisplayAttack()
     {
-        _brain.IsMovementPaused = true;
+        if (_brain.IsDead) return;
+        _brain.IsAttacking = true;
         _anim.SetTrigger("TriggerAttack");
         //_rb.velocity = Vector2.zero;
         _moveSpeed_Current = 0;
@@ -77,13 +52,14 @@ public class MovementHandler : MonoBehaviour
     /// </summary>
     public void HandleCompletedAttack()
     {
-        _brain.IsMovementPaused = false;
+        _brain.IsAttacking = false;
     }
 
 
     private void Update()
     {
-        if (!_brain.IsMovementPaused)
+        if (_brain.IsDead) return;
+        if (!_brain.IsAttacking && !_brain.IsFlinching)
         {
             //_rb.velocity = _moveSpeed * _commandedMoveDir * Vector2.right;
             _moveSpeed_Current = _moveSpeed_Max * _brain.CommandedMoveDir;
