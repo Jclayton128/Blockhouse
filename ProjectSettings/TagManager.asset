@@ -47,7 +47,10 @@ TagManager:
   - name: Ground
     uniqueID: 1691055271
     locked: 0
-  - name: Actor
+  - name: Buildings
+    uniqueID: 2291861879
+    locked: 0
+  - name: Actors
     uniqueID: 2701800561
     locked: 0
   - name: Projectiles
