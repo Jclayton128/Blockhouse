@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileHandler : MonoBehaviour
 {
-    public enum ProjectileType {Undefined, Arrow}
+    public enum ProjectileType {Undefined, Arrow, MeleePellet}
     SpriteRenderer _sr;
 
 

@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4370768808966091748, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _health_Starting
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -1154895309049658914, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: _icon
       value: 
@@ -18,7 +22,7 @@ PrefabInstance:
     - target: {fileID: 1074018158, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: f4cee7a1cc5f30748969634f0e7c427d, type: 2}
+      objectReference: {fileID: 9100000, guid: 0b54d08dd031bb54395bdbd5a23c887c, type: 2}
     - target: {fileID: 1074018159, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: ActorType_
       value: 1
@@ -42,6 +46,10 @@ PrefabInstance:
     - target: {fileID: 3313727708246599041, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: m_Offset.y
       value: 0.6216448
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594297775223684895, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _projectileType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8165240443598985202, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: m_Name
@@ -106,23 +114,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8165240443598985202, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
   m_PrefabInstance: {fileID: 7092741649902623252}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2326552759609193209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1386748180914146790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0c0797f2215014c8cb95947b131360, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectileType: 1
-  _damage: 1
-  _speed: 3
-  _range: 6
-  _yHeight: -0.38
 --- !u!114 &8649203940566176273
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,8 +6,8 @@ using UnityEngine;
 public class BrainProfile_Attacker : MonoBehaviour, BrainProfile
 {
     ActorBrain _ab;
-
     AttackHandler _ah;
+
 
     //settings
 

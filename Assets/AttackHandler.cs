@@ -25,7 +25,8 @@ public class AttackHandler : MonoBehaviour
 
     public void CommandAttack()
     {
-        if (_canInitiateAnotherAttack)
+        float dist = Mathf.Abs(_ab.EnemyTarget.transform.position.x - transform.position.x);
+        if (_canInitiateAnotherAttack && dist < _range)
         {
             _mh.DisplayAttack();
             _canInitiateAnotherAttack = false;
@@ -39,7 +40,7 @@ public class AttackHandler : MonoBehaviour
     {
         ProjectileHandler ph = ProjectileController.Instance.RequisitionActivatedProjectile(_projectileType);
         ph.Initialize(_speed, _range, _ab.CommandedMoveDir,
-            new Vector2(transform.position.x, _yHeight), _damage);
+            new Vector2(transform.position.x, transform.position.y + _yHeight), _damage);
         _canInitiateAnotherAttack = true;
     }
 

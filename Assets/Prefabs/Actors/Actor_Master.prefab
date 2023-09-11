@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 1788891955372608971}
   - component: {fileID: -4370768808966091748}
   - component: {fileID: 6416635713307521850}
+  - component: {fileID: 6594297775223684895}
   m_Layer: 0
   m_Name: Actor_Master
   m_TagString: Untagged
@@ -256,7 +257,8 @@ MonoBehaviour:
   _scanRange: 6
   CommandedMoveDir: 0
   CommandedFlyDir: 0
-  IsMovementPaused: 0
+  IsAttacking: 0
+  IsFlinching: 0
   EnemyTarget: {fileID: 0}
   AllyTarget: {fileID: 0}
 --- !u!70 &3313727708246599041
@@ -325,3 +327,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6594297775223684895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8165240443598985202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db0c0797f2215014c8cb95947b131360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileType: 0
+  _damage: 1
+  _speed: 3
+  _range: 6
+  _yHeight: -0.38

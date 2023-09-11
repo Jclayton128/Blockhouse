@@ -52,6 +52,7 @@ public class ActorBrain : MonoBehaviour
             _allyLayerMask = LayerLibrary.BadActor_LayerMask;
             _enemyLayerMask = LayerLibrary.GoodActor_LayerMask;
         }
+
     }
 
     void Update()
