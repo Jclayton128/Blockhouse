@@ -42,12 +42,12 @@ public class ActorBrain : MonoBehaviour
         _brainProfile?.ExecuteStartup(this);
         _timeForNextScan = Time.time + _timeBetweenScans;
 
-        if (GetComponent<IFFHandler>().IsGood)
+        if (GetComponent<IFFHandler>().Allegiance == 1)
         {
             _enemyLayerMask = LayerLibrary.BadActor_LayerMask;
             _allyLayerMask = LayerLibrary.GoodActor_LayerMask;
         }
-        else
+        else if (GetComponent<IFFHandler>().Allegiance == -1)
         {
             _allyLayerMask = LayerLibrary.BadActor_LayerMask;
             _enemyLayerMask = LayerLibrary.GoodActor_LayerMask;

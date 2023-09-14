@@ -19,14 +19,8 @@ public class BrainProfile_Attacker : MonoBehaviour, BrainProfile
     {
         _ab = actorBrain;
         _ah = _ab.GetComponent<AttackHandler>();
-        if (GetComponent<IFFHandler>().IsGood)
-        {
-            _ab.CommandedMoveDir = 1;
-        }
-        else
-        {
-            _ab.CommandedMoveDir = -1;
-        }
+        _ab.CommandedMoveDir = GetComponent<IFFHandler>().Allegiance;
+
     }
 
     public void ExecuteUpdate(ActorBrain actorBrain)

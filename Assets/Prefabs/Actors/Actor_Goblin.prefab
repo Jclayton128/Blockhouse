@@ -31,6 +31,10 @@ PrefabInstance:
       propertyPath: ActorType_
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1074018159, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _allegiance
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 1074018160, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: _moveSpeed_Max
       value: 2

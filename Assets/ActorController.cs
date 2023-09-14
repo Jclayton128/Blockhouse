@@ -28,7 +28,7 @@ public class ActorController : MonoBehaviour
     private void SpawnSelectedActorInAppropriateCorner()
     {
         Vector2 pos;
-        if (ActorLibrary.Instance.GetActorPrefabFromActorType(_selectedActorType).GetComponent<IFFHandler>().IsGood)
+        if (ActorLibrary.Instance.GetActorPrefabFromActorType(_selectedActorType).GetComponent<IFFHandler>().Allegiance == 1)
         {
             pos = new Vector2(PlayerController.Instance.Pos.x, 0) + _goodOffset;
         }
