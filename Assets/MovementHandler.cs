@@ -43,7 +43,7 @@ public class MovementHandler : MonoBehaviour
         _brain.IsAttacking = true;
         _anim.SetTrigger("TriggerAttack");
         //_rb.velocity = Vector2.zero;
-        _moveSpeed_Current = 0;
+        //_moveSpeed_Current = 0;
 
     }
 

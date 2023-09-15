@@ -102,13 +102,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e7328b35e0f5647acf0d3e84087c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _banners:
-  - {fileID: 1544939330869330531}
-  - {fileID: 851337442694541680}
+  _banners: []
   _flag: {fileID: 4442219265715603197}
   _flagLow: {x: 0, y: 2, z: 0}
   _flagHigh: {x: 0, y: 4.38, z: 0}
   _startingOwner: 0
+  _flagMoveDir: 0
+  _isAutoRaisingOrLowering: 0
 --- !u!61 &5385389141580419268
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -291,6 +291,14 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2553698145147628581, guid: d29d2f1acbeddfa448225c0f42b8208a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553698145147628581, guid: d29d2f1acbeddfa448225c0f42b8208a, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8823261989593886367, guid: d29d2f1acbeddfa448225c0f42b8208a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -341,11 +349,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d29d2f1acbeddfa448225c0f42b8208a, type: 3}
---- !u!212 &851337442694541680 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 2553698145147628581, guid: d29d2f1acbeddfa448225c0f42b8208a, type: 3}
-  m_PrefabInstance: {fileID: 2927339802532846933}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5967979800493962186 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8823261989593886367, guid: d29d2f1acbeddfa448225c0f42b8208a, type: 3}
@@ -358,6 +361,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7043302248145630992}
     m_Modifications:
+    - target: {fileID: 2553698145147628581, guid: d29d2f1acbeddfa448225c0f42b8208a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553698145147628581, guid: d29d2f1acbeddfa448225c0f42b8208a, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8823261989593886367, guid: d29d2f1acbeddfa448225c0f42b8208a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -408,11 +419,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d29d2f1acbeddfa448225c0f42b8208a, type: 3}
---- !u!212 &1544939330869330531 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 2553698145147628581, guid: d29d2f1acbeddfa448225c0f42b8208a, type: 3}
-  m_PrefabInstance: {fileID: 3891168129277374022}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5508661849967886553 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8823261989593886367, guid: d29d2f1acbeddfa448225c0f42b8208a, type: 3}

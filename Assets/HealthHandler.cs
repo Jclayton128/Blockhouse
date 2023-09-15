@@ -2,12 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class HealthHandler : MonoBehaviour
 {
     ActorBrain _ab;
+    SpriteRenderer _sr;
     Animator _anim;
     [SerializeField] int _health_Starting = 1;
+    float _deathFadeoutTime = 3f;
 
     //state
     [SerializeField] int _health_Current;
@@ -15,6 +18,7 @@ public class HealthHandler : MonoBehaviour
     private void Awake()
     {
         _anim = GetComponent<Animator>();
+        _sr = GetComponent<SpriteRenderer>();
         _ab = GetComponent<ActorBrain>();
     }
 
@@ -49,17 +53,23 @@ public class HealthHandler : MonoBehaviour
 
     private void InitiateDeath()
     {
-        Debug.Log("death!");
         _anim.SetTrigger("TriggerDeath");
         _ab.SetDeathStatus(true);
         gameObject.layer = 0;
+        _sr.DOFade(0, _deathFadeoutTime);
+        Invoke(nameof(CompleteDelayedDeath), _deathFadeoutTime);
+    }
+
+    private void CompleteDelayedDeath()
+    {
+        Destroy(gameObject);
     }
 
     private void InitiateFlinch()
     {
-        Debug.Log("flinch!");
         _anim.SetTrigger("TriggerFlinch");
         _ab.IsFlinching = true;
+        _ab.IsAttacking = false;
     }
 
     public void CompleteFlinch()
