@@ -43,18 +43,18 @@ public class BrainProfile_Conquering : MonoBehaviour, BrainProfile
     }
 
 
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        BuildingHandler bh;
-        if (collision.TryGetComponent<BuildingHandler>(out bh))
-        {
-            if (bh == _buildingToConquer)
-            {
-                _buildingToConquer.BuildingConquered -= HandleBuildingConquered;
-                HandleBuildingConquered();
-            }
-        }
-    }
+    //public void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    BuildingHandler bh;
+    //    if (collision.TryGetComponent<BuildingHandler>(out bh))
+    //    {
+    //        if (bh == _buildingToConquer)
+    //        {
+    //            _buildingToConquer.BuildingConquered -= HandleBuildingConquered;
+    //            HandleBuildingConquered();
+    //        }
+    //    }
+    //}
 
     private void HandleBuildingConquered()
     {

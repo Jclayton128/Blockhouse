@@ -56,6 +56,7 @@ public class HealthHandler : MonoBehaviour
         _anim.SetTrigger("TriggerDeath");
         _ab.SetDeathStatus(true);
         gameObject.layer = 0;
+        _ab.enabled = false;
         _sr.DOFade(0, _deathFadeoutTime);
         Invoke(nameof(CompleteDelayedDeath), _deathFadeoutTime);
     }

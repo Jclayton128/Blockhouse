@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: _name
       value: Cleric
       objectReference: {fileID: 0}
+    - target: {fileID: 1074018158, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: da29a269682ea3b48b799fa59b13ca26, type: 2}
     - target: {fileID: 1074018160, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: _moveSpeed_Max
       value: 1
@@ -110,4 +114,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 560766f311ece7a49b2312ddd71bedb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buildingToConquer: {fileID: 0}
   _conquerRate: 0.2
