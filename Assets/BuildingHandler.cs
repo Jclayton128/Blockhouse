@@ -29,7 +29,7 @@ public class BuildingHandler : MonoBehaviour
     /// <summary>
     /// Evil is -1, Good is 1, Neutral/Unclaimed is 0
     /// </summary>
-    public int Owner { get; private set; }
+    public int Owner;// { get; private set; }
 
     private void Awake()
     {
