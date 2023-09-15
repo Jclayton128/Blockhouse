@@ -6,6 +6,7 @@ public class AttackHandler : MonoBehaviour
 {
     ActorBrain _ab;
     MovementHandler _mh;
+    IFFHandler _ih;
 
     [SerializeField] ProjectileHandler.ProjectileType _projectileType = ProjectileHandler.ProjectileType.Undefined;
     [SerializeField] int _damage = 1;
@@ -17,16 +18,21 @@ public class AttackHandler : MonoBehaviour
     //state
     bool _canInitiateAnotherAttack = true;
 
-    private void Start()
+    private void Awake()
     {
         _ab = GetComponent<ActorBrain>();
         _mh = _ab.GetComponent<MovementHandler>();
+        _ih = _ab.GetComponent<IFFHandler>();
     }
 
     public void CommandAttack()
     {
         float dist = Mathf.Abs(_ab.EnemyTarget.transform.position.x - transform.position.x);
-        if (_canInitiateAnotherAttack && dist < _range)
+        if (dist > _range)
+        {
+            _ab.CommandedMoveDir = _ih.Allegiance;
+        }
+        else if (_canInitiateAnotherAttack && dist < _range)
         {
             _mh.DisplayAttack();
             _canInitiateAnotherAttack = false;

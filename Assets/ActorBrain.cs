@@ -9,6 +9,7 @@ public class ActorBrain : MonoBehaviour
     public Action EnemyNotDetected;
     public Action AllyDetected;
 
+    IFFHandler _ih;
 
     //settings
     float _timeBetweenScans = 0.1f;
@@ -21,8 +22,8 @@ public class ActorBrain : MonoBehaviour
     public bool IsAttacking = false;
     public bool IsFlinching = false;
 
-    public IFFHandler EnemyTarget = null;
-    public IFFHandler AllyTarget = null;
+    public IFFHandler EnemyTarget { get; private set; } = null;
+    public IFFHandler AllyTarget { get; private set; } = null;
 
     BrainProfile _brainProfile = null;
     float _timeForNextScan;
@@ -42,12 +43,13 @@ public class ActorBrain : MonoBehaviour
         _brainProfile?.ExecuteStartup(this);
         _timeForNextScan = Time.time + _timeBetweenScans;
 
-        if (GetComponent<IFFHandler>().Allegiance == 1)
+        _ih = GetComponent<IFFHandler>();
+        if (_ih.Allegiance == 1)
         {
             _enemyLayerMask = LayerLibrary.BadActor_LayerMask;
             _allyLayerMask = LayerLibrary.GoodActor_LayerMask;
         }
-        else if (GetComponent<IFFHandler>().Allegiance == -1)
+        else if (_ih.Allegiance == -1)
         {
             _allyLayerMask = LayerLibrary.BadActor_LayerMask;
             _enemyLayerMask = LayerLibrary.GoodActor_LayerMask;
@@ -60,7 +62,7 @@ public class ActorBrain : MonoBehaviour
         if (Time.time >= _timeForNextScan)
         {
             _scanStart.x = transform.position.x;
-            _scanTerminus.x = transform.position.x + (_scanRange * CommandedMoveDir);
+            _scanTerminus.x = transform.position.x + (_scanRange * _ih.Allegiance);
             ScanForEnemyTarget();
             ScanForAllyTarget();
             _timeForNextScan = Time.time + _timeBetweenScans;
@@ -85,7 +87,7 @@ public class ActorBrain : MonoBehaviour
     private void ScanForEnemyTarget()
     {        
         var hit = Physics2D.Linecast(_scanStart, _scanTerminus, _enemyLayerMask);
-        //Debug.DrawLine(_scanStart, _scanTerminus, Color.blue, _timeBetweenScans);
+        Debug.DrawLine(_scanStart, _scanTerminus, Color.blue, _timeBetweenScans);
         if (hit)
         {
             EnemyTarget = hit.transform.GetComponent<IFFHandler>();

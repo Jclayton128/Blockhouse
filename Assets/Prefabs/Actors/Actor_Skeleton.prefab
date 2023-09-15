@@ -27,6 +27,18 @@ PrefabInstance:
       propertyPath: _allegiance
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 6594297775223684895, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _range
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594297775223684895, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594297775223684895, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _projectileType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8165240443598985202, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: m_Name
       value: Actor_Skeleton

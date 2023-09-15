@@ -29,7 +29,7 @@ public class BuildingHandler : MonoBehaviour
     /// <summary>
     /// Evil is -1, Good is 1, Neutral/Unclaimed is 0
     /// </summary>
-    public int Owner;// { get; private set; }
+    public int Owner { get; private set; }
 
     private void Awake()
     {
@@ -135,14 +135,18 @@ public class BuildingHandler : MonoBehaviour
 
     public void BeginConqueringBuilding(int conquerorAllegiance)
     {
-        if (_conquerorAllegiance == conquerorAllegiance) return;
-        _isAutoRaisingOrLowering = false;
-        _flagMoveDir = -1;
-        _conquerorAllegiance = conquerorAllegiance;
+        //if (_conquerorAllegiance == conquerorAllegiance) return;
+        //Owner = 0;
+        //_isAutoRaisingOrLowering = false;
+        //_flagMoveDir = -1;
+        //_conquerorAllegiance = conquerorAllegiance;
     }
 
-    public void ContinueConqueringBuilding(float conquerRate)
+    public void ContinueConqueringBuilding(float conquerRate, int allegiance)
     {
+        
+        
+        
         if (_flagMoveDir == -1)
         {
             _flag.transform.localPosition = Vector3.MoveTowards(_flag.transform.localPosition,

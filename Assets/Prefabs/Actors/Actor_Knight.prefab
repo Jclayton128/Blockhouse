@@ -102,7 +102,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8165240443598985202, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
   m_PrefabInstance: {fileID: 5268496012142032882}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7220114776152224542
+--- !u!114 &-8263349459527360245
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,6 +111,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4057100984283258880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90879df4c31836348b9120a8187fe8b8, type: 3}
+  m_Script: {fileID: 11500000, guid: 560766f311ece7a49b2312ddd71bedb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buildingToConquer: {fileID: 0}
+  _conquerRate: 0.2

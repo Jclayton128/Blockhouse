@@ -7,17 +7,23 @@ public class BrainProfile_Conquering : MonoBehaviour, BrainProfile
     [SerializeField] BuildingHandler _buildingToConquer;
     ActorBrain _ab;
     IFFHandler _ih;
+    AttackHandler _ah;
     [SerializeField] float _conquerRate = .2f;
 
     public void ExecuteStartup(ActorBrain actorBrain)
     {
         _ih = GetComponent<IFFHandler>();
         _ab = actorBrain;
+        _ah = _ab.GetComponent<AttackHandler>();
     }
 
     public void ExecuteUpdate(ActorBrain actorBrain)
     {
-        if (_buildingToConquer)
+        if (_ab.EnemyTarget)
+        {
+            UpdateAttack();
+        }
+        else if (_buildingToConquer)
         {
             _buildingToConquer.ContinueConqueringBuilding(_conquerRate);
             _ab.CommandedMoveDir = 0;
@@ -60,5 +66,10 @@ public class BrainProfile_Conquering : MonoBehaviour, BrainProfile
     {
         _buildingToConquer?.CancelConqueringBuilding();
         _buildingToConquer = null;
+    }
+
+    private void UpdateAttack()
+    {
+        _ah.CommandAttack();
     }
 }
