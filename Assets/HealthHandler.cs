@@ -54,7 +54,7 @@ public class HealthHandler : MonoBehaviour
     private void InitiateDeath()
     {
         _anim.SetTrigger("TriggerDeath");
-        _ab.SetDeathStatus(true);
+        //_ab.SetDeathStatus(true);
         gameObject.layer = 0;
         _ab.enabled = false;
         _sr.DOFade(0, _deathFadeoutTime);
