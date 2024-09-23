@@ -25,7 +25,7 @@ public class BrainProfile_Conquering : MonoBehaviour, BrainProfile
         }
         else if (_buildingToConquer)
         {
-            _buildingToConquer.ContinueConqueringBuilding(_conquerRate);
+            //_buildingToConquer.ContinueConqueringBuilding(_conquerRate);
             _ab.CommandedMoveDir = 0;
         }
         else
