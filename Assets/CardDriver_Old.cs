@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CardDriver : MonoBehaviour
+public class CardDriver_Old : MonoBehaviour
 {
     //refs
     [SerializeField] Image _cardImage = null;
