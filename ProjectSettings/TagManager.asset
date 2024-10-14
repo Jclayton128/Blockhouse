@@ -60,3 +60,6 @@ TagManager:
   - name: Foreground
     uniqueID: 3839257971
     locked: 0
+  - name: Dice
+    uniqueID: 835575843
+    locked: 0
