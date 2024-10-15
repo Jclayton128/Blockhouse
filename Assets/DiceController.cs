@@ -10,19 +10,22 @@ public class DiceController : MonoBehaviour
     [Header("Testing")]
     [SerializeField] Dice[] _diceToLoad_Debug = null;
 
-
+    //state 
+    int count = 0;
 
     private void Start()
     {
         LoadDiceIntoDiceHandlers_Debug();
     }
 
+    [ContextMenu("Reload Dice Into DiceHandlers")]
     private void LoadDiceIntoDiceHandlers_Debug()
     {
-        int rand = UnityEngine.Random.Range(0, _diceToLoad_Debug.Length);
+        count = 0;
         foreach (var handler in _diceInPlay)
-        {
-            handler.LoadWithDice(_diceToLoad_Debug[rand]);
+        {   
+            handler.LoadWithDice(_diceToLoad_Debug[count]);
+            count++;
         }
     }
 

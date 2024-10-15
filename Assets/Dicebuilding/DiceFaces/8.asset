@@ -15,4 +15,4 @@ MonoBehaviour:
   _faceSprite: {fileID: -1526343623, guid: f5d99e1e25a05bf44833ecc30277def5, type: 3}
   _diceType: 2
   _faceType: 1
-  _diceLevel: 0
+  _diceLevel: 2

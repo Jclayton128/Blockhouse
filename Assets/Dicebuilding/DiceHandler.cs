@@ -7,8 +7,10 @@ using DG.Tweening;
 
 public class DiceHandler : MonoBehaviour
 {
+    public enum DiceModes { Compact, Expand}
+
     [SerializeField] FaceHandler _activeFaceHandler = null;
-    [SerializeField] FaceHandler[] _reserveFaceHandlerss = null;
+    [SerializeField] FaceHandler[] _reserveFaceHandlers = null;
 
     //settings
     [SerializeField] float _rollTime_Min = 2f;
@@ -16,9 +18,11 @@ public class DiceHandler : MonoBehaviour
     [SerializeField] float _timeFactorCoefficient_Min = .25f;
     [SerializeField] float _timeFactorCoefficient_Max = .5f;
     [SerializeField] Vector3 _jumpHeight = new Vector3(0, .5f, 0);
-
+    [SerializeField] float[] _xPos = new float[5];
+    [SerializeField] float _expandTime = 1f;
 
     //state
+    DiceModes _diceMode = DiceModes.Compact;
     Dice _dice;
     DiceFace[] _loadedFaces;
 
@@ -32,7 +36,7 @@ public class DiceHandler : MonoBehaviour
     bool _isRolling = false;
     float _timeFactorCoefficient;
     Tween _finalJumpTween;
-
+    Tween[] _reserveMoveTweens = new Tween[5];
 
     public void LoadWithDice(Dice dice)
     {
@@ -40,6 +44,7 @@ public class DiceHandler : MonoBehaviour
         _dice = dice;
         _loadedFaces = _dice.GetFaces();
         SetRandomDiceFace();
+        SetDiceMode(DiceModes.Compact, true);
     }
 
     [ContextMenu("Roll Dice")]
@@ -91,5 +96,72 @@ public class DiceHandler : MonoBehaviour
     private void RenderDice()
     {
         _activeFaceHandler.SetFace(_activeFace);
+    }
+
+    public void SetDiceMode(DiceModes diceMode, bool isInstantChange)
+    {
+        float time = isInstantChange ? 0.001f : _expandTime;
+
+        switch (diceMode)
+        {
+            case DiceModes.Compact:
+                CompactReserveDiceFaces(time);
+                //if (_diceMode != DiceModes.Compact)
+                //{
+                //    CompactReserveDiceFaces(time);
+                //}
+                break;
+                 
+            case DiceModes.Expand:
+                //if (_diceMode != DiceModes.Expand)
+                //{
+                //    ExpandReserveDiceFaces(time);
+                //}
+                ExpandReserveDiceFaces(time);
+                break;
+        }
+    }
+
+    private void ExpandReserveDiceFaces(float time)
+    {
+        for (int i = 0; i < _reserveFaceHandlers.Length; i++)
+        {
+            _reserveMoveTweens[i].Kill();
+            _reserveFaceHandlers[i].transform.DOLocalMoveX(_xPos[i], time).
+                SetEase(Ease.InSine).OnComplete(HandleExpandCompleted);
+        }
+    }
+
+    private void HandleExpandCompleted()
+    {
+        _diceMode = DiceModes.Expand;
+    }
+
+    private void CompactReserveDiceFaces(float time)
+    {
+        for (int i = 0; i < _reserveFaceHandlers.Length; i++)
+        {
+            _reserveMoveTweens[i].Kill();
+            _reserveFaceHandlers[i].transform.DOLocalMoveX(0, time).
+                SetEase(Ease.InSine).OnComplete(HandleCompactCompleted);
+        }
+    }
+
+    private void HandleCompactCompleted()
+    {
+        _diceMode = DiceModes.Compact;
+    }
+
+
+    [ContextMenu("Expand")]
+    public void Expand_Debug()
+    {
+        SetDiceMode(DiceModes.Expand, false);
+    }
+
+    [ContextMenu("Compact")]
+    public void Compact_Debug()
+    {
+        SetDiceMode(DiceModes.Compact, false);
     }
 }

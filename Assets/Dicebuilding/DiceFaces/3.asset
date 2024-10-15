@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4210d28e34776d9428ebe7f6639d20b3, type: 3}
   m_Name: 3
   m_EditorClassIdentifier: 
-  _faceSprite: {fileID: -492333694, guid: f5d99e1e25a05bf44833ecc30277def5, type: 3}
+  _faceSprite: {fileID: 553973931, guid: 1be739bcce75b4b4e87987ca4f974606, type: 3}
   _diceType: 0
   _faceType: 4
-  _diceLevel: 0
+  _diceLevel: 1
