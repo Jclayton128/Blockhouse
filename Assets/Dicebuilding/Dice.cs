@@ -13,6 +13,7 @@ public class Dice : ScriptableObject
 
     //state
     [SerializeField] DiceTypes _diceType = DiceTypes.Light;
+    public DiceTypes DiceType => _diceType;
     [SerializeField] DiceFace[] _diceFaces = null;
 
 

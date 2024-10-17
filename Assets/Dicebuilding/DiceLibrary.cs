@@ -54,9 +54,22 @@ public class DiceLibrary : MonoBehaviour
     public Sprite FillMedium => _fill_Medium;
     public Sprite FillHeavy => _fill_Heavy;
 
+    [Header("Face Tiles")]
+    [SerializeField] FaceHandler _faceTilePrefab = null;
+    public FaceHandler FaceTilePrefab => _faceTilePrefab;   
 
     private void Awake()
     {
         Instance = this;
+    }
+
+    public FaceHandler CreateFaceTile(DiceFace diceFace, Transform parent)
+    {
+        FaceHandler fh;
+
+        fh = Instantiate(_faceTilePrefab, parent);
+        fh.transform.localPosition = new Vector3(0, 0, -.1f);
+        fh.SetFace(diceFace);
+        return fh;
     }
 }
