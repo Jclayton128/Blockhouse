@@ -233,7 +233,12 @@ public class FaceHandler : MonoBehaviour
 
         if (newHome && newHome.TryGetComponent<SlotHandler>(out sh))
         {
-
+            if (!sh.CheckDiceTypeAgainstSlotType(_diceFaceRepresented))
+            {
+                //AUDIO face install denied due to mismatch
+                SendHome();
+                return;
+            }
 
             if (_mostRecentSlotHandler)
             {

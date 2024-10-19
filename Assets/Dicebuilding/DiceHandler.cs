@@ -55,6 +55,11 @@ public class DiceHandler : MonoBehaviour
         _dice = dice;
         _diceType = dice.DiceType;
 
+        foreach (var slot in _slotHandlers)
+        {
+            slot.SetDiceType(_diceType);
+        }
+
         DiceFace[] loadedFaces = _dice.GetFaces();
 
         for (int i = 0; i < loadedFaces.Length; i++)

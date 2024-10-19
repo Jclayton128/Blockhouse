@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,11 @@ public class SlotHandler : MonoBehaviour
     [SerializeField] FaceHandler _faceHandlerInSlot;
     public FaceHandler FaceHandlerInSlot => _faceHandlerInSlot;
 
+    Dice.DiceTypes _diceType;
+    public void SetDiceType(Dice.DiceTypes diceType)
+    {
+        _diceType = diceType;
+    }
 
     public void RegisterNewFaceInSlot(DiceFace newDiceFace, FaceHandler newFaceHandler)
     {
@@ -20,5 +26,11 @@ public class SlotHandler : MonoBehaviour
     public void ClearFaceHandlerFromSlot()
     {
         _faceHandlerInSlot = null;
+    }
+
+    internal bool CheckDiceTypeAgainstSlotType(DiceFace diceFaceRepresented)
+    {
+        if (diceFaceRepresented.DiceType == _diceType) return true;
+        else return false;
     }
 }
