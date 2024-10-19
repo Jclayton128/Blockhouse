@@ -23,6 +23,7 @@ public class DiceHandler : MonoBehaviour
     [SerializeField] Vector3 _jumpHeight = new Vector3(0, .5f, 0);
     [SerializeField] float[] _xPos = new float[5];
     [SerializeField] float _expandTime = 1f;
+    [SerializeField] float _fadeTime = 0.5f;
 
     //state
     DiceModes _diceMode = DiceModes.Compact;
@@ -41,12 +42,16 @@ public class DiceHandler : MonoBehaviour
     float _timeFactorCoefficient;
     Tween _finalJumpTween;
     Tween[] _reserveMoveTweens = new Tween[6];
-
+    ActorHandler _owningActor;
 
     private void Start()
     {
-        _presentationFaceHandler.SetDiceParent(this);    
+        _presentationFaceHandler.SetDiceParent(this);   
+    }
 
+    public void SetOwningActor(ActorHandler owner)
+    {
+        _owningActor = owner;
     }
 
     public void LoadWithDice(Dice dice)
@@ -150,7 +155,27 @@ public class DiceHandler : MonoBehaviour
         _presentationFaceHandler.SetBaseSortOrder(99);
     }
 
+    #region Show Hide
 
+    public void ShowDice()
+    {
+        var srs = GetComponentsInChildren<SpriteRenderer>();
+        foreach (var sr in srs)
+        {
+            sr.DOFade(1, _fadeTime);
+        }
+    }
+
+    public void HideDice()
+    {
+        var srs = GetComponentsInChildren<SpriteRenderer>();
+        foreach (var sr in srs)
+        {
+            sr.DOFade(0, _fadeTime);
+        }
+    }
+
+    #endregion
 
     #region Dice Mode
     public void SetDiceMode(DiceModes diceMode, bool isInstantChange)
@@ -254,6 +279,28 @@ public class DiceHandler : MonoBehaviour
     public void Compact_Debug()
     {
         SetDiceMode(DiceModes.Compact, false);
+    }
+
+    #endregion
+
+    #region Select Dice
+
+
+    private void OnMouseUpAsButton()
+    {
+        _owningActor.AttemptSelectDice(this);
+    }
+
+    public void ShowDiceAsSelected()
+    {
+        //Depict dice as selected
+        transform.localScale = Vector3.one * 1.2f;
+    }
+
+    public void ShowDiceAsDeselected()
+    {
+        //Depict dice as no longer selected
+        transform.localScale = Vector3.one ;
     }
 
     #endregion

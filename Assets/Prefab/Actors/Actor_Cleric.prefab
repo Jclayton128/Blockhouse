@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -4370768808966091748, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
@@ -43,10 +44,18 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.65208715
       objectReference: {fileID: 0}
+    - target: {fileID: 5174607010751000300, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.44
+      objectReference: {fileID: 0}
     - target: {fileID: 6594297775223684895, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: _projectileType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7399759753982425535, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: da29a269682ea3b48b799fa59b13ca26, type: 2}
     - target: {fileID: 8165240443598985202, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: m_Name
       value: Actor_Cleric
@@ -103,24 +112,12 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: bf47500cfa3d1584390bc740018f4d2e, type: 3}
+    - target: {fileID: 8618993205466589660, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bf47500cfa3d1584390bc740018f4d2e, type: 3}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
---- !u!1 &5943366338871914533 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8165240443598985202, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
-  m_PrefabInstance: {fileID: 2534355465172133847}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &-57433499243900881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5943366338871914533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 560766f311ece7a49b2312ddd71bedb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buildingToConquer: {fileID: 0}
-  _conquerRate: 0.2

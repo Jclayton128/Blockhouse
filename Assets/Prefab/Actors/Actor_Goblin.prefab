@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -4370768808966091748, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
@@ -47,6 +48,14 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.469433
       objectReference: {fileID: 0}
+    - target: {fileID: 5174607010751000300, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: m_Size.y
+      value: 2.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5174607010751000300, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.92
+      objectReference: {fileID: 0}
     - target: {fileID: 6594297775223684895, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: _range
       value: 0.6
@@ -59,6 +68,10 @@ PrefabInstance:
       propertyPath: _projectileType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7399759753982425535, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 511e9f4bf623a6a4b84dd2ea078c640f, type: 2}
     - target: {fileID: 8165240443598985202, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: m_Name
       value: Actor_Goblin
@@ -115,24 +128,12 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: af70b1bc61531cf48b50707aa2865897, type: 3}
+    - target: {fileID: 8618993205466589660, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: af70b1bc61531cf48b50707aa2865897, type: 3}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
---- !u!1 &5965496561236054993 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8165240443598985202, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
-  m_PrefabInstance: {fileID: 2565206154306438179}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2152113556286905483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5965496561236054993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 560766f311ece7a49b2312ddd71bedb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buildingToConquer: {fileID: 0}
-  _conquerRate: 0.2

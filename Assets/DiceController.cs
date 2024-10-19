@@ -15,7 +15,7 @@ public class DiceController : MonoBehaviour
 
     private void Start()
     {
-        LoadDiceIntoDiceHandlers_Debug();
+        //LoadDiceIntoDiceHandlers_Debug();
     }
 
     [ContextMenu("Reload Dice Into DiceHandlers")]

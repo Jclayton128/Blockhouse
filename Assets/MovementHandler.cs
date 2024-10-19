@@ -19,7 +19,7 @@ public class MovementHandler : MonoBehaviour
     private void Awake()
     {
         //_rb = GetComponent<Rigidbody2D>();  
-        _anim = GetComponent<Animator>();
+        _anim = GetComponentInChildren<Animator>();
         _pos = transform.position + LayerLibrary.GetNextVisualLayer();
     }
 

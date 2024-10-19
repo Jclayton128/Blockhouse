@@ -27,16 +27,17 @@ public class AttackHandler : MonoBehaviour
 
     public void CommandAttack()
     {
-        float dist = Mathf.Abs(_ab.EnemyTarget.transform.position.x - transform.position.x);
-        if (dist > _range)
-        {
-            _ab.CommandedMoveDir = _ih.Allegiance;
-        }
-        else if (_canInitiateAnotherAttack && dist < _range)
-        {
-            _mh.DisplayAttack();
-            _canInitiateAnotherAttack = false;
-        }
+        Debug.Log("Command Attack commented out");
+        //float dist = Mathf.Abs(_ab.EnemyTarget.transform.position.x - transform.position.x);
+        //if (dist > _range)
+        //{
+        //    _ab.CommandedMoveDir = _ih.Allegiance;
+        //}
+        //else if (_canInitiateAnotherAttack && dist < _range)
+        //{
+        //    _mh.DisplayAttack();
+        //    _canInitiateAnotherAttack = false;
+        //}
     }
 
     /// <summary>

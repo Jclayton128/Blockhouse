@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public enum GameModes { Title, HeroSelect, MainLoop}
+
     public static GameController Instance { get; private set; }
 
     //settings
@@ -16,7 +18,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        PlayerController.Instance.SpawnPlayer(_playerStartingPosition);
-        CameraController.Instance.SetCameraFocus(PlayerController.Instance.Player.transform);
+        ActorController.Instance.SpawnStartingKnight_Debug();
     }
+
 }
