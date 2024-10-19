@@ -85,6 +85,13 @@ public class ActorHandler : MonoBehaviour
         ActorModeChanged?.Invoke(_actorMode);
     }
 
+    public void SetActorMode(ActorModes newMode)
+    {
+        _actorMode = newMode;
+        ActorModeChanged?.Invoke(_actorMode);
+    }
+
+
     public void RollDice()
     {
         foreach (var handler in _diceHandlers)

@@ -22,18 +22,6 @@ public class ActorController : MonoBehaviour
         Instance = this;
     }
 
-    //private void SpawnSelectedActorInAppropriateCorner()
-    //{
-    //    Vector2 pos = Vector2.zero;
-    //    if (ActorLibrary.Instance.GetActorPrefabFromActorType(_selectedActorType).GetComponent<IFFHandler>().Allegiance == 1)
-    //    {
-    //        pos = new Vector2(PlayerController.Instance.Pos.x, 0);
-    //    }
-    //    SpawnActor(_selectedActorType, pos);
-    //}
-
-
-
     public ActorHandler SpawnActor(ActorLibrary.ActorTypes actorType, Vector3 spawnPos,
         IFFHandler.Allegiances allegiance)
     {
@@ -67,12 +55,39 @@ public class ActorController : MonoBehaviour
     public void AddActorToParty(ActorHandler actor)
     {
         _party.Add(actor);
+        if (_party.Count >= 1)
+        {
+            //focus on the first dude
+            CameraController.Instance.SetCameraFocus(_party[0].transform);
+        }
     }
 
-    //public void SelectActorType(ActorLibrary.ActorTypes actorType)
-    //{
-    //    _selectedActorType = actorType;
-    //}
+    public void RemoveActorFromParty(ActorHandler actor)
+    {
+        _party.Remove(actor);
+        if (_party.Count >= 1)
+        {
+            //focus on the first dude
+            CameraController.Instance.SetCameraFocus(_party[0].transform);
+        }
+    }
+
+    #region Party Movement
+
+    public void WalkParty()
+    {
+        foreach (var actor in _party)
+        {
+            actor.SetActorMode(ActorHandler.ActorModes.Walking);
+            actor.GetComponent<MovementHandler>().SetDestination(10f);  
+
+            
+
+        }
+
+    }
+
+    #endregion
 
 
 }

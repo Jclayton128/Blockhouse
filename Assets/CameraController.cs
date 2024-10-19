@@ -14,11 +14,6 @@ public class CameraController : MonoBehaviour
         _cvc = Camera.main.GetComponentInChildren<CinemachineVirtualCamera>();
     }
 
-    private void Start()
-    {
-
-    }
-
     public void SetCameraFocus(Transform targetTransform)
     {
         _cvc.Follow = targetTransform;

@@ -36,6 +36,18 @@ public class GameController : MonoBehaviour
     public void SetGameMode(GameModes newGameMode)
     {
         _gameMode = newGameMode;
+
+        switch (_gameMode)
+        {
+            case GameModes.WalkingToNextEncounter:
+                ActorController.Instance.WalkParty();
+                break;
+
+
+        }
+
+
+
         GameModeChanged?.Invoke(_gameMode);
     }
 
