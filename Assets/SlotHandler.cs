@@ -11,7 +11,51 @@ public class SlotHandler : MonoBehaviour
     [SerializeField] FaceHandler _faceHandlerInSlot;
     public FaceHandler FaceHandlerInSlot => _faceHandlerInSlot;
 
-    Dice.DiceTypes _diceType;
+    [SerializeField] Dice.DiceTypes _diceType;
+
+    public void SetAsSans(bool isSans)
+    {
+        switch (_diceType)
+        {
+            case Dice.DiceTypes.Light:
+                if (isSans)
+                {
+                    GetComponent<SpriteRenderer>().sprite = DiceLibrary.Instance.VoidLightSans;
+                }
+                else
+                {
+                    GetComponent<SpriteRenderer>().sprite = DiceLibrary.Instance.VoidLight;
+                }
+
+                break;
+
+            case Dice.DiceTypes.Medium:
+                if (isSans)
+                {
+                    GetComponent<SpriteRenderer>().sprite = DiceLibrary.Instance.VoidMediumSans;
+                }
+                else
+                {
+                    GetComponent<SpriteRenderer>().sprite = DiceLibrary.Instance.VoidMedium;
+                }
+
+                break;
+
+            case Dice.DiceTypes.Heavy:
+                if (isSans)
+                {
+                    GetComponent<SpriteRenderer>().sprite = DiceLibrary.Instance.VoidHeavySans;
+                }
+                else
+                {
+                    GetComponent<SpriteRenderer>().sprite = DiceLibrary.Instance.VoidHeavy;
+                }
+                break;
+
+        }
+
+    }
+
     public void SetDiceType(Dice.DiceTypes diceType)
     {
         _diceType = diceType;

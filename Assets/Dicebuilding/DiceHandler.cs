@@ -55,10 +55,14 @@ public class DiceHandler : MonoBehaviour
         _dice = dice;
         _diceType = dice.DiceType;
 
+        Debug.Log($"Loading with {dice}");
         foreach (var slot in _slotHandlers)
         {
             slot.SetDiceType(_diceType);
+            slot.SetAsSans(false);
         }
+        _slotHandlers[0].SetAsSans(true);
+
 
         DiceFace[] loadedFaces = _dice.GetFaces();
 

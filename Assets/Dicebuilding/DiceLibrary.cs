@@ -54,6 +54,22 @@ public class DiceLibrary : MonoBehaviour
     public Sprite FillMedium => _fill_Medium;
     public Sprite FillHeavy => _fill_Heavy;
 
+    [Header("Void Sprites")]
+    [SerializeField] Sprite _void_Light = null;
+    [SerializeField] Sprite _void_Light_Sans = null;
+    [SerializeField] Sprite _void_Medium = null;
+    [SerializeField] Sprite _void_Medium_Sans = null;
+    [SerializeField] Sprite _void_Heavy = null;
+    [SerializeField] Sprite _void_Heavy_Sans = null;
+
+    public Sprite VoidLight => _void_Light;
+    public Sprite VoidMedium => _void_Medium;
+    public Sprite VoidHeavy => _void_Heavy;
+    public Sprite VoidLightSans => _void_Light_Sans;
+    public Sprite VoidMediumSans => _void_Medium_Sans;
+    public Sprite VoidHeavySans => _void_Heavy_Sans;
+
+
     [Header("Face Tiles")]
     [SerializeField] FaceHandler _faceTilePrefab = null;
     public FaceHandler FaceTilePrefab => _faceTilePrefab;
