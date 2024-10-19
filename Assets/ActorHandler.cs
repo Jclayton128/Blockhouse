@@ -66,7 +66,16 @@ public class ActorHandler : MonoBehaviour
                 break;
 
             case GameController.GameModes.WalkingToNextEncounter:
-                _actorMode = ActorModes.Walking;                
+                if (_iff.Allegiance == IFFHandler.Allegiances.Player)
+                {
+                    //Debug.Log("should be walking");
+                    _actorMode = ActorModes.Walking;
+                }
+                else
+                {
+                    //do nothing, presumably this actor isn't part of the party and should be swept up
+                    _actorMode = ActorModes.Idling;
+                }
                 break;
 
             case GameController.GameModes.InEncounter:
@@ -169,7 +178,9 @@ public class ActorHandler : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (_actorMode == ActorModes.Acting) return;
+        if (GameController.Instance.GameMode == GameController.GameModes.Title ||
+            GameController.Instance.GameMode == GameController.GameModes.WalkingToNextEncounter) return;
+
         ActorHighlighted?.Invoke();
 
         if (_actorMode == ActorModes.AwaitingTitleScreenSelection)
@@ -178,14 +189,31 @@ public class ActorHandler : MonoBehaviour
         }
     }
 
+  
+
     private void OnMouseExit()
     {
-        if (_actorMode == ActorModes.Acting) return;
-        ActorDehighlighted?.Invoke();
+        if (GameController.Instance.GameMode == GameController.GameModes.Title ||
+            GameController.Instance.GameMode == GameController.GameModes.WalkingToNextEncounter) return;
+
+        //ActorDehighlighted?.Invoke();
 
         if (_actorMode == ActorModes.AwaitingTitleScreenSelection)
         {
             HideDice(false);
+        }
+    }
+
+    private void OnMouseUpAsButton()
+    {
+        if (_actorMode == ActorModes.AwaitingTitleScreenSelection)
+        {
+            //Select this as player char
+            //Debug.Log("Selected this player", this);
+            HideDice(false);
+            _iff.SetAllegiance(IFFHandler.Allegiances.Player);
+            ActorController.Instance.AddActorToParty(this);
+            GameController.Instance.SetGameMode(GameController.GameModes.WalkingToNextEncounter);
         }
     }
 

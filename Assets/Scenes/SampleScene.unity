@@ -473,7 +473,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34068040a78a1eb44b2eeefed14671e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selectedActorType: 0
+  _party: []
+  _encounter: []
 --- !u!114 &706940985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,6 +492,7 @@ MonoBehaviour:
   - {x: 4, y: 0}
   - {x: -4, y: 0}
   _startingCharacters: 000000000300000006000000
+  _gameMode: 0
 --- !u!114 &706940986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -580,12 +582,9 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 5943366338871914533, guid: 026f0f9c9f45c21439ca080fdd717e22, type: 3}
-    - {fileID: 1386748180914146790, guid: 57d436f6c1b5101419f5294b19f4c3c3, type: 3}
-    - {fileID: 5965496561236054993, guid: 318fde7057cdb3d488ce18cb0c1e420e, type: 3}
-    - {fileID: 4057100984283258880, guid: 891e1b9593bb6e549979f2389ba1fe01, type: 3}
-    - {fileID: 3031874385090855551, guid: 46c196e5ed3012c4d8823e68d8d1eb61, type: 3}
-    - {fileID: 3575494241090594084, guid: 62541fd6ae302ac408edcf049cb0045f, type: 3}
+    - {fileID: 6879081419834333183, guid: 026f0f9c9f45c21439ca080fdd717e22, type: 3}
+    - {fileID: 3837572593818863578, guid: 891e1b9593bb6e549979f2389ba1fe01, type: 3}
+    - {fileID: 4364772235876401918, guid: 62541fd6ae302ac408edcf049cb0045f, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -593,8 +592,8 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _actorMenu
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[ActorLibrary+ActorTypes, Assembly-CSharp],[UnityEngine.GameObject,
-        UnityEngine.CoreModule]], mscorlib
+      Data: 0|System.Collections.Generic.Dictionary`2[[ActorLibrary+ActorTypes, Assembly-CSharp],[ActorHandler,
+        Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
       Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[ActorLibrary+ActorTypes,
@@ -610,76 +609,40 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
       Data: 6
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 0
-    - Name: $v
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 1
-    - Name: $v
-      Entry: 10
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 8
     - Name: $v
       Entry: 10
       Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 3
-    - Name: $v
-      Entry: 10
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 11
-    - Name: $v
-      Entry: 10
-      Data: 4
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 6
-    - Name: $v
-      Entry: 10
-      Data: 5
     - Name: 
       Entry: 8
       Data: 

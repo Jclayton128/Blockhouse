@@ -13,7 +13,7 @@ public class ActorLibrary : SerializedMonoBehaviour
         Goblin8, Ogre9, Orc10, Skeleton11, Slime12, Summoner13, Wraith14, Player15, Count
     }
 
-    [SerializeField] Dictionary<ActorTypes, GameObject> _actorMenu;
+    [SerializeField] Dictionary<ActorTypes, ActorHandler> _actorMenu = new Dictionary<ActorTypes, ActorHandler>();
 
     private void Awake()
     {
@@ -24,7 +24,7 @@ public class ActorLibrary : SerializedMonoBehaviour
     {
         if (_actorMenu.ContainsKey(actorType))
         {
-            return _actorMenu[actorType];
+            return _actorMenu[actorType].gameObject;
         }
         else
         {

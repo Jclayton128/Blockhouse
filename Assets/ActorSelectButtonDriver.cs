@@ -35,6 +35,6 @@ public class ActorSelectButtonDriver : MonoBehaviour
 
     public void HandleButtonPress()
     {
-        ActorController.Instance.SelectActorType(ActorType);
+        //ActorController.Instance.SelectActorType(ActorType);
     }
 }

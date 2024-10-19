@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01593300a4bf16d45814465751db1a2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _allegiance: 0
+  _allegiance: 3
   _visuals: {fileID: 1722080280111837541}
   ActorType_: 0
 --- !u!1 &7682605216736393617
@@ -257,6 +257,8 @@ MonoBehaviour:
   - {fileID: 6177564492421957220}
   - {fileID: 3527349226926820094}
   _startingDice: []
+  _actorType: 0
+  _actorMode: 0
 --- !u!61 &4843618754018248695
 BoxCollider2D:
   m_ObjectHideFlags: 0

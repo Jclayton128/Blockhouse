@@ -11,10 +11,11 @@ public class ActorController : MonoBehaviour
 
 
     //state
+    //Dictionary<ActorLibrary.ActorTypes, List<GameObject>> _currentActors = new Dictionary<ActorLibrary.ActorTypes, List<GameObject>>();
+    //[SerializeField] ActorLibrary.ActorTypes _selectedActorType;
 
-
-    Dictionary<ActorLibrary.ActorTypes, List<GameObject>> _currentActors = new Dictionary<ActorLibrary.ActorTypes, List<GameObject>>();
-    [SerializeField] ActorLibrary.ActorTypes _selectedActorType;
+    [SerializeField] List<ActorHandler> _party = new List<ActorHandler>();
+    [SerializeField] List<ActorHandler> _encounter = new List<ActorHandler>();
 
     private void Awake()
     {
@@ -33,7 +34,8 @@ public class ActorController : MonoBehaviour
 
 
 
-    public ActorHandler SpawnActor(ActorLibrary.ActorTypes actorType, Vector3 spawnPos)
+    public ActorHandler SpawnActor(ActorLibrary.ActorTypes actorType, Vector3 spawnPos,
+        IFFHandler.Allegiances allegiance)
     {
         GameObject prefabGO = ActorLibrary.Instance.GetActorPrefabFromActorType(actorType);
 
@@ -44,23 +46,33 @@ public class ActorController : MonoBehaviour
         }
 
         GameObject newGO = Instantiate(prefabGO, spawnPos, Quaternion.identity);
-        if (_currentActors.ContainsKey(actorType))
+        ActorHandler ah = newGO.GetComponent<ActorHandler>();
+
+        if (allegiance == IFFHandler.Allegiances.Player)
         {
-            _currentActors[actorType].Add(newGO);
+            AddActorToParty(ah);
+        }
+        else if (allegiance == IFFHandler.Allegiances.Enemy || allegiance == IFFHandler.Allegiances.Neutral)
+        {
+            _encounter.Add(ah);
         }
         else
         {
-            List<GameObject> list = new List<GameObject>();
-            list.Add(newGO);
-            _currentActors.Add(actorType, list);
+            //if not player, enemy, or neutral, then I don't care about this actor and it should be swept up.
         }
-        return newGO.GetComponent<ActorHandler>();
+
+        return ah;
     }
 
-    public void SelectActorType(ActorLibrary.ActorTypes actorType)
+    public void AddActorToParty(ActorHandler actor)
     {
-        _selectedActorType = actorType;
+        _party.Add(actor);
     }
+
+    //public void SelectActorType(ActorLibrary.ActorTypes actorType)
+    //{
+    //    _selectedActorType = actorType;
+    //}
 
 
 }
