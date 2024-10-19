@@ -910,6 +910,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 384911312259594063, guid: 23f671a36ce9a814d9063d9970f393af, type: 3}
+      propertyPath: _period
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 384911312259594063, guid: 23f671a36ce9a814d9063d9970f393af, type: 3}
+      propertyPath: _amplitude
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 384911312259594063, guid: 23f671a36ce9a814d9063d9970f393af, type: 3}
       propertyPath: _startingDiceFace
       value: 
       objectReference: {fileID: 11400000, guid: 7eb8eda8dd754bd46a03884df877c70c, type: 2}

@@ -307,8 +307,11 @@ MonoBehaviour:
   _bandSR: {fileID: 4345967756191674353}
   _fillSR: {fileID: 7821610218398135886}
   _iconSR: {fileID: 3672683178120067395}
-  _homeMoveTime: 1
-  _home: {x: 0, y: 0, z: 0}
+  _homeMoveRate: 10
+  _overshoot: 0.5
+  _amplitude: 0
+  _period: 0
+  _homePos: {x: 0, y: 0, z: 0}
   _isGrabbable: 1
 --- !u!61 &-4398410570386392427
 BoxCollider2D:

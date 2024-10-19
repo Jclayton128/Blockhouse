@@ -16,4 +16,9 @@ public class SlotHandler : MonoBehaviour
         _diceFaceInSlot = newDiceFace;
         _faceHandlerInSlot = newFaceHandler;
     }
+
+    public void ClearFaceHandlerFromSlot()
+    {
+        _faceHandlerInSlot = null;
+    }
 }

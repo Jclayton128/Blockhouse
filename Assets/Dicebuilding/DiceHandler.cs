@@ -124,10 +124,12 @@ public class DiceHandler : MonoBehaviour
         _rand = UnityEngine.Random.Range(0, _slotHandlers.Length);
         if (_slotHandlers[_rand].DiceFaceInSlot)
         {
+            Debug.Log("valid face");
             _activeFace = _slotHandlers[_rand].DiceFaceInSlot;
         }
         else
         {
+            Debug.Log($"null @ {_rand}");
             _activeFace = null;
         }
         RenderPresentationFace(_activeFace);
@@ -136,6 +138,7 @@ public class DiceHandler : MonoBehaviour
     private void RenderPresentationFace(DiceFace faceToRender)
     {
         _presentationFaceHandler.SetFace(faceToRender);
+        _presentationFaceHandler.SetBaseSortOrder(99);
     }
 
 

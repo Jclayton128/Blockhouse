@@ -56,8 +56,8 @@ public class DiceLibrary : MonoBehaviour
 
     [Header("Face Tiles")]
     [SerializeField] FaceHandler _faceTilePrefab = null;
-    public FaceHandler FaceTilePrefab => _faceTilePrefab;   
-
+    public FaceHandler FaceTilePrefab => _faceTilePrefab;
+    int _tileIndex = 1;
     private void Awake()
     {
         Instance = this;
@@ -70,6 +70,8 @@ public class DiceLibrary : MonoBehaviour
         fh = Instantiate(_faceTilePrefab, parent);
         fh.transform.localPosition = new Vector3(0, 0, -.1f);
         fh.SetFace(diceFace);
+        fh.SetBaseSortOrder(_tileIndex);
+        _tileIndex++;
         return fh;
     }
 }

@@ -6,27 +6,29 @@ using DG.Tweening;
 
 public class FaceHandler : MonoBehaviour
 {
-    [SerializeField] DiceFace _startingDiceFace = null;
+    [SerializeField] DiceFace _startingDiceFace_Debug = null;
     [SerializeField] SpriteRenderer _edgeSR = null;
     [SerializeField] SpriteRenderer _bandSR = null;
     [SerializeField] SpriteRenderer _fillSR = null;
     [SerializeField] SpriteRenderer _iconSR = null;
 
     //state
-    GrabHandler _grabHandler;
+    int _restingSortIndex;
     DiceHandler _parentDiceHandler;
     DiceFace _diceFaceRepresented;
     SlotHandler _mostRecentSlotHandler;
     private void Awake()
     {
-        _home = transform.position;
+        _homePos = transform.position;
     }
 
     private void Start()
     {
-        if (_startingDiceFace)
+        if (_startingDiceFace_Debug)
         {
-            SetFace(_startingDiceFace);
+            SetBaseSortOrder(0);
+            _diceFaceRepresented = _startingDiceFace_Debug;
+            SetFace(_startingDiceFace_Debug);
         }
     }
 
@@ -39,6 +41,7 @@ public class FaceHandler : MonoBehaviour
     {
         _mostRecentSlotHandler = sh;
     }
+
     #region Displaying
     public void SetNewDiceMode(DiceHandler.DiceModes newDiceMode)
     {
@@ -52,9 +55,36 @@ public class FaceHandler : MonoBehaviour
         }
     }
 
+    public void SetBaseSortOrder(int sortOrder)
+    {
+        _restingSortIndex = sortOrder;
+        _fillSR.sortingOrder = (_restingSortIndex * 5) + 0;
+        _bandSR.sortingOrder = (_restingSortIndex * 5) + 1;
+        _iconSR.sortingOrder = (_restingSortIndex * 5) + 2;
+        _edgeSR.sortingOrder = (_restingSortIndex * 5) + 3;
+    }
+
+    public void PrioritizeSortOrder()
+    {
+        int order = 100;
+        _fillSR.sortingOrder = (order * 5) + 0;
+        _bandSR.sortingOrder = (order * 5) + 1;
+        _iconSR.sortingOrder = (order * 5) + 2;
+        _edgeSR.sortingOrder = (order * 5) + 3;
+    }
+
+    public void DeprioritizeSortOrder()
+    {
+        _fillSR.sortingOrder = (_restingSortIndex * 5) + 0;
+        _bandSR.sortingOrder = (_restingSortIndex * 5) + 1;
+        _iconSR.sortingOrder = (_restingSortIndex * 5) + 2;
+        _edgeSR.sortingOrder = (_restingSortIndex * 5) + 3;
+    }
+
     public void SetFace(DiceFace diceFace)
     {
         _diceFaceRepresented = diceFace;
+
         if (_diceFaceRepresented == null)
         {
             _iconSR.sprite = null;
@@ -164,12 +194,15 @@ public class FaceHandler : MonoBehaviour
 
     #region Grabbing/Moving 
 
-    [SerializeField] float _homeMoveTime = 1f;
+    [SerializeField] float _homeMoveRate = 1f;
     int _layerMask_Slot = 1 << 7;
     Vector3 _posDelta = new Vector3(0, 0, -0.1f);
+    [SerializeField] float _overshoot = 1.7f;
 
     //state
-    public Vector3 _home;
+    float _dist;
+    float _time;
+    public Vector3 _homePos;
     public bool _isGrabbable = true;
     bool _isGrabbed;
     Vector3 _mouseTransformDelta = Vector3.zero;
@@ -184,22 +217,36 @@ public class FaceHandler : MonoBehaviour
     private void OnMouseDown()
     {
         if (!_isGrabbable || _isTweening) return;
-
+        PrioritizeSortOrder();
         _isGrabbed = true;
         _mouseTransformDelta = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        _home = transform.position;
+        _homePos = transform.position;
     }
 
     private void OnMouseUp()
     {
         _isGrabbed = false;
+        DeprioritizeSortOrder();
         //Check if on an open Slot
         var newHome = Physics2D.OverlapCircle(transform.position, 1f, _layerMask_Slot);
         SlotHandler sh;
 
         if (newHome && newHome.TryGetComponent<SlotHandler>(out sh))
         {
+
+
+            if (_mostRecentSlotHandler)
+            {
+                _mostRecentSlotHandler.ClearFaceHandlerFromSlot();
+                sh.FaceHandlerInSlot?.PushToNewHome(_mostRecentSlotHandler);
+            }
+            else
+            {
+                sh.FaceHandlerInSlot?.PushToNewHome(_homePos);
+            }
+
             SetNewHome(newHome, sh);
+            //check if SH has a face already. If yes, send current FH to this FH's home
         }
         else
         {
@@ -215,33 +262,27 @@ public class FaceHandler : MonoBehaviour
         transform.parent = hits.transform;
         transform.localPosition = _posDelta;
 
-        if (_mostRecentSlotHandler)
-        {
-            sh.FaceHandlerInSlot?.PushToNewHome(_mostRecentSlotHandler);
-        }
-        else
-        {
-            sh.FaceHandlerInSlot?.PushToNewHome(_home);
-        }
-
+        
         sh.RegisterNewFaceInSlot(_diceFaceRepresented, this);
         _mostRecentSlotHandler = sh;
 
-        _home = transform.position;
+        _homePos = transform.position;
     }
 
     public void PushToNewHome(SlotHandler sh)
     {
-        _home = sh.transform.position;
+        _homePos = sh.transform.position + _posDelta;
         transform.parent = sh.transform;
         sh.RegisterNewFaceInSlot(_diceFaceRepresented, this);
+        _mostRecentSlotHandler = sh;
         SendHome();
     }
 
     public void PushToNewHome(Vector3 newHome)
     {
-        _home = newHome;
+        _homePos = newHome;
         transform.parent = null;
+        _mostRecentSlotHandler = null;
         SendHome();
     }
 
@@ -255,9 +296,15 @@ public class FaceHandler : MonoBehaviour
 
     public void SendHome()
     {
+        Debug.Log("sent home", this);
         _isTweening = true;
+        
+        
         _moveTween.Kill();
-        _moveTween = transform.DOMove(_home, _homeMoveTime).SetEase(Ease.OutCirc).
+        _dist = (_homePos - transform.position).magnitude;
+        _time = _dist / _homeMoveRate;
+
+        _moveTween = transform.DOMove(_homePos, _time).SetEase(Ease.OutBack, _overshoot).
             OnComplete(HandleSentHome);
     }
 
