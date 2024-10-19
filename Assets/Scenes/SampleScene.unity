@@ -486,7 +486,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e5d3f1d6b50d78468a60a86d410d456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerStartingPosition: {x: 0, y: 3}
+  _characterStartingPosition:
+  - {x: 0, y: 0}
+  - {x: 4, y: 0}
+  - {x: -4, y: 0}
+  _startingCharacters: 000000000300000006000000
 --- !u!114 &706940986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,11 +580,12 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 5943366338871914533, guid: a2a70cf421b32ec46990626386f16c42, type: 3}
+    - {fileID: 5943366338871914533, guid: 026f0f9c9f45c21439ca080fdd717e22, type: 3}
     - {fileID: 1386748180914146790, guid: 57d436f6c1b5101419f5294b19f4c3c3, type: 3}
     - {fileID: 5965496561236054993, guid: 318fde7057cdb3d488ce18cb0c1e420e, type: 3}
     - {fileID: 4057100984283258880, guid: 891e1b9593bb6e549979f2389ba1fe01, type: 3}
     - {fileID: 3031874385090855551, guid: 46c196e5ed3012c4d8823e68d8d1eb61, type: 3}
+    - {fileID: 3575494241090594084, guid: 62541fd6ae302ac408edcf049cb0045f, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -588,11 +593,11 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _actorMenu
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[ActorLibrary+ActorType, Assembly-CSharp],[UnityEngine.GameObject,
+      Data: 0|System.Collections.Generic.Dictionary`2[[ActorLibrary+ActorTypes, Assembly-CSharp],[UnityEngine.GameObject,
         UnityEngine.CoreModule]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[ActorLibrary+ActorType,
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[ActorLibrary+ActorTypes,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -605,7 +610,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 5
+      Data: 6
     - Name: 
       Entry: 7
       Data: 
@@ -663,6 +668,18 @@ MonoBehaviour:
     - Name: $v
       Entry: 10
       Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 6
+    - Name: $v
+      Entry: 10
+      Data: 5
     - Name: 
       Entry: 8
       Data: 

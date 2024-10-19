@@ -7,20 +7,20 @@ using Sirenix.OdinInspector;
 public class ActorLibrary : SerializedMonoBehaviour
 {
     public static ActorLibrary Instance { get; private set; }
-    public enum ActorType
+    public enum ActorTypes
     {
         Cleric0, Crossbowman1, Farmer2, Knight3, Monk4, Peasant5, Ranger6, Wizard7,
         Goblin8, Ogre9, Orc10, Skeleton11, Slime12, Summoner13, Wraith14, Player15, Count
     }
 
-    [SerializeField] Dictionary<ActorType, GameObject> _actorMenu;
+    [SerializeField] Dictionary<ActorTypes, GameObject> _actorMenu;
 
     private void Awake()
     {
         Instance = this;
     }
 
-    public GameObject GetActorPrefabFromActorType(ActorType actorType)
+    public GameObject GetActorPrefabFromActorType(ActorTypes actorType)
     {
         if (_actorMenu.ContainsKey(actorType))
         {
@@ -33,7 +33,7 @@ public class ActorLibrary : SerializedMonoBehaviour
         }
     }
 
-    public UIDataHandler GetUIDataFromActorType(ActorType actorType)
+    public UIDataHandler GetUIDataFromActorType(ActorTypes actorType)
     {
         if (_actorMenu.ContainsKey(actorType))
         {
@@ -46,9 +46,9 @@ public class ActorLibrary : SerializedMonoBehaviour
         }
     }
 
-    public List<ActorType> GetListOfLoadedActorTypes()
+    public List<ActorTypes> GetListOfLoadedActorTypes()
     {
-        List<ActorType> list = new List<ActorType>();
+        List<ActorTypes> list = new List<ActorTypes>();
         foreach (var key in _actorMenu.Keys)
         {
             list.Add(key);

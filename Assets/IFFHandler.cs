@@ -11,7 +11,7 @@ public class IFFHandler : MonoBehaviour
 
     [SerializeField] Transform _visuals = null;
 
-    public ActorLibrary.ActorType ActorType_ = ActorLibrary.ActorType.Cleric0;
+    public ActorLibrary.ActorTypes ActorType_ = ActorLibrary.ActorTypes.Cleric0;
 
     private void Awake()
     {

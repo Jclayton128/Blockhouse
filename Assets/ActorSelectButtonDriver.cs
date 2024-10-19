@@ -11,11 +11,11 @@ public class ActorSelectButtonDriver : MonoBehaviour
 
     //state
     public bool IsLoaded { get; private set; } = false;
-    public ActorLibrary.ActorType ActorType { get; private set; }
-        = ActorLibrary.ActorType.Count;
+    public ActorLibrary.ActorTypes ActorType { get; private set; }
+        = ActorLibrary.ActorTypes.Count;
 
 
-    public void LoadActorButton(Sprite icon, string name, ActorLibrary.ActorType actorType)
+    public void LoadActorButton(Sprite icon, string name, ActorLibrary.ActorTypes actorType)
     {
         _actorIcon.sprite = icon;
         _actorIcon.color = Color.white;
@@ -30,7 +30,7 @@ public class ActorSelectButtonDriver : MonoBehaviour
         _actorIcon.color = Color.clear;
         _actorName.text = " ";
         IsLoaded = false;
-        ActorType = ActorLibrary.ActorType.Count;
+        ActorType = ActorLibrary.ActorTypes.Count;
     }
 
     public void HandleButtonPress()

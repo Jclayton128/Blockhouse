@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 /// <summary>
 /// This hold the dice of each character. Dice themselves are immutable (ie, same type and number
@@ -8,29 +9,73 @@ using UnityEngine;
 /// </summary>
 public class ActorHandler : MonoBehaviour
 {
+    public Action ActorHighlighted;
+    public Action ActorDehighlighted;
+    public Action<ActorModes> ActorModeChanged;
+    public enum ActorModes { Idling, Acting, Walking, AwaitingTitleScreenSelection}
+
+
     //refs
     [SerializeField] DiceHandler[] _diceHandlers = null;
+    IFFHandler _iff;
 
 
     //settings
     [SerializeField] Dice[] _startingDice = null;
+    [SerializeField] ActorLibrary.ActorTypes _actorType = ActorLibrary.ActorTypes.Cleric0;
 
     //state
+    public ActorLibrary.ActorTypes ActorType => _actorType;
     DiceHandler _selectedDiceHandler;
+    [SerializeField] ActorModes _actorMode = ActorModes.Idling;
+    public ActorModes ActorMode => _actorMode;
 
-    private void Start()
+
+    private void Awake()
     {
+        _iff = GetComponentInChildren<IFFHandler>();
+    }
+
+    public void Initialize()
+    {
+        GameController.Instance.GameModeChanged += HandleGameModeChanged;
         for (int i = 0; i < _diceHandlers.Length; i++)
         {
             _diceHandlers[i].SetOwningActor(this);
             _diceHandlers[i].LoadWithDice(_startingDice[i]);
             
         }
-        ShowDice();
-        
+        HideDice(true);        
     }
 
-    [ContextMenu("Roll Dice")]
+    private void OnDestroy()
+    {
+        GameController.Instance.GameModeChanged -= HandleGameModeChanged;
+    }
+
+    private void HandleGameModeChanged(GameController.GameModes newMode)
+    {
+        switch (newMode)
+        {
+            case GameController.GameModes.Title:
+                _actorMode = ActorModes.Acting;
+                break;
+
+            case GameController.GameModes.HeroSelect:
+                _actorMode = ActorModes.AwaitingTitleScreenSelection;
+                break;
+
+            case GameController.GameModes.WalkingToNextEncounter:
+                _actorMode = ActorModes.Walking;                
+                break;
+
+            case GameController.GameModes.InEncounter:
+                _actorMode = ActorModes.Idling;
+                break;
+        }
+        ActorModeChanged?.Invoke(_actorMode);
+    }
+
     public void RollDice()
     {
         foreach (var handler in _diceHandlers)
@@ -55,6 +100,7 @@ public class ActorHandler : MonoBehaviour
     [ContextMenu("Expand Dice")]
     public void ExpandDice()
     {
+        if (_iff.Allegiance != IFFHandler.Allegiances.Player) return;
         foreach (var handler in _diceHandlers)
         {
             handler.Expand_Debug();
@@ -64,6 +110,7 @@ public class ActorHandler : MonoBehaviour
     [ContextMenu("Compact Dice")]
     public void CompactDice()
     {
+        
         foreach (var handler in _diceHandlers)
         {
             handler.Compact_Debug();
@@ -71,11 +118,11 @@ public class ActorHandler : MonoBehaviour
     }
 
     [ContextMenu("Hide Dice")]
-    public void HideDice()
+    public void HideDice(bool isInstant)
     {
         foreach (var handler in _diceHandlers)
         {
-            handler.HideDice();
+            handler.HideDice(isInstant);
         }
     }
 
@@ -114,6 +161,32 @@ public class ActorHandler : MonoBehaviour
     {
         //Clears the active face and allows another to be selected.
         _selectedDiceHandler = null;
+    }
+
+    #endregion
+
+    #region Select Character
+
+    private void OnMouseEnter()
+    {
+        if (_actorMode == ActorModes.Acting) return;
+        ActorHighlighted?.Invoke();
+
+        if (_actorMode == ActorModes.AwaitingTitleScreenSelection)
+        {
+            ShowDice();
+        }
+    }
+
+    private void OnMouseExit()
+    {
+        if (_actorMode == ActorModes.Acting) return;
+        ActorDehighlighted?.Invoke();
+
+        if (_actorMode == ActorModes.AwaitingTitleScreenSelection)
+        {
+            HideDice(false);
+        }
     }
 
     #endregion

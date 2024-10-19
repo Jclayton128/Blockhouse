@@ -166,12 +166,13 @@ public class DiceHandler : MonoBehaviour
         }
     }
 
-    public void HideDice()
+    public void HideDice(bool isInstant)
     {
         var srs = GetComponentsInChildren<SpriteRenderer>();
+        float fade = isInstant ? 0.001f : _fadeTime;
         foreach (var sr in srs)
         {
-            sr.DOFade(0, _fadeTime);
+            sr.DOFade(0, fade);
         }
     }
 

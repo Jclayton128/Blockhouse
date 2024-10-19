@@ -13,8 +13,8 @@ public class ActorController : MonoBehaviour
     //state
 
 
-    Dictionary<ActorLibrary.ActorType, List<GameObject>> _currentActors = new Dictionary<ActorLibrary.ActorType, List<GameObject>>();
-    [SerializeField] ActorLibrary.ActorType _selectedActorType;
+    Dictionary<ActorLibrary.ActorTypes, List<GameObject>> _currentActors = new Dictionary<ActorLibrary.ActorTypes, List<GameObject>>();
+    [SerializeField] ActorLibrary.ActorTypes _selectedActorType;
 
     private void Awake()
     {
@@ -31,15 +31,18 @@ public class ActorController : MonoBehaviour
     //    SpawnActor(_selectedActorType, pos);
     //}
 
-    public void SpawnStartingKnight_Debug()
-    {
-        SpawnActor(ActorLibrary.ActorType.Knight3, Vector3.zero);
-    }
 
-    private void SpawnActor(ActorLibrary.ActorType actorType, Vector3 spawnPos)
+
+    public ActorHandler SpawnActor(ActorLibrary.ActorTypes actorType, Vector3 spawnPos)
     {
         GameObject prefabGO = ActorLibrary.Instance.GetActorPrefabFromActorType(actorType);
-        if (!prefabGO) return;
+
+        if (!prefabGO)
+        {
+            Debug.Log("No prefab for this!");
+            return null;
+        }
+
         GameObject newGO = Instantiate(prefabGO, spawnPos, Quaternion.identity);
         if (_currentActors.ContainsKey(actorType))
         {
@@ -51,10 +54,10 @@ public class ActorController : MonoBehaviour
             list.Add(newGO);
             _currentActors.Add(actorType, list);
         }
-        //return newGO;
+        return newGO.GetComponent<ActorHandler>();
     }
 
-    public void SelectActorType(ActorLibrary.ActorType actorType)
+    public void SelectActorType(ActorLibrary.ActorTypes actorType)
     {
         _selectedActorType = actorType;
     }

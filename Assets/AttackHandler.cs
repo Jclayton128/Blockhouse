@@ -5,7 +5,7 @@ using UnityEngine;
 public class AttackHandler : MonoBehaviour
 {
     ActorBrain _ab;
-    MovementHandler _mh;
+    ActorAnimationHandler _mh;
     IFFHandler _ih;
 
     [SerializeField] ProjectileHandler.ProjectileType _projectileType = ProjectileHandler.ProjectileType.Undefined;
@@ -21,7 +21,7 @@ public class AttackHandler : MonoBehaviour
     private void Awake()
     {
         _ab = GetComponent<ActorBrain>();
-        _mh = _ab.GetComponent<MovementHandler>();
+        _mh = _ab.GetComponent<ActorAnimationHandler>();
         _ih = _ab.GetComponent<IFFHandler>();
     }
 
