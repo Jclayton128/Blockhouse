@@ -12,11 +12,14 @@ public class FaceHandler : MonoBehaviour
     [SerializeField] SpriteRenderer _fillSR = null;
     [SerializeField] SpriteRenderer _iconSR = null;
 
+
     //state
     int _restingSortIndex;
     DiceHandler _parentDiceHandler;
     DiceFace _diceFaceRepresented;
     SlotHandler _mostRecentSlotHandler;
+
+
     private void Awake()
     {
         _homePos = transform.position;
@@ -67,6 +70,7 @@ public class FaceHandler : MonoBehaviour
     public void PrioritizeSortOrder()
     {
         int order = 100;
+
         _fillSR.sortingOrder = (order * 5) + 0;
         _bandSR.sortingOrder = (order * 5) + 1;
         _iconSR.sortingOrder = (order * 5) + 2;
@@ -75,6 +79,7 @@ public class FaceHandler : MonoBehaviour
 
     public void DeprioritizeSortOrder()
     {
+        transform.position = new Vector3(transform.position.x, transform.position.y, -.1f);
         _fillSR.sortingOrder = (_restingSortIndex * 5) + 0;
         _bandSR.sortingOrder = (_restingSortIndex * 5) + 1;
         _iconSR.sortingOrder = (_restingSortIndex * 5) + 2;
@@ -198,6 +203,8 @@ public class FaceHandler : MonoBehaviour
     int _layerMask_Slot = 1 << 7;
     Vector3 _posDelta = new Vector3(0, 0, -0.1f);
     [SerializeField] float _overshoot = 1.7f;
+    [SerializeField] float _scaleWhenSelected = 1.2f;
+    [SerializeField] float _scaleTime = 0.5f;
 
     //state
     float _dist;
@@ -208,11 +215,22 @@ public class FaceHandler : MonoBehaviour
     Vector3 _mouseTransformDelta = Vector3.zero;
     bool _isTweening = false;
     Tween _moveTween;
+    Tween _scaleTween;
 
-    //private void OnMouseOver()
-    //{
-    //    if (!_isGrabbable) return;
-    //}
+    private void OnMouseEnter()
+    {
+        if (!_isGrabbable) return;
+
+        _scaleTween.Kill();
+        _scaleTween = transform.DOScale(Vector3.one * _scaleWhenSelected, _scaleTime);
+    }
+
+    private void OnMouseExit()
+    {
+
+        _scaleTween.Kill();
+        _scaleTween = transform.DOScale(Vector3.one, _scaleTime);
+    }
 
     private void OnMouseDown()
     {
@@ -227,7 +245,10 @@ public class FaceHandler : MonoBehaviour
     {
         _isGrabbed = false;
         DeprioritizeSortOrder();
-        //Check if on an open Slot
+        _scaleTween.Kill();
+        _scaleTween = transform.DOScale(Vector3.one, _scaleTime);
+
+
         var newHome = Physics2D.OverlapCircle(transform.position, 1f, _layerMask_Slot);
         SlotHandler sh;
 
@@ -296,6 +317,7 @@ public class FaceHandler : MonoBehaviour
         if (_isGrabbable && _isGrabbed)
         {
             transform.position = (Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) + _mouseTransformDelta);
+            transform.position -= Vector3.forward;
         }
     }
 
