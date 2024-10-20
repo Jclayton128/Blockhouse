@@ -9,12 +9,14 @@ public class ActorController : MonoBehaviour
 
     //settings
 
+    
 
     //state
     //Dictionary<ActorLibrary.ActorTypes, List<GameObject>> _currentActors = new Dictionary<ActorLibrary.ActorTypes, List<GameObject>>();
     //[SerializeField] ActorLibrary.ActorTypes _selectedActorType;
 
     [SerializeField] List<ActorHandler> _party = new List<ActorHandler>();
+    public ActorHandler PartyLead => _party[0];
     [SerializeField] List<ActorHandler> _encounter = new List<ActorHandler>();
 
     private void Awake()
@@ -35,6 +37,7 @@ public class ActorController : MonoBehaviour
 
         GameObject newGO = Instantiate(prefabGO, spawnPos, Quaternion.identity);
         ActorHandler ah = newGO.GetComponent<ActorHandler>();
+        ah.Initialize(allegiance);
 
         if (allegiance == IFFHandler.Allegiances.Player)
         {
@@ -79,12 +82,20 @@ public class ActorController : MonoBehaviour
         foreach (var actor in _party)
         {
             actor.SetActorMode(ActorHandler.ActorModes.Walking);
-            actor.GetComponent<MovementHandler>().SetDestination(10f);  
-
-            
-
+            actor.GetComponent<MovementHandler>().SetDestination(999f);      
         }
 
+    }
+
+    public void StopParty(float dist_0, float dist_1, float dist_2)
+    {
+        _party[0].GetComponent<MovementHandler>().SetDestination(dist_0);
+
+        if (_party.Count < 2) return;
+        _party[1].GetComponent<MovementHandler>().SetDestination(dist_1);
+
+        if (_party.Count < 3) return;
+        _party[2].GetComponent<MovementHandler>().SetDestination(dist_2);
     }
 
     #endregion

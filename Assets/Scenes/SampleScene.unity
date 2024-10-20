@@ -211,7 +211,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.25, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -288,7 +288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &609760741
 Transform:
   m_ObjectHideFlags: 0
@@ -298,7 +298,7 @@ Transform:
   m_GameObject: {fileID: 609760740}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Priority: 28
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 706940982}
   m_Lens:
     FieldOfView: 55
     OrthographicSize: 10
@@ -427,6 +427,7 @@ GameObject:
   - component: {fileID: 706940986}
   - component: {fileID: 706940987}
   - component: {fileID: 706940990}
+  - component: {fileID: 706940991}
   m_Layer: 0
   m_Name: Controllers
   m_TagString: Untagged
@@ -521,6 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d67a6830d67324a43b41c13bd69418e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _encounterXOffset: 13
 --- !u!114 &706940990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,6 +549,31 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a5cc1443301a92e458a2869097cf8757, type: 2}
   - {fileID: 11400000, guid: a5cc1443301a92e458a2869097cf8757, type: 2}
   - {fileID: 11400000, guid: 814cbdda229cda84eabcac586a4255fb, type: 2}
+--- !u!114 &706940991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706940980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a13dbf85b9f5b240899106a2ac0e299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeBetweenChecks: 4
+  _encounterMidpointOffset: {x: 13, y: 0, z: 0}
+  _xOffsets_Encounter:
+  - 2.5
+  - 6
+  - 9.5
+  - 13
+  _xOffsets_Player:
+  - -6
+  - -9.5
+  - -13
+  _timeOfNextCheck: 0
+  _currentEncounter: {fileID: 0}
 --- !u!1 &718530017
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,6 +586,7 @@ GameObject:
   - component: {fileID: 718530018}
   - component: {fileID: 718530020}
   - component: {fileID: 718530021}
+  - component: {fileID: 718530022}
   m_Layer: 0
   m_Name: Library
   m_TagString: Untagged
@@ -585,6 +613,7 @@ MonoBehaviour:
     - {fileID: 6879081419834333183, guid: 026f0f9c9f45c21439ca080fdd717e22, type: 3}
     - {fileID: 3837572593818863578, guid: 891e1b9593bb6e549979f2389ba1fe01, type: 3}
     - {fileID: 4364772235876401918, guid: 62541fd6ae302ac408edcf049cb0045f, type: 3}
+    - {fileID: 6901150344022357003, guid: 318fde7057cdb3d488ce18cb0c1e420e, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -609,7 +638,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 4
     - Name: 
       Entry: 7
       Data: 
@@ -643,6 +672,18 @@ MonoBehaviour:
     - Name: $v
       Entry: 10
       Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 8
+    - Name: $v
+      Entry: 10
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -718,6 +759,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rewardTilePositions: []
+--- !u!114 &718530022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718530017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4e93882bf5abe4f945b4e1717f2fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _encounters:
+  - {fileID: 11400000, guid: cd38ff233c8e7bd40bcf3255926f206a, type: 2}
 --- !u!1 &2018491202
 GameObject:
   m_ObjectHideFlags: 3
@@ -775,9 +830,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad980451443d70438faac0bc6c235a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 0, y: 3.25, z: 0}
+  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
   m_LookaheadTime: 0
-  m_LookaheadSmoothing: 10.5
+  m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
   m_XDamping: 1
   m_YDamping: 1
@@ -787,14 +842,14 @@ MonoBehaviour:
   m_ScreenY: 0.5
   m_CameraDistance: 10
   m_DeadZoneWidth: 0
-  m_DeadZoneHeight: 2
+  m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
-  m_SoftZoneWidth: 0
-  m_SoftZoneHeight: 2
+  m_SoftZoneWidth: 0.8
+  m_SoftZoneHeight: 0.8
   m_BiasX: 0
   m_BiasY: 0
-  m_CenterOnActivate: 0
+  m_CenterOnActivate: 1
   m_GroupFramingMode: 2
   m_AdjustmentMode: 0
   m_GroupFramingSize: 0.8

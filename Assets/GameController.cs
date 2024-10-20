@@ -28,7 +28,6 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < _startingCharacters.Length; i++)
         {
             ActorHandler ah = ActorController.Instance.SpawnActor(_startingCharacters[i], _characterStartingPosition[i], IFFHandler.Allegiances.Undefined);
-            ah.Initialize();
         }
         SetGameMode(GameModes.HeroSelect);
     }

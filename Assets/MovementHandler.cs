@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class MovementHandler : MonoBehaviour
 {
+    public Action ReachedDestination;
+
     //settings
     [SerializeField] float _moveRate = 3f;
 
@@ -11,6 +14,7 @@ public class MovementHandler : MonoBehaviour
     [SerializeField] float _xDest;
     IFFHandler _iff;
     ActorHandler _ah;
+    bool _isWalking = false;
 
     private void Awake()
     {
@@ -22,10 +26,14 @@ public class MovementHandler : MonoBehaviour
     public void SetDestination(float xDest)
     {
         _xDest = xDest;
+        _isWalking = true;
     }
 
     private void Update()
     {
+        if (!_isWalking) return;
+        //if (GameController.Instance.GameMode != GameController.GameModes.WalkingToNextEncounter) return;
+
         if (_iff.Allegiance == IFFHandler.Allegiances.Player)
         {
             //expect players to always be moving to the right
@@ -35,6 +43,8 @@ public class MovementHandler : MonoBehaviour
             }
             else
             {
+                _isWalking = false;
+                ReachedDestination?.Invoke();
                 _ah.SetActorMode(ActorHandler.ActorModes.Idling);
             }
         }
@@ -48,6 +58,7 @@ public class MovementHandler : MonoBehaviour
             }
             else
             {
+                _isWalking = false;
                 _ah.SetActorMode(ActorHandler.ActorModes.Idling);
             }
         }

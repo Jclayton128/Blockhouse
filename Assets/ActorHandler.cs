@@ -31,12 +31,7 @@ public class ActorHandler : MonoBehaviour
     public ActorModes ActorMode => _actorMode;
 
 
-    private void Awake()
-    {
-        _iff = GetComponentInChildren<IFFHandler>();
-    }
-
-    public void Initialize()
+    public void Initialize(IFFHandler.Allegiances allegiance)
     {
         GameController.Instance.GameModeChanged += HandleGameModeChanged;
         for (int i = 0; i < _diceHandlers.Length; i++)
@@ -45,7 +40,10 @@ public class ActorHandler : MonoBehaviour
             _diceHandlers[i].LoadWithDice(_startingDice[i]);
             
         }
-        HideDice(true);        
+        HideDice(true);
+
+        _iff = GetComponentInChildren<IFFHandler>();
+        _iff.SetAllegiance(allegiance);
     }
 
     private void OnDestroy()
