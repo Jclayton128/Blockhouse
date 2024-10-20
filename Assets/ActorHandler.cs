@@ -217,8 +217,7 @@ public class ActorHandler : MonoBehaviour
             //Debug.Log("Selected this player", this);
             HideDice(false);
             _iff.SetAllegiance(IFFHandler.Allegiances.Player);
-            ActorController.Instance.AddActorToParty(this);
-            GameController.Instance.SetGameMode(GameController.GameModes.WalkingToNextEncounter);
+            ActorController.Instance.SelectCharacter(this);
         }
     }
 

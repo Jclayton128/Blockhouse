@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bffe146e40ae2f4d9ad82da5b381fb1, type: 3}
   m_Name: Goblins
   m_EditorClassIdentifier: 
-  _earliestPos: 10
+  _earliestPos: 20
   _latestPost: 200
   _actors: 080000000800000008000000
   _rewards:

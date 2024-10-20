@@ -16,7 +16,7 @@ public class EncounterController : MonoBehaviour
     //settings
 
     [SerializeField] float _timeBetweenChecks = 10f;
-    [SerializeField] Vector3 _encounterMidpointOffset = new Vector3(40f, 0, 0);
+    [SerializeField] Vector3 _encounterOffset = new Vector3(13, 0, 0);
     //[SerializeField] float _additionalWalkDistance = 10f;
     [SerializeField] float[] _xOffsets_Encounter = { 2.5f, 6f, 9.5f, 13f };
     [SerializeField] float[] _xOffsets_Player = { -6f, -9.5f, -13f };
@@ -24,7 +24,6 @@ public class EncounterController : MonoBehaviour
     //state 
     [SerializeField] float _timeOfNextCheck = 0;
     [SerializeField] Encounter _currentEncounter;
-    Vector3 _encounterMidpoint = Vector3.zero;
 
     private void Awake()
     {
@@ -47,42 +46,35 @@ public class EncounterController : MonoBehaviour
     private void Update()
     {
         if (GameController.Instance.GameMode != GameController.GameModes.WalkingToNextEncounter) return;
-        if (Time.time >= _timeOfNextCheck)
+        if (!_currentEncounter &&  Time.time >= _timeOfNextCheck)
         {
             _timeOfNextCheck = Time.time + _timeBetweenChecks;
 
-            Encounter enc = EncounterLibrary.Instance.FindValidRandomEncounter(ActorController.Instance.PartyLead.transform.position.x);
+            Encounter enc = EncounterLibrary.Instance.FindValidRandomEncounter(RunController.Instance.DistanceTraveled);
             if (enc)
             {
                 _currentEncounter = enc;
-                _encounterMidpoint = ActorController.Instance.PartyLead.transform.position + _encounterMidpointOffset;
-                _encounterMidpoint.x = Mathf.RoundToInt(_encounterMidpoint.x);
-
-                Debug.Log("encounter midpoint: " + _encounterMidpoint.x);
-
                 StartEncounter();
-                //AUDIO somekind of bell announcing a new encounter
 
+                //AUDIO somekind of bell announcing a new encounter
+                RunController.Instance.SetTargetCountdown(_encounterOffset.x);
+                RunController.Instance.TargetDistanceReached += HandleTargetDistanceReached;
             }
         }
         
     }
 
-    private void StartEncounter()
-    {        
-        ActorController.Instance.
-            StopParty(_encounterMidpoint.x + _xOffsets_Player[0],
-            _encounterMidpoint.x + _xOffsets_Player[1],
-            _encounterMidpoint.x + _xOffsets_Player[2]);
-
-        Debug.Log($"stopping party at {_encounterMidpoint.x + _xOffsets_Player[0]}, " +
-            $"{_encounterMidpoint.x + _xOffsets_Player[1]}, and" +
-            $" {_encounterMidpoint.x + _xOffsets_Player[2]} ");
-
-
-        SpawnEncounterActors();
+    private void HandleTargetDistanceReached()
+    {
+        ActorController.Instance.StopParty();
         GameController.Instance.SetGameMode(GameController.GameModes.InEncounter);
-        EncounterStarted?.Invoke(_encounterMidpoint);
+    }
+
+    private void StartEncounter()
+    {
+        SpawnEncounterActors();
+        //EncounterStarted?.Invoke(_encounterOffset);
+        EncounterStarted?.Invoke(new Vector3(2.5f,0,0));
     }
 
     private void SpawnEncounterActors()
@@ -96,7 +88,7 @@ public class EncounterController : MonoBehaviour
         {
 
             ActorHandler ah = ActorController.Instance.SpawnActor(actor,
-                _encounterMidpoint + new Vector3(_xOffsets_Encounter[count], 0, 0),
+                _encounterOffset + new Vector3(_xOffsets_Encounter[count], 0, 0),
                 IFFHandler.Allegiances.Enemy);
 
             ah.Initialize(IFFHandler.Allegiances.Enemy);

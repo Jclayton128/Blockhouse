@@ -42,7 +42,7 @@ public class CameraController : MonoBehaviour
     public void EngageCameraMouse(Vector3 mousePos, float time)
     {
         _cvc.Follow = _cameraMouse;
-        _cameraMouse.position = ActorController.Instance.PartyLead.transform.position;
+        //_cameraMouse.position = ActorController.Instance.PartyLead.transform.position;
         _cameraMouse.DOMove(mousePos, time);
     }
 

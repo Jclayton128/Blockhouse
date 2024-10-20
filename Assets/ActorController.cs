@@ -2,13 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class ActorController : MonoBehaviour
 {
     public static ActorController Instance { get; private set; }
 
-    //settings
-
+    
     
 
     //state
@@ -17,7 +17,8 @@ public class ActorController : MonoBehaviour
 
     [SerializeField] List<ActorHandler> _party = new List<ActorHandler>();
     public ActorHandler PartyLead => _party[0];
-    [SerializeField] List<ActorHandler> _encounter = new List<ActorHandler>();
+    [SerializeField] List<GameObject> _encounter = new List<GameObject>();
+    public List<GameObject> EncounterThing => _encounter;
 
     private void Awake()
     {
@@ -38,64 +39,58 @@ public class ActorController : MonoBehaviour
         GameObject newGO = Instantiate(prefabGO, spawnPos, Quaternion.identity);
         ActorHandler ah = newGO.GetComponent<ActorHandler>();
         ah.Initialize(allegiance);
+        _encounter.Add(ah.gameObject);
 
         if (allegiance == IFFHandler.Allegiances.Player)
         {
             AddActorToParty(ah);
         }
-        else if (allegiance == IFFHandler.Allegiances.Enemy || allegiance == IFFHandler.Allegiances.Neutral)
-        {
-            _encounter.Add(ah);
-        }
-        else
-        {
-            //if not player, enemy, or neutral, then I don't care about this actor and it should be swept up.
-        }
 
         return ah;
+    }
+
+    public void SelectCharacter(ActorHandler character)
+    {
+        AddActorToParty(character);
+        GameController.Instance.SetGameMode(GameController.GameModes.WalkingToNextEncounter);
+
+        character.transform.DOMove(Vector3.zero, 3f);
+        CameraController.Instance.EngageCameraMouse(Vector3.zero, 3f);
     }
 
     public void AddActorToParty(ActorHandler actor)
     {
         _party.Add(actor);
-        if (_party.Count >= 1)
-        {
-            //focus on the first dude
-            CameraController.Instance.SetCameraFocus(_party[0].transform);
-        }
-    }
-
-    public void RemoveActorFromParty(ActorHandler actor)
-    {
-        _party.Remove(actor);
-        if (_party.Count >= 1)
-        {
-            //focus on the first dude
-            CameraController.Instance.SetCameraFocus(_party[0].transform);
-        }
+        _encounter.Remove(actor.gameObject);
     }
 
     #region Party Movement
 
+    
     public void WalkParty()
     {
         foreach (var actor in _party)
         {
             actor.SetActorMode(ActorHandler.ActorModes.Walking);
-            actor.GetComponent<MovementHandler>().SetDestination(999f);      
+            //actor.GetComponent<MovementHandler>().SetDestination(999f);      
         }
-
     }
 
-    public void StopParty(float dist_0, float dist_1, float dist_2)
+    public void StopParty()
     {
-        _party[0].GetComponent<MovementHandler>().SetDestination(dist_0);
+        foreach (var actor in _party)
+        {
+            actor.SetActorMode(ActorHandler.ActorModes.Idling);
+            //actor.GetComponent<MovementHandler>().SetDestination(999f);      
+        }
 
-        if (_party.Count < 2) return;
-        _party[1].GetComponent<MovementHandler>().SetDestination(dist_1);
+        //_party[0].GetComponent<MovementHandler>().SetDestination(dist_0);
 
-        if (_party.Count < 3) return;
-        _party[2].GetComponent<MovementHandler>().SetDestination(dist_2);
+        //if (_party.Count < 2) return;
+        //_party[1].GetComponent<MovementHandler>().SetDestination(dist_1);
+
+        //if (_party.Count < 3) return;
+        //_party[2].GetComponent<MovementHandler>().SetDestination(dist_2);
     }
 
     #endregion
