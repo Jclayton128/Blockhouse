@@ -45,8 +45,26 @@ public class EncounterController : MonoBehaviour
 
     private void Update()
     {
+        UpdateCheckForNextEncounter();
+        ListenForClickToContinueAtEncounterIntro();
+    }
+
+    private void ListenForClickToContinueAtEncounterIntro()
+    {
+        if (GameController.Instance.GameMode == GameController.GameModes.EncounterIntro)
+        {
+            if (Input.GetKeyUp(KeyCode.Mouse0))
+            {
+                GameController.Instance.SetGameMode(GameController.GameModes.EncounterActionSelection);
+            }
+        }
+    }
+
+    private void UpdateCheckForNextEncounter()
+    {
         if (GameController.Instance.GameMode != GameController.GameModes.WalkingToNextEncounter) return;
-        if (!_currentEncounter &&  Time.time >= _timeOfNextCheck)
+
+        if (!_currentEncounter && Time.time >= _timeOfNextCheck)
         {
             _timeOfNextCheck = Time.time + _timeBetweenChecks;
 
@@ -61,7 +79,6 @@ public class EncounterController : MonoBehaviour
                 RunController.Instance.TargetDistanceReached += HandleTargetDistanceReached;
             }
         }
-        
     }
 
     private void HandleTargetDistanceReached()

@@ -139,13 +139,13 @@ public class PanelDriver : MonoBehaviour
             {
                 _imageTweens[image].Kill();
                 _imageTweens[image] = image.DOFade(0, shouldFadeInstantly ? 0 : _fadeTime).
-                SetUpdate(true); ;
+                SetUpdate(true).SetEase(Ease.InCubic); ;
             }
             foreach (var text in _textElements.Keys)
             {
                 _textTweens[text].Kill();
                 _textTweens[text] = text.DOFade(0, shouldFadeInstantly ? 0 : _fadeTime).
-                SetUpdate(true); ;
+                SetUpdate(true).SetEase(Ease.InCubic); ;
             }
 
         }
@@ -155,13 +155,13 @@ public class PanelDriver : MonoBehaviour
             {
                 _imageTweens[image].Kill();
                 _imageTweens[image] = image.DOFade(1, shouldFadeInstantly ? 0 : _fadeTime).
-                SetUpdate(true); ;
+                SetUpdate(true).SetEase(Ease.InCubic); ;
             }
             foreach (var text in _textElements.Keys)
             {
                 _textTweens[text].Kill();
                 _textTweens[text] = text.DOFade(1, shouldFadeInstantly ? 0 : _fadeTime).
-                SetUpdate(true); ;
+                SetUpdate(true).SetEase(Ease.InCubic); ;
             }
         }
         PushTweenCompletionTime(shouldFadeInstantly ? 0 : _fadeTime);

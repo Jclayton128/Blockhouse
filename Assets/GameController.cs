@@ -32,21 +32,13 @@ public class GameController : MonoBehaviour
         SetGameMode(GameModes.HeroSelect);
     }
 
+    /// <summary>
+    /// Other Controllers should listen for GameMode Changes and execute the changes they want to see. The GameController doesn't care about what impact the changing GameMode may have.
+    /// </summary>
+    /// <param name="newGameMode"></param>
     public void SetGameMode(GameModes newGameMode)
     {
         _gameMode = newGameMode;
-
-        switch (_gameMode)
-        {
-            case GameModes.WalkingToNextEncounter:
-                ActorController.Instance.WalkParty();
-                break;
-
-
-        }
-
-
-
         GameModeChanged?.Invoke(_gameMode);
     }
 

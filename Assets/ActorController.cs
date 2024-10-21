@@ -28,16 +28,31 @@ public class ActorController : MonoBehaviour
         GameController.Instance.GameModeChanged += HandleGameModeChanged;
     }
 
-    private void HandleGameModeChanged(GameController.GameModes obj)
+    private void HandleGameModeChanged(GameController.GameModes gameMode)
     {
-        if (obj == GameController.GameModes.EncounterActionSelection)
+        switch (gameMode)
         {
-            StopParty();
-            ShowPartyDice();
-            ShowEncounterDice();
+            case GameController.GameModes.WalkingToNextEncounter:
+                ActorController.Instance.WalkParty();
+                break;
 
-            //Invoke(nameof(Delay_ShowPartyDice), 1.0f); //MAGIC NUMBER: pause to show the encounter before revealing the dice
+            case GameController.GameModes.EncounterIntro:
+                ActorController.Instance.StopParty();
+                break;
+
+            case GameController.GameModes.EncounterActionSelection:
+                //StopParty();
+                ShowPartyDice();
+                ShowEncounterDice();
+                Invoke(nameof(Delay_ModeChangedToEncounterActionSelectionMode), 1f);
+                break;
         }
+    }
+
+    private void Delay_ModeChangedToEncounterActionSelectionMode()
+    {
+        RollPartyDice();
+        RollEncounterDice();
     }
 
 
@@ -113,12 +128,23 @@ public class ActorController : MonoBehaviour
 
     public void ShowPartyDice()
     {
+        //AUDIO Play a many dice being rolled sound. This is the point where all the dice are rolled together.
         foreach (var actor in _party)
         {
             actor.ShowDice();
             //actor.GetComponent<MovementHandler>().SetDestination(999f);      
         }
     }
+
+    public void RollPartyDice()
+    {
+        foreach (var actor in _party)
+        {
+            actor.RollDice();
+        }
+    }
+
+
 
     #endregion
 
@@ -132,6 +158,18 @@ public class ActorController : MonoBehaviour
             if (thing.TryGetComponent<ActorHandler>(out ah))
             {
                 ah.ShowDice();
+            }
+        }
+    }
+
+    public void RollEncounterDice()
+    {
+        ActorHandler ah;
+        foreach (var thing in _encounter)
+        {
+            if (thing.TryGetComponent<ActorHandler>(out ah))
+            {
+                ah.RollDice();
             }
         }
     }

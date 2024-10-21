@@ -15,7 +15,9 @@ public class UIController : MonoBehaviour
 
     [SerializeField] PanelDriver[] _introPanel = null;
     [SerializeField] PanelDriver[] _titlePanel = null;
+    [SerializeField] PanelDriver[] _encounterIntroPanel = null;
     [SerializeField] PanelDriver[] _optionsPanel = null;
+
     [SerializeField] Image _blackoutImage = null;
     [SerializeField] Image _whiteoutImage = null;
     //
@@ -41,6 +43,8 @@ public class UIController : MonoBehaviour
     {
         foreach (var panel in _introPanel) panel?.InitializePanel(this);
         foreach (var panel in _titlePanel) panel?.InitializePanel(this);
+        foreach (var panel in _encounterIntroPanel) panel?.InitializePanel(this);
+        foreach (var panel in _optionsPanel) panel?.InitializePanel(this);
 
         GameController.Instance.GameModeChanged += HandleGameModeChanged;
     }
@@ -53,21 +57,26 @@ public class UIController : MonoBehaviour
 
     private void HandleGameModeChanged(GameController.GameModes newGameMode)
     {
-        //switch (newGameMode)
-        //{
-        //    case GameController.GameModes.Intro:
-        //        foreach (var panel in _introPanel) panel?.ActivatePanel(false);
-        //        foreach (var panel in _titlePanel) panel?.RestPanel(false);
+        switch (newGameMode)
+        {
+            case GameController.GameModes.EncounterIntro:
+                foreach (var panel in _encounterIntroPanel) panel?.ActivatePanel(false);
 
-        //        break;
+                foreach (var panel in _introPanel) panel?.RestPanel(false);
+                foreach (var panel in _titlePanel) panel?.RestPanel(false);
+                foreach (var panel in _optionsPanel) panel?.RestPanel(false);
+                break;
 
-        //    case GameController.GameModes.TitleMenu:
-        //        foreach (var panel in _introPanel) panel?.RestPanel(false);
-        //        foreach (var panel in _titlePanel) panel?.ActivatePanel(false);
+            case GameController.GameModes.EncounterActionSelection:
 
-        //        break;
-        //}
+                foreach (var panel in _encounterIntroPanel) panel?.RestPanel(false);
+                foreach (var panel in _introPanel) panel?.RestPanel(false);
+                foreach (var panel in _titlePanel) panel?.RestPanel(false);
+                foreach (var panel in _optionsPanel) panel?.RestPanel(false);
+                break;
+        }
     }
+
 
     private void Update()
     {
@@ -90,6 +99,8 @@ public class UIController : MonoBehaviour
             IsUIActivelyTweening = true;
         }       
     }
+
+    #region Fades
 
     public void FadeToBlack()
     {
@@ -127,5 +138,6 @@ public class UIController : MonoBehaviour
             SetEase(Ease.InQuint);
     }
 
+    #endregion;
 
 }
