@@ -66,8 +66,7 @@ public class EncounterController : MonoBehaviour
 
     private void HandleTargetDistanceReached()
     {
-        ActorController.Instance.StopParty();
-        GameController.Instance.SetGameMode(GameController.GameModes.InEncounter);
+        GameController.Instance.SetGameMode(GameController.GameModes.EncounterIntro);
     }
 
     private void StartEncounter()

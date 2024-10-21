@@ -76,7 +76,7 @@ public class ActorHandler : MonoBehaviour
                 }
                 break;
 
-            case GameController.GameModes.InEncounter:
+            case GameController.GameModes.EncounterIntro:
                 _actorMode = ActorModes.Idling;
                 break;
         }

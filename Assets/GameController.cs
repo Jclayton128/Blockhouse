@@ -5,7 +5,7 @@ using System;
 
 public class GameController : MonoBehaviour
 {
-    public enum GameModes { Title, HeroSelect, WalkingToNextEncounter, InEncounter}
+    public enum GameModes { Title, HeroSelect, WalkingToNextEncounter, EncounterIntro, EncounterActionSelection, EncounterActionResolution, EncounterOutcome}
     public Action<GameModes> GameModeChanged;
 
     public static GameController Instance { get; private set; }

@@ -6,9 +6,7 @@ using DG.Tweening;
 
 public class ActorController : MonoBehaviour
 {
-    public static ActorController Instance { get; private set; }
-
-    
+    public static ActorController Instance { get; private set; }   
     
 
     //state
@@ -24,6 +22,24 @@ public class ActorController : MonoBehaviour
     {
         Instance = this;
     }
+
+    private void Start()
+    {
+        GameController.Instance.GameModeChanged += HandleGameModeChanged;
+    }
+
+    private void HandleGameModeChanged(GameController.GameModes obj)
+    {
+        if (obj == GameController.GameModes.EncounterActionSelection)
+        {
+            StopParty();
+            ShowPartyDice();
+            ShowEncounterDice();
+
+            //Invoke(nameof(Delay_ShowPartyDice), 1.0f); //MAGIC NUMBER: pause to show the encounter before revealing the dice
+        }
+    }
+
 
     public ActorHandler SpawnActor(ActorLibrary.ActorTypes actorType, Vector3 spawnPos,
         IFFHandler.Allegiances allegiance)
@@ -64,7 +80,9 @@ public class ActorController : MonoBehaviour
         _encounter.Remove(actor.gameObject);
     }
 
-    #region Party Movement
+    
+
+    #region Party Actions
 
     
     public void WalkParty()
@@ -91,6 +109,31 @@ public class ActorController : MonoBehaviour
 
         //if (_party.Count < 3) return;
         //_party[2].GetComponent<MovementHandler>().SetDestination(dist_2);
+    }
+
+    public void ShowPartyDice()
+    {
+        foreach (var actor in _party)
+        {
+            actor.ShowDice();
+            //actor.GetComponent<MovementHandler>().SetDestination(999f);      
+        }
+    }
+
+    #endregion
+
+    #region Encounters
+
+    public void ShowEncounterDice()
+    {
+        ActorHandler ah;
+        foreach (var thing in _encounter)
+        {
+            if (thing.TryGetComponent<ActorHandler>(out ah))
+            {
+                ah.ShowDice();
+            }
+        }
     }
 
     #endregion
