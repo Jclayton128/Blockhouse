@@ -37,8 +37,10 @@ public class ActorHandler : MonoBehaviour
         for (int i = 0; i < _diceHandlers.Length; i++)
         {
             _diceHandlers[i].SetOwningActor(this);
-            _diceHandlers[i].LoadWithDice(_startingDice[i]);
-            
+            if (i < _startingDice.Length)
+            {
+                _diceHandlers[i].LoadWithDice(_startingDice[i]);
+            }            
         }
         HideDice(true);
 

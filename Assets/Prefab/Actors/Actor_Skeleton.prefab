@@ -28,6 +28,10 @@ PrefabInstance:
       propertyPath: _allegiance
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 4612227551262920062, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5174607010751000300, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: m_Size.y
       value: 2.61
@@ -104,6 +108,26 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 27efd713225a94a40a30bb109315aa28, type: 3}
+    - target: {fileID: 8961247109966770216, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _actorType
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8961247109966770216, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _diceHandlers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8961247109966770216, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _startingDice.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8961247109966770216, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _startingDice.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 814cbdda229cda84eabcac586a4255fb, type: 2}
+    - target: {fileID: 8961247109966770216, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _startingDice.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 814cbdda229cda84eabcac586a4255fb, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

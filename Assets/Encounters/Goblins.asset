@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _earliestPos: 20
   _latestPost: 200
-  _actors: 08000000080000000800000003000000
+  _actors: 08000000080000000b000000
   _rewards:
   - {fileID: 11400000, guid: b7e8e4ed2efde9c46ab189132593d6ca, type: 2}
   - {fileID: 11400000, guid: 4dcd83fb2c0f26744901d185176272fe, type: 2}

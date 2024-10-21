@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class RunController : MonoBehaviour
 {
+    /// <summary>
+    /// Amount of party 'movement' since last frame
+    /// </summary>
+    public Action<float> RunDistanceIncreased;
+
     public static RunController Instance { get; private set; }
     public Action TargetDistanceReached;
 
@@ -15,6 +20,7 @@ public class RunController : MonoBehaviour
     [SerializeField] float _distanceTraveled = 0;
     public float DistanceTraveled => _distanceTraveled;
     [SerializeField] float _targetDistance;
+
 
     private void Awake()
     {
@@ -27,6 +33,8 @@ public class RunController : MonoBehaviour
         if (GameController.Instance.GameMode == GameController.GameModes.WalkingToNextEncounter)
         {
             _distanceTraveled += _moveSpeed * Time.deltaTime;
+            RunDistanceIncreased?.Invoke(_moveSpeed * Time.deltaTime);
+
             foreach (var thing in ActorController.Instance.EncounterThing)
             {
                 thing.transform.position -= Vector3.right * _moveSpeed * Time.deltaTime;
