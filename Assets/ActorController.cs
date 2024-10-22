@@ -43,7 +43,7 @@ public class ActorController : MonoBehaviour
             case GameController.GameModes.EncounterActionSelection:
                 //StopParty();
                 ShowPartyDice();
-                ShowEncounterDice();
+                //ShowEncounterDice();
                 Invoke(nameof(Delay_ModeChangedToEncounterActionSelectionMode), 1f);
                 break;
         }

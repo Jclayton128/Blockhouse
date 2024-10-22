@@ -11,11 +11,11 @@ public class SlotHandler : MonoBehaviour
     [SerializeField] FaceHandler _faceHandlerInSlot;
     public FaceHandler FaceHandlerInSlot => _faceHandlerInSlot;
 
-    [SerializeField] Dice.DiceTypes _diceType;
+    [SerializeField] Dice.DiceTypes _slotType;
 
     public void SetAsSans(bool isSans)
     {
-        switch (_diceType)
+        switch (_slotType)
         {
             case Dice.DiceTypes.Light:
                 if (isSans)
@@ -58,7 +58,7 @@ public class SlotHandler : MonoBehaviour
 
     public void SetDiceType(Dice.DiceTypes diceType)
     {
-        _diceType = diceType;
+        //_slotType = diceType;
     }
 
     public void RegisterNewFaceInSlot(DiceFace newDiceFace, FaceHandler newFaceHandler)
@@ -74,7 +74,7 @@ public class SlotHandler : MonoBehaviour
 
     internal bool CheckDiceTypeAgainstSlotType(DiceFace diceFaceRepresented)
     {
-        if (diceFaceRepresented.DiceType == _diceType) return true;
+        if (diceFaceRepresented.DiceType == _slotType) return true;
         else return false;
     }
 }

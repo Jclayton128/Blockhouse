@@ -21,7 +21,7 @@ public class DiceHandler : MonoBehaviour
     [SerializeField] float _timeFactorCoefficient_Min = .25f;
     [SerializeField] float _timeFactorCoefficient_Max = .5f;
     [SerializeField] Vector3 _jumpHeight = new Vector3(0, .5f, 0);
-    [SerializeField] float[] _xPos = new float[5];
+    //[SerializeField] float[] _xPos = new float[5];
     [SerializeField] float _expandTime = 1f;
     [SerializeField] float _fadeTime = 0.5f;
 
@@ -43,6 +43,7 @@ public class DiceHandler : MonoBehaviour
     Tween _finalJumpTween;
     Tween[] _reserveMoveTweens = new Tween[6];
     ActorHandler _owningActor;
+    List<Vector3> _expandPositions = new List<Vector3>();
 
     private void Start()
     {
@@ -64,7 +65,9 @@ public class DiceHandler : MonoBehaviour
         foreach (var slot in _slotHandlers)
         {
             slot.SetDiceType(_diceType);
-            slot.SetAsSans(false);
+            //slot.SetAsSans(false);
+            slot.SetAsSans(true);
+            _expandPositions.Add(slot.transform.localPosition);
         }
         _slotHandlers[0].SetAsSans(true);
 
@@ -197,6 +200,7 @@ public class DiceHandler : MonoBehaviour
         }
     }
 
+
     private void ExpandReserveDiceFaces(float time)
     {
         _presentationFaceHandler.gameObject.SetActive(false);
@@ -228,7 +232,8 @@ public class DiceHandler : MonoBehaviour
         {
             //_reserveFaceHandlers[i].SetFace(reserveFaces[i]);
             _reserveMoveTweens[i].Kill();
-            _reserveMoveTweens[i] = _slotHandlers[i].transform.DOLocalMoveX(_xPos[i], time).
+            _reserveMoveTweens[i] = _slotHandlers[i].transform.DOLocalMove(
+                _expandPositions[i], time).
                 SetEase(Ease.OutBack).OnComplete(HandleExpandCompleted);
         }
     }
@@ -248,7 +253,8 @@ public class DiceHandler : MonoBehaviour
         for (int i = 0; i < _slotHandlers.Length; i++)
         {
             _reserveMoveTweens[i].Kill();
-            _reserveMoveTweens[i] = _slotHandlers[i].transform.DOLocalMoveX(0, time).
+            _reserveMoveTweens[i] = _slotHandlers[i].transform.DOLocalMove(
+                Vector3.zero, time).
                 SetEase(Ease.InBack).OnComplete(HandleCompactCompleted);
         }
     }

@@ -16,4 +16,3 @@ MonoBehaviour:
   _diceFaces:
   - {fileID: 11400000, guid: 7eb8eda8dd754bd46a03884df877c70c, type: 2}
   - {fileID: 11400000, guid: 46ec1980f7477484da52316a3e607d9f, type: 2}
-  - {fileID: 11400000, guid: 4dcd83fb2c0f26744901d185176272fe, type: 2}

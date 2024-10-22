@@ -114,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8961247109966770216, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: _diceHandlers.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8961247109966770216, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: _startingDice.Array.size

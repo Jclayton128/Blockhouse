@@ -28,6 +28,14 @@ PrefabInstance:
       propertyPath: ActorType_
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2258378179322882407, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _slotType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521059987916240273, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _slotType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5174607010751000300, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: m_Offset.y
       value: 1.54
@@ -48,10 +56,18 @@ PrefabInstance:
       propertyPath: _projectileType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7214282240935851340, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _slotType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7399759753982425535, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b290295fb4538b641bc22f30628305e2, type: 2}
+    - target: {fileID: 7516463974826183372, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _slotType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8165240443598985202, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: m_Name
       value: Actor_Knight
@@ -114,7 +130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8961247109966770216, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: _startingDice.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8961247109966770216, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: _startingDice.Array.data[0]

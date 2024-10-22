@@ -29,7 +29,15 @@ public class ActorHandler : MonoBehaviour
     DiceHandler _selectedDiceHandler;
     [SerializeField] ActorModes _actorMode = ActorModes.Idling;
     public ActorModes ActorMode => _actorMode;
+    bool _areDiceExpanded = true;
 
+
+
+    [ContextMenu("Init Debug")]
+    public void InitAsPlayer_Debug()
+    {
+        Initialize(IFFHandler.Allegiances.Player);
+    }
 
     public void Initialize(IFFHandler.Allegiances allegiance)
     {
@@ -43,6 +51,7 @@ public class ActorHandler : MonoBehaviour
             }            
         }
         HideDice(true);
+        CompactDice();
 
         _iff = GetComponentInChildren<IFFHandler>();
         _iff.SetAllegiance(allegiance);
@@ -91,7 +100,7 @@ public class ActorHandler : MonoBehaviour
         ActorModeChanged?.Invoke(_actorMode);
     }
 
-
+    [ContextMenu("Roll Dice")]
     public void RollDice()
     {
         foreach (var handler in _diceHandlers)
@@ -116,11 +125,13 @@ public class ActorHandler : MonoBehaviour
     [ContextMenu("Expand Dice")]
     public void ExpandDice()
     {
-        if (_iff.Allegiance != IFFHandler.Allegiances.Player) return;
+        //if (_iff.Allegiance != IFFHandler.Allegiances.Player) return;
         foreach (var handler in _diceHandlers)
         {
+
             handler.Expand_Debug();
         }
+        _areDiceExpanded = true;
     }
 
     [ContextMenu("Compact Dice")]
@@ -131,11 +142,14 @@ public class ActorHandler : MonoBehaviour
         {
             handler.Compact_Debug();
         }
+        _areDiceExpanded = false;
     }
 
     [ContextMenu("Hide Dice")]
     public void HideDice(bool isInstant)
     {
+        if (!isInstant && _areDiceExpanded) CompactDice();
+
         foreach (var handler in _diceHandlers)
         {
             handler.HideDice(isInstant);
@@ -185,30 +199,15 @@ public class ActorHandler : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (GameController.Instance.GameMode == GameController.GameModes.Title ||
-            GameController.Instance.GameMode == GameController.GameModes.WalkingToNextEncounter) return;
-
+        if (GameController.Instance.GameMode == GameController.GameModes.Title) return;
+        ShowDice();
         ActorHighlighted?.Invoke();
-
-        if (_actorMode == ActorModes.AwaitingTitleScreenSelection)
-        {
-            ShowDice();
-        }
-    }
-
-  
+    }  
 
     private void OnMouseExit()
     {
-        if (GameController.Instance.GameMode == GameController.GameModes.Title ||
-            GameController.Instance.GameMode == GameController.GameModes.WalkingToNextEncounter) return;
-
+        HideDice(false);
         //ActorDehighlighted?.Invoke();
-
-        if (_actorMode == ActorModes.AwaitingTitleScreenSelection)
-        {
-            HideDice(false);
-        }
     }
 
     private void OnMouseUpAsButton()
@@ -220,6 +219,17 @@ public class ActorHandler : MonoBehaviour
             HideDice(false);
             _iff.SetAllegiance(IFFHandler.Allegiances.Player);
             ActorController.Instance.SelectCharacter(this);
+            return;
+        }
+
+        if (_actorMode == ActorModes.Walking ||
+            _actorMode == ActorModes.Idling)
+        {
+            _areDiceExpanded = !_areDiceExpanded;
+            if (_areDiceExpanded) ExpandDice();
+            else CompactDice();
+
+
         }
     }
 

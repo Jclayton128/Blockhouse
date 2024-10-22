@@ -254,8 +254,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _diceHandlers:
   - {fileID: 8532019581348365413}
-  - {fileID: 6177564492421957220}
-  - {fileID: 3527349226926820094}
   _startingDice: []
   _actorType: 0
   _actorMode: 0
@@ -316,6 +314,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiceHandler_2
       objectReference: {fileID: 0}
+    - target: {fileID: 6873631876921646944, guid: 780f91044b5532c448d41c2a6972f489, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8217174121882277338, guid: 780f91044b5532c448d41c2a6972f489, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -361,17 +363,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 780f91044b5532c448d41c2a6972f489, type: 3}
---- !u!114 &3527349226926820094 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3429014124443752672, guid: 780f91044b5532c448d41c2a6972f489, type: 3}
-  m_PrefabInstance: {fileID: 2262468664198205982}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ae121d3e66b4c3428bc7fc481ae7e17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &7884856338959812548 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8217174121882277338, guid: 780f91044b5532c448d41c2a6972f489, type: 3}
@@ -385,9 +376,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8165240443598985204}
     m_Modifications:
+    - target: {fileID: 2384944140312005507, guid: 780f91044b5532c448d41c2a6972f489, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384944140312005507, guid: 780f91044b5532c448d41c2a6972f489, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263026566260110339, guid: 780f91044b5532c448d41c2a6972f489, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197376240827230248, guid: 780f91044b5532c448d41c2a6972f489, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197376240827230248, guid: 780f91044b5532c448d41c2a6972f489, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6873631876921646944, guid: 780f91044b5532c448d41c2a6972f489, type: 3}
       propertyPath: m_Name
       value: DiceHandler
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758088717722055902, guid: 780f91044b5532c448d41c2a6972f489, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758088717722055902, guid: 780f91044b5532c448d41c2a6972f489, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 8217174121882277338, guid: 780f91044b5532c448d41c2a6972f489, type: 3}
       propertyPath: m_LocalPosition.x
@@ -462,6 +481,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiceHandler_1
       objectReference: {fileID: 0}
+    - target: {fileID: 6873631876921646944, guid: 780f91044b5532c448d41c2a6972f489, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8217174121882277338, guid: 780f91044b5532c448d41c2a6972f489, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -512,14 +535,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8217174121882277338, guid: 780f91044b5532c448d41c2a6972f489, type: 3}
   m_PrefabInstance: {fileID: 8803780813056695940}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6177564492421957220 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3429014124443752672, guid: 780f91044b5532c448d41c2a6972f489, type: 3}
-  m_PrefabInstance: {fileID: 8803780813056695940}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ae121d3e66b4c3428bc7fc481ae7e17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
