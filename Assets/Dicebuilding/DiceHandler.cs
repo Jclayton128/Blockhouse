@@ -28,8 +28,8 @@ public class DiceHandler : MonoBehaviour
     //state
     DiceModes _diceMode = DiceModes.Compact;
     [SerializeField] Dice _dice;
-    Dice.DiceTypes _diceType;
-    public Dice.DiceTypes DiceType => _diceType;
+    //Dice.DiceTypes _diceType;
+    //public Dice.DiceTypes DiceType => _diceType;
 
     [SerializeField] DiceFace _activeFace;
     public DiceFace ActiveFace => _activeFace;
@@ -44,10 +44,11 @@ public class DiceHandler : MonoBehaviour
     Tween[] _reserveMoveTweens = new Tween[6];
     ActorHandler _owningActor;
     List<Vector3> _expandPositions = new List<Vector3>();
+    bool _isHidden = false;
 
     private void Start()
     {
-        _presentationFaceHandler.SetDiceParent(this);   
+        //_presentationFaceHandler.SetDiceParent(this);   
     }
 
     public void SetOwningActor(ActorHandler owner)
@@ -59,12 +60,12 @@ public class DiceHandler : MonoBehaviour
     {
         _elapsedRollTime = 0;
         _dice = dice;
-        _diceType = dice.DiceType;
+        //_diceType = dice.DiceType;
 
         Debug.Log($"Loading with {dice}");
         foreach (var slot in _slotHandlers)
         {
-            slot.SetDiceType(_diceType);
+            //slot.SetDiceType(_diceType);
             //slot.SetAsSans(false);
             slot.SetAsSans(true);
             _expandPositions.Add(slot.transform.localPosition);
@@ -88,8 +89,10 @@ public class DiceHandler : MonoBehaviour
         //}
 
         _activeFace = loadedFaces[0];
+        HideDice(true);
         RenderPresentationFace(_activeFace);
         SetDiceMode(DiceModes.Compact, true);
+
     }
 
     [ContextMenu("Roll Dice")]
@@ -154,8 +157,15 @@ public class DiceHandler : MonoBehaviour
 
     private void RenderPresentationFace(DiceFace faceToRender)
     {
-        _presentationFaceHandler.SetFace(faceToRender);
-        _presentationFaceHandler.SetBaseSortOrder(99);
+        if (_isHidden)
+        {
+
+        }
+        else
+        {
+            _presentationFaceHandler.SetFace(faceToRender);
+            _presentationFaceHandler.SetBaseSortOrder(99);
+        }
     }
 
     #region Show Hide
@@ -167,6 +177,7 @@ public class DiceHandler : MonoBehaviour
         {
             sr.DOFade(1, _fadeTime);
         }
+        _isHidden = false;
     }
 
     public void HideDice(bool isInstant)
@@ -177,6 +188,7 @@ public class DiceHandler : MonoBehaviour
         {
             sr.DOFade(0, fade);
         }
+        _isHidden = true;
     }
 
     #endregion
@@ -271,7 +283,7 @@ public class DiceHandler : MonoBehaviour
         _diceMode = DiceModes.Compact;
         foreach (var slot in _slotHandlers)
         {
-            slot.FaceHandlerInSlot.SetNewDiceMode(DiceModes.Compact);
+            slot.FaceHandlerInSlot?.SetNewDiceMode(DiceModes.Compact);
         }
     }
 

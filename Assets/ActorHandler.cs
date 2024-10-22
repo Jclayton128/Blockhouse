@@ -77,12 +77,10 @@ public class ActorHandler : MonoBehaviour
             case GameController.GameModes.WalkingToNextEncounter:
                 if (_iff.Allegiance == IFFHandler.Allegiances.Player)
                 {
-                    //Debug.Log("should be walking");
                     _actorMode = ActorModes.Walking;
                 }
                 else
                 {
-                    //do nothing, presumably this actor isn't part of the party and should be swept up
                     _actorMode = ActorModes.Idling;
                 }
                 break;
@@ -200,14 +198,28 @@ public class ActorHandler : MonoBehaviour
     private void OnMouseEnter()
     {
         if (GameController.Instance.GameMode == GameController.GameModes.Title) return;
-        ShowDice();
-        ActorHighlighted?.Invoke();
+
+        if (ActorMode == ActorModes.AwaitingTitleScreenSelection)
+        {
+            ExpandDice();
+            ShowDice();
+
+            ActorHighlighted?.Invoke();
+        }
+
     }  
 
     private void OnMouseExit()
     {
-        HideDice(false);
+        if (ActorMode == ActorModes.AwaitingTitleScreenSelection)
+        {
+            HideDice(false);
+            CompactDice();
+
+
         //ActorDehighlighted?.Invoke();
+        }
+
     }
 
     private void OnMouseUpAsButton()

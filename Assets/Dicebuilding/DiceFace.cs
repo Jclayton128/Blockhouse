@@ -6,16 +6,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Dice Face")]
 public class DiceFace : ScriptableObject
 {
-    public enum FaceTypes { Beast, Arcane, Hearth, Order, Nomad, Discord };
+    public enum FaceAlignment { Beast, Arcane, Hearth, Order, Nomad, Discord };
 
     [SerializeField] Sprite _faceSprite = null;
-    [SerializeField] Dice.DiceTypes _diceType = Dice.DiceTypes.Light;
-    [SerializeField] FaceTypes _faceType = FaceTypes.Beast;
+    [SerializeField] Dice.DiceSpeeds _diceSpeeds = Dice.DiceSpeeds.Light;
+    [SerializeField] FaceAlignment _faceType = FaceAlignment.Beast;
 
 
     public Sprite FaceSprite => _faceSprite;
-    public Dice.DiceTypes DiceType => _diceType;
-    public FaceTypes FaceType => _faceType;
+    public Dice.DiceSpeeds DiceSpeed => _diceSpeeds;
+    public FaceAlignment FaceType => _faceType;
 
     public enum DiceLevels {Basic, Good, Better, Best }
     [SerializeField] DiceLevels _diceLevel = DiceLevels.Basic;

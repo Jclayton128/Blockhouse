@@ -5,15 +5,15 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Dice")]
 public class Dice : ScriptableObject
 {
-    public enum DiceTypes { Light, Medium, Heavy }
+    public enum DiceSpeeds { Light, Medium, Heavy }
 
     //settings
     int _faceLimit = 6;
 
 
     //state
-    [SerializeField] DiceTypes _diceType = DiceTypes.Light;
-    public DiceTypes DiceType => _diceType;
+    [SerializeField] DiceSpeeds _diceType = DiceSpeeds.Light;
+    public DiceSpeeds DiceType => _diceType;
     [SerializeField] DiceFace[] _diceFaces = null;
 
 
@@ -23,7 +23,7 @@ public class Dice : ScriptableObject
     {
         foreach (var face in _diceFaces)
         {
-            if (face.DiceType != _diceType)
+            if (face.DiceSpeed != _diceType)
             {
                 Debug.LogWarning("Dice Type Mismatch!");
             }

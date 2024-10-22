@@ -11,13 +11,14 @@ public class SlotHandler : MonoBehaviour
     [SerializeField] FaceHandler _faceHandlerInSlot;
     public FaceHandler FaceHandlerInSlot => _faceHandlerInSlot;
 
-    [SerializeField] Dice.DiceTypes _slotType;
+    [SerializeField] Dice.DiceSpeeds _slotSpeed;
+    public Dice.DiceSpeeds SlotSpeed => _slotSpeed;
 
     public void SetAsSans(bool isSans)
     {
-        switch (_slotType)
+        switch (_slotSpeed)
         {
-            case Dice.DiceTypes.Light:
+            case Dice.DiceSpeeds.Light:
                 if (isSans)
                 {
                     GetComponent<SpriteRenderer>().sprite = DiceLibrary.Instance.VoidLightSans;
@@ -29,7 +30,7 @@ public class SlotHandler : MonoBehaviour
 
                 break;
 
-            case Dice.DiceTypes.Medium:
+            case Dice.DiceSpeeds.Medium:
                 if (isSans)
                 {
                     GetComponent<SpriteRenderer>().sprite = DiceLibrary.Instance.VoidMediumSans;
@@ -41,7 +42,7 @@ public class SlotHandler : MonoBehaviour
 
                 break;
 
-            case Dice.DiceTypes.Heavy:
+            case Dice.DiceSpeeds.Heavy:
                 if (isSans)
                 {
                     GetComponent<SpriteRenderer>().sprite = DiceLibrary.Instance.VoidHeavySans;
@@ -56,7 +57,7 @@ public class SlotHandler : MonoBehaviour
 
     }
 
-    public void SetDiceType(Dice.DiceTypes diceType)
+    public void SetDiceType(Dice.DiceSpeeds diceType)
     {
         //_slotType = diceType;
     }
@@ -74,7 +75,7 @@ public class SlotHandler : MonoBehaviour
 
     internal bool CheckDiceTypeAgainstSlotType(DiceFace diceFaceRepresented)
     {
-        if (diceFaceRepresented.DiceType == _slotType) return true;
+        if (diceFaceRepresented.DiceSpeed == _slotSpeed) return true;
         else return false;
     }
 }

@@ -15,7 +15,6 @@ public class FaceHandler : MonoBehaviour
 
     //state
     int _restingSortIndex;
-    DiceHandler _parentDiceHandler;
     DiceFace _diceFaceRepresented;
     SlotHandler _mostRecentSlotHandler;
 
@@ -35,10 +34,10 @@ public class FaceHandler : MonoBehaviour
         }
     }
 
-    public void SetDiceParent(DiceHandler parent)
-    {
-        _parentDiceHandler = parent;
-    }
+    //public void SetDiceParent(DiceHandler parent)
+    //{
+    //    _parentDiceHandler = parent;
+    //}
 
     public void SetInitialSlotHandler(SlotHandler sh)
     {
@@ -96,21 +95,21 @@ public class FaceHandler : MonoBehaviour
             _bandSR.color = Color.white;
             _edgeSR.color = Color.black;
             _fillSR.color = Color.gray;
-            switch (_parentDiceHandler.DiceType)
+            switch (_mostRecentSlotHandler.SlotSpeed)
             {
-                case Dice.DiceTypes.Light:
+                case Dice.DiceSpeeds.Light:
                     _fillSR.sprite = DiceLibrary.Instance.FillLight;
                     _bandSR.sprite = DiceLibrary.Instance.BandLight;
                     _edgeSR.sprite = DiceLibrary.Instance.EdgeLight;
                     break;
 
-                case Dice.DiceTypes.Medium:
+                case Dice.DiceSpeeds.Medium:
                     _fillSR.sprite = DiceLibrary.Instance.FillMedium;
                     _bandSR.sprite = DiceLibrary.Instance.BandMedium;
                     _edgeSR.sprite = DiceLibrary.Instance.EdgeMedium;
                     break;
 
-                case Dice.DiceTypes.Heavy:
+                case Dice.DiceSpeeds.Heavy:
                     _fillSR.sprite = DiceLibrary.Instance.FillHeavy;
                     _bandSR.sprite = DiceLibrary.Instance.BandHeavy;
                     _edgeSR.sprite = DiceLibrary.Instance.EdgeHeavy;
@@ -125,47 +124,47 @@ public class FaceHandler : MonoBehaviour
 
         switch (_diceFaceRepresented.FaceType)
         {
-            case DiceFace.FaceTypes.Beast:
+            case DiceFace.FaceAlignment.Beast:
                 _fillSR.color = DiceLibrary.Instance.ColorBeast;
                 break;
 
-            case DiceFace.FaceTypes.Discord:
+            case DiceFace.FaceAlignment.Discord:
                 _fillSR.color = DiceLibrary.Instance.ColorDiscord;
                 break;
 
-            case DiceFace.FaceTypes.Hearth:
+            case DiceFace.FaceAlignment.Hearth:
                 _fillSR.color = DiceLibrary.Instance.ColorHearth;
                 break;
 
-            case DiceFace.FaceTypes.Order:
+            case DiceFace.FaceAlignment.Order:
                 _fillSR.color = DiceLibrary.Instance.ColorOrder;
                 break;
 
-            case DiceFace.FaceTypes.Arcane:
+            case DiceFace.FaceAlignment.Arcane:
                 _fillSR.color = DiceLibrary.Instance.ColorArcane;
                 break;
 
-            case DiceFace.FaceTypes.Nomad:
+            case DiceFace.FaceAlignment.Nomad:
                 _fillSR.color = DiceLibrary.Instance.ColorNomad;
                 break;
 
         }
 
-        switch (_diceFaceRepresented.DiceType)
+        switch (_diceFaceRepresented.DiceSpeed)
         {
-            case Dice.DiceTypes.Light:
+            case Dice.DiceSpeeds.Light:
                 _edgeSR.sprite = DiceLibrary.Instance.EdgeLight;
                 _bandSR.sprite = DiceLibrary.Instance.BandLight;
                 _fillSR.sprite = DiceLibrary.Instance.FillLight;
                 break;
 
-            case Dice.DiceTypes.Medium:
+            case Dice.DiceSpeeds.Medium:
                 _edgeSR.sprite = DiceLibrary.Instance.EdgeMedium;
                 _bandSR.sprite = DiceLibrary.Instance.BandMedium;
                 _fillSR.sprite = DiceLibrary.Instance.FillMedium;
                 break;
 
-            case Dice.DiceTypes.Heavy:
+            case Dice.DiceSpeeds.Heavy:
                 _edgeSR.sprite = DiceLibrary.Instance.EdgeHeavy;
                 _bandSR.sprite = DiceLibrary.Instance.BandHeavy;
                 _fillSR.sprite = DiceLibrary.Instance.FillHeavy;
