@@ -42,24 +42,28 @@ public class EncounterController : MonoBehaviour
             _timeOfNextCheck = Time.time + _timeBetweenChecks;
         }
     }
+    public void AdvanceEncounter()
+    {
+        if (GameController.Instance.GameMode == GameController.GameModes.EncounterIntro)
+        {
+            GameController.Instance.SetGameMode(GameController.GameModes.EncounterInspection);
+        }
+        else if (GameController.Instance.GameMode == GameController.GameModes.EncounterInspection)
+        {
+
+            GameController.Instance.SetGameMode(GameController.GameModes.EncounterActionSelection);
+        }
+    }
+
+    #region Flow
 
     private void Update()
     {
         UpdateCheckForNextEncounter();
-        ListenForClickToContinueAtEncounterIntro();
     }
 
-    private void ListenForClickToContinueAtEncounterIntro()
-    {
-        if (GameController.Instance.GameMode == GameController.GameModes.EncounterIntro)
-        {
-            if (Input.GetKeyUp(KeyCode.Mouse0))
-            {
-                GameController.Instance.SetGameMode(GameController.GameModes.EncounterActionSelection);
-            }
-        }
-    }
-
+   
+    
     private void UpdateCheckForNextEncounter()
     {
         if (GameController.Instance.GameMode != GameController.GameModes.WalkingToNextEncounter) return;
@@ -112,4 +116,6 @@ public class EncounterController : MonoBehaviour
             count++;
         }
     }
+
+    #endregion
 }

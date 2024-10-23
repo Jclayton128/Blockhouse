@@ -40,10 +40,13 @@ public class ActorController : MonoBehaviour
                 ActorController.Instance.StopParty();
                 break;
 
-            case GameController.GameModes.EncounterActionSelection:
+            case GameController.GameModes.EncounterInspection:
                 //StopParty();
                 ShowPartyDice();
-                //ShowEncounterDice();
+                ShowEncounterDice();                
+                break;
+
+            case GameController.GameModes.EncounterActionSelection:
                 Invoke(nameof(Delay_ModeChangedToEncounterActionSelectionMode), 1f);
                 break;
         }
@@ -116,14 +119,6 @@ public class ActorController : MonoBehaviour
             actor.SetActorMode(ActorHandler.ActorModes.Idling);
             //actor.GetComponent<MovementHandler>().SetDestination(999f);      
         }
-
-        //_party[0].GetComponent<MovementHandler>().SetDestination(dist_0);
-
-        //if (_party.Count < 2) return;
-        //_party[1].GetComponent<MovementHandler>().SetDestination(dist_1);
-
-        //if (_party.Count < 3) return;
-        //_party[2].GetComponent<MovementHandler>().SetDestination(dist_2);
     }
 
     public void ShowPartyDice()
@@ -144,7 +139,24 @@ public class ActorController : MonoBehaviour
         }
     }
 
+    public void CompactPartyDice()
+    {
+        foreach (var actor in _party)
+        {
+            actor.CompactDice();
+        }
+    }
 
+    public void CompactHideAllPartyDiceExceptThis(ActorHandler actorToIgnore)
+    {
+        foreach (var actor in _party)
+        {
+            if (actor == actorToIgnore) continue;
+
+            actor.HideDice(false);
+            actor.CompactDice();
+        }
+    }
 
     #endregion
 
@@ -162,6 +174,31 @@ public class ActorController : MonoBehaviour
         }
     }
 
+    public void HideEncounterDice()
+    {
+        ActorHandler ah;
+        foreach (var thing in _encounter)
+        {
+            if (thing.TryGetComponent<ActorHandler>(out ah))
+            {
+                ah.HideDice(false);
+            }
+        }
+    }
+
+    public void CompactEncounterDice()
+    {
+        ActorHandler ah;
+        foreach (var thing in _encounter)
+        {
+            if (thing.TryGetComponent<ActorHandler>(out ah))
+            {
+                ah.CompactDice();
+            }
+        }
+    }
+
+
     public void RollEncounterDice()
     {
         ActorHandler ah;
@@ -170,6 +207,23 @@ public class ActorController : MonoBehaviour
             if (thing.TryGetComponent<ActorHandler>(out ah))
             {
                 ah.RollDice();
+            }
+        }
+    }
+
+    public void CompactHideAllEncounterDiceExceptThis(ActorHandler actorToIgnore)
+    {
+        ActorHandler ah;
+        foreach (var thing in _encounter)
+        {
+            if (thing.TryGetComponent<ActorHandler>(out ah) && ah == actorToIgnore)
+            {
+                continue;
+            }
+            else
+            {
+                ah.HideDice(false);
+                ah.CompactDice();
             }
         }
     }

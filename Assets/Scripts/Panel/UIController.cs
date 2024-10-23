@@ -16,6 +16,7 @@ public class UIController : MonoBehaviour
     [SerializeField] PanelDriver[] _introPanel = null;
     [SerializeField] PanelDriver[] _titlePanel = null;
     [SerializeField] PanelDriver[] _encounterIntroPanel = null;
+    [SerializeField] PanelDriver[] _encounterInspectPanel = null;
     [SerializeField] PanelDriver[] _optionsPanel = null;
 
     [SerializeField] Image _blackoutImage = null;
@@ -44,6 +45,7 @@ public class UIController : MonoBehaviour
         foreach (var panel in _introPanel) panel?.InitializePanel(this);
         foreach (var panel in _titlePanel) panel?.InitializePanel(this);
         foreach (var panel in _encounterIntroPanel) panel?.InitializePanel(this);
+        foreach (var panel in _encounterInspectPanel) panel?.InitializePanel(this);
         foreach (var panel in _optionsPanel) panel?.InitializePanel(this);
 
         GameController.Instance.GameModeChanged += HandleGameModeChanged;
@@ -65,6 +67,16 @@ public class UIController : MonoBehaviour
                 foreach (var panel in _introPanel) panel?.RestPanel(false);
                 foreach (var panel in _titlePanel) panel?.RestPanel(false);
                 foreach (var panel in _optionsPanel) panel?.RestPanel(false);
+                foreach (var panel in _encounterInspectPanel) panel?.RestPanel(false);
+                break;
+
+            case GameController.GameModes.EncounterInspection:
+                foreach (var panel in _encounterInspectPanel) panel?.ActivatePanel(false);
+
+                foreach (var panel in _encounterIntroPanel) panel?.RestPanel(false);
+                foreach (var panel in _introPanel) panel?.RestPanel(false);
+                foreach (var panel in _titlePanel) panel?.RestPanel(false);
+                foreach (var panel in _optionsPanel) panel?.RestPanel(false);
                 break;
 
             case GameController.GameModes.EncounterActionSelection:
@@ -73,6 +85,7 @@ public class UIController : MonoBehaviour
                 foreach (var panel in _introPanel) panel?.RestPanel(false);
                 foreach (var panel in _titlePanel) panel?.RestPanel(false);
                 foreach (var panel in _optionsPanel) panel?.RestPanel(false);
+                foreach (var panel in _encounterInspectPanel) panel?.RestPanel(false);
                 break;
         }
     }

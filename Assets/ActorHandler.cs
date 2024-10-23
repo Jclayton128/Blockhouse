@@ -146,7 +146,7 @@ public class ActorHandler : MonoBehaviour
     [ContextMenu("Hide Dice")]
     public void HideDice(bool isInstant)
     {
-        if (!isInstant && _areDiceExpanded) CompactDice();
+        //if (!isInstant && _areDiceExpanded) CompactDice();
 
         foreach (var handler in _diceHandlers)
         {
@@ -199,7 +199,8 @@ public class ActorHandler : MonoBehaviour
     {
         if (GameController.Instance.GameMode == GameController.GameModes.Title) return;
 
-        if (ActorMode == ActorModes.AwaitingTitleScreenSelection)
+
+        if (_actorMode == ActorModes.AwaitingTitleScreenSelection)
         {
             ExpandDice();
             ShowDice();
@@ -211,7 +212,7 @@ public class ActorHandler : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if (ActorMode == ActorModes.AwaitingTitleScreenSelection)
+        if (_actorMode == ActorModes.AwaitingTitleScreenSelection)
         {
             HideDice(false);
             CompactDice();
@@ -234,14 +235,21 @@ public class ActorHandler : MonoBehaviour
             return;
         }
 
-        if (_actorMode == ActorModes.Walking ||
-            _actorMode == ActorModes.Idling)
+        if (GameController.Instance.GameMode == GameController.GameModes.EncounterInspection)
         {
             _areDiceExpanded = !_areDiceExpanded;
-            if (_areDiceExpanded) ExpandDice();
-            else CompactDice();
-
-
+            if (_areDiceExpanded)
+            {
+                ExpandDice();
+                ActorController.Instance.CompactHideAllPartyDiceExceptThis(this);
+                ActorController.Instance.CompactHideAllEncounterDiceExceptThis(this);
+            }
+            else
+            {                
+                CompactDice();
+                ActorController.Instance.ShowEncounterDice();
+                ActorController.Instance.ShowPartyDice();
+            }
         }
     }
 

@@ -44,7 +44,7 @@ public class DiceHandler : MonoBehaviour
     Tween[] _reserveMoveTweens = new Tween[6];
     ActorHandler _owningActor;
     List<Vector3> _expandPositions = new List<Vector3>();
-    bool _isHidden = false;
+    [SerializeField] bool _isHidden = false;
 
     private void Start()
     {
@@ -89,7 +89,7 @@ public class DiceHandler : MonoBehaviour
         //}
 
         _activeFace = loadedFaces[0];
-        HideDice(true);
+        //HideDice(true);
         RenderPresentationFace(_activeFace);
         SetDiceMode(DiceModes.Compact, true);
 
@@ -159,10 +159,11 @@ public class DiceHandler : MonoBehaviour
     {
         if (_isHidden)
         {
-
+            //_presentationFaceHandler.gameObject.SetActive(false);   
         }
         else
         {
+            //_presentationFaceHandler.gameObject.SetActive(true);
             _presentationFaceHandler.SetFace(faceToRender);
             _presentationFaceHandler.SetBaseSortOrder(99);
         }
