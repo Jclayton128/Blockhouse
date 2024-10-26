@@ -159,7 +159,8 @@ public class DiceHandler : MonoBehaviour
     {
         if (_isHidden)
         {
-            //_presentationFaceHandler.gameObject.SetActive(false);   
+           //_presentationFaceHandler.gameObject.SetActive(false);   
+
         }
         else
         {
@@ -274,7 +275,7 @@ public class DiceHandler : MonoBehaviour
 
     private void HandleCompactCompleted()
     {
-        _presentationFaceHandler.gameObject.SetActive(true);
+
         _activeFace = _slotHandlers[0].DiceFaceInSlot;
         RenderPresentationFace(_activeFace);
         foreach (var slot in _slotHandlers)

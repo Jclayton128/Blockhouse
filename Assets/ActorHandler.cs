@@ -240,15 +240,15 @@ public class ActorHandler : MonoBehaviour
             _areDiceExpanded = !_areDiceExpanded;
             if (_areDiceExpanded)
             {
-                //ExpandDice();
-                //ShowDice();
+
                 Invoke(nameof(Delay_HandleInspectClick), 0.4f);
                 ActorController.Instance.CompactHideAllPartyDiceExceptThis(this);
                 ActorController.Instance.CompactHideAllEncounterDiceExceptThis(this);
             }
             else
             {
-                Invoke(nameof(Delay_HandleInspectClick), 0.4f);
+                UIController.Instance.HideInspectionPanels();
+                //Invoke(nameof(Delay_HandleInspectClick), 0.4f);
                 CompactDice();
             }
         }
@@ -256,16 +256,21 @@ public class ActorHandler : MonoBehaviour
 
     private void Delay_HandleInspectClick()
     {
-        if (_areDiceExpanded)
-        {
-            ExpandDice();
-            ShowDice();
-        }
-        else
-        {
-            ActorController.Instance.ShowEncounterDice();
-            ActorController.Instance.ShowPartyDice();
-        }
+        UIController.Instance.ShowInspectionPanels();
+        ExpandDice();
+        ShowDice();
+
+        //if (_areDiceExpanded)
+        //{
+        //    ExpandDice();
+        //    ShowDice();
+
+        //}
+        //else
+        //{
+        //    ActorController.Instance.ShowEncounterDice();
+        //    ActorController.Instance.ShowPartyDice();
+        //}
     }
 
     #endregion

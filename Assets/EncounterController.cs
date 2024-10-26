@@ -111,7 +111,7 @@ public class EncounterController : MonoBehaviour
                 _encounterOffset + new Vector3(_xOffsets_Encounter[count], 0, 0),
                 IFFHandler.Allegiances.Enemy);
 
-            ah.Initialize(IFFHandler.Allegiances.Enemy);
+            //ah.Initialize(IFFHandler.Allegiances.Enemy);
 
             count++;
         }

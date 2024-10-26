@@ -18,6 +18,7 @@ public class UIController : MonoBehaviour
     [SerializeField] PanelDriver[] _encounterIntroPanel = null;
     [SerializeField] PanelDriver[] _encounterInspectPanel = null;
     [SerializeField] PanelDriver[] _optionsPanel = null;
+    [SerializeField] PanelDriver[] _inspectionPanels = null;
 
     [SerializeField] Image _blackoutImage = null;
     [SerializeField] Image _whiteoutImage = null;
@@ -47,6 +48,7 @@ public class UIController : MonoBehaviour
         foreach (var panel in _encounterIntroPanel) panel?.InitializePanel(this);
         foreach (var panel in _encounterInspectPanel) panel?.InitializePanel(this);
         foreach (var panel in _optionsPanel) panel?.InitializePanel(this);
+        foreach (var panel in _inspectionPanels) panel?.InitializePanel(this);
 
         GameController.Instance.GameModeChanged += HandleGameModeChanged;
     }
@@ -63,7 +65,6 @@ public class UIController : MonoBehaviour
         {
             case GameController.GameModes.EncounterIntro:
                 foreach (var panel in _encounterIntroPanel) panel?.ActivatePanel(false);
-
                 foreach (var panel in _introPanel) panel?.RestPanel(false);
                 foreach (var panel in _titlePanel) panel?.RestPanel(false);
                 foreach (var panel in _optionsPanel) panel?.RestPanel(false);
@@ -112,6 +113,20 @@ public class UIController : MonoBehaviour
             IsUIActivelyTweening = true;
         }       
     }
+
+    #region Inspection Panels
+
+    public void ShowInspectionPanels()
+    {
+        foreach (var panel in _inspectionPanels) panel?.ActivatePanel(false);
+    }
+
+    public void HideInspectionPanels()
+    {
+        foreach (var panel in _inspectionPanels) panel?.RestPanel(false);
+    }
+
+    #endregion  
 
     #region Fades
 
