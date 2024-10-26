@@ -33,11 +33,12 @@ public class ActorController : MonoBehaviour
         switch (gameMode)
         {
             case GameController.GameModes.WalkingToNextEncounter:
-                ActorController.Instance.WalkParty();
+                WalkParty();
+                CompactPartyDice();
                 break;
 
             case GameController.GameModes.EncounterIntro:
-                ActorController.Instance.StopParty();
+                StopParty();
                 break;
 
             case GameController.GameModes.EncounterInspection:

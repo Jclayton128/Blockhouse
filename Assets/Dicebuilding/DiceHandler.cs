@@ -70,7 +70,7 @@ public class DiceHandler : MonoBehaviour
             slot.SetAsSans(true);
             _expandPositions.Add(slot.transform.localPosition);
         }
-        _slotHandlers[0].SetAsSans(true);
+        //_slotHandlers[0].SetAsSans(true);
 
 
         DiceFace[] loadedFaces = _dice.GetFaces();

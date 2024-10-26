@@ -226,7 +226,6 @@ public class FaceHandler : MonoBehaviour
 
     private void OnMouseExit()
     {
-
         _scaleTween.Kill();
         _scaleTween = transform.DOScale(Vector3.one, _scaleTime);
     }

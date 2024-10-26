@@ -240,16 +240,31 @@ public class ActorHandler : MonoBehaviour
             _areDiceExpanded = !_areDiceExpanded;
             if (_areDiceExpanded)
             {
-                ExpandDice();
+                //ExpandDice();
+                //ShowDice();
+                Invoke(nameof(Delay_HandleInspectClick), 0.4f);
                 ActorController.Instance.CompactHideAllPartyDiceExceptThis(this);
                 ActorController.Instance.CompactHideAllEncounterDiceExceptThis(this);
             }
             else
-            {                
+            {
+                Invoke(nameof(Delay_HandleInspectClick), 0.4f);
                 CompactDice();
-                ActorController.Instance.ShowEncounterDice();
-                ActorController.Instance.ShowPartyDice();
             }
+        }
+    }
+
+    private void Delay_HandleInspectClick()
+    {
+        if (_areDiceExpanded)
+        {
+            ExpandDice();
+            ShowDice();
+        }
+        else
+        {
+            ActorController.Instance.ShowEncounterDice();
+            ActorController.Instance.ShowPartyDice();
         }
     }
 

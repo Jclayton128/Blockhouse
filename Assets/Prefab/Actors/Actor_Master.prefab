@@ -320,6 +320,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -3.45
       objectReference: {fileID: 0}
+    - target: {fileID: 3429014124443752672, guid: 780f91044b5532c448d41c2a6972f489, type: 3}
+      propertyPath: _expandTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6197376240827230248, guid: 780f91044b5532c448d41c2a6972f489, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.5
