@@ -223,25 +223,8 @@ public class DiceHandler : MonoBehaviour
             slot.gameObject.SetActive(true);
         }
 
-        //List<DiceFace> reserveFaces = new List<DiceFace>();
+        ModifyExpandPositionBasedOnParentPosition();
 
-        //foreach (var face in _loadedFaces)
-        //{
-        //    if (face == _activeFace) continue;
-        //    else
-        //    {
-        //        reserveFaces.Add(face);
-        //    }
-        //}
-
-        //int breaker = 9;
-        //while (reserveFaces.Count < _slotHandlers.Length)
-        //{
-        //    reserveFaces.Add(null);
-        //    breaker--;
-        //    if (breaker == 0) break;
-        //}
-        
         for (int i = 0; i < _slotHandlers.Length; i++)
         {
             //_reserveFaceHandlers[i].SetFace(reserveFaces[i]);
@@ -249,6 +232,89 @@ public class DiceHandler : MonoBehaviour
             _reserveMoveTweens[i] = _slotHandlers[i].transform.DOLocalMove(
                 _expandPositions[i], time).
                 SetEase(Ease.OutBack).OnComplete(HandleExpandCompleted);
+        }
+    }
+
+    private void ModifyExpandPositionBasedOnParentPosition()
+    {
+        if (transform.root.transform.position.x <= -10.5f)
+        {
+            _expandPositions[0] = new Vector3(0, 0, 0);
+            _expandPositions[1] = new Vector3(3.5f, 0, 0);
+            _expandPositions[2] = new Vector3(7.0f, 0, 0);
+            _expandPositions[3] = new Vector3(10.5f, 0, 0);
+            _expandPositions[4] = new Vector3(14f, 0, 0);
+            _expandPositions[5] = new Vector3(17.5f, 0, 0);
+        }
+        else if (transform.root.transform.position.x <= -7.0f)
+        {
+            _expandPositions[5] = new Vector3(-3.5f, 0, 0);
+            _expandPositions[0] = new Vector3(0, 0, 0);
+            _expandPositions[1] = new Vector3(3.5f, 0, 0);
+            _expandPositions[2] = new Vector3(7.0f, 0, 0);
+            _expandPositions[3] = new Vector3(10.5f, 0, 0);
+            _expandPositions[4] = new Vector3(14f, 0, 0);
+
+        }
+        else if (transform.root.transform.position.x <= -3.5f)
+        {
+            _expandPositions[5] = new Vector3(-3.5f, 0, 0);
+            _expandPositions[0] = new Vector3(0, 0, 0);
+            _expandPositions[1] = new Vector3(3.5f, 0, 0);
+            _expandPositions[2] = new Vector3(7.0f, 0, 0);
+            _expandPositions[3] = new Vector3(10.5f, 0, 0);
+            _expandPositions[4] = new Vector3(14f, 0, 0);
+
+            //_expandPositions[5] = new Vector3(-7.0f, 0, 0);
+            //_expandPositions[4] = new Vector3(-3.5f, 0, 0);
+            //_expandPositions[0] = new Vector3(0, 0, 0);
+            //_expandPositions[1] = new Vector3(3.5f, 0, 0);
+            //_expandPositions[2] = new Vector3(7.0f, 0, 0);
+            //_expandPositions[3] = new Vector3(10.5f, 0, 0);
+
+        }
+        else if (Mathf.Abs(transform.root.transform.position.x) <= Mathf.Epsilon)
+        {
+            _expandPositions[5] = new Vector3(-7.0f, 0, 0);
+            _expandPositions[4] = new Vector3(-3.5f, 0, 0);
+            _expandPositions[0] = new Vector3(0, 0, 0);
+            _expandPositions[1] = new Vector3(3.5f, 0, 0);
+            _expandPositions[2] = new Vector3(7.0f, 0, 0);
+            _expandPositions[3] = new Vector3(10.5f, 0, 0);
+
+            //_expandPositions[5] = new Vector3(-10.5f, 0, 0);
+            //_expandPositions[4] = new Vector3(-7.0f, 0, 0);
+            //_expandPositions[3] = new Vector3(-3.5f, 0, 0);
+            //_expandPositions[0] = new Vector3(0, 0, 0);
+            //_expandPositions[1] = new Vector3(3.5f, 0, 0);
+            //_expandPositions[2] = new Vector3(7.0f, 0, 0);
+        }
+        else if (transform.root.transform.position.x >= 10.4f)
+        {
+            _expandPositions[5] = new Vector3(-17.5f, 0, 0);
+            _expandPositions[4] = new Vector3(-14.0f, 0, 0);
+            _expandPositions[3] = new Vector3(-10.5f, 0, 0);
+            _expandPositions[2] = new Vector3(-7.0f, 0, 0);
+            _expandPositions[1] = new Vector3(-3.5f, 0, 0);
+            _expandPositions[0] = new Vector3(0, 0, 0);
+        }
+        else if (transform.root.transform.position.x >= 7.0f)
+        {
+            _expandPositions[5] = new Vector3(-13.5f, 0, 0);
+            _expandPositions[4] = new Vector3(-10.5f, 0, 0);
+            _expandPositions[3] = new Vector3(-7.0f, 0, 0);
+            _expandPositions[2] = new Vector3(-3.5f, 0, 0);
+            _expandPositions[0] = new Vector3(0, 0, 0);
+            _expandPositions[1] = new Vector3(3.5f, 0, 0);
+        }
+        else if (transform.root.transform.position.x >= 3.5f)
+        {
+            _expandPositions[5] = new Vector3(-10.5f, 0, 0);
+            _expandPositions[4] = new Vector3(-7.0f, 0, 0);
+            _expandPositions[3] = new Vector3(-3.5f, 0, 0);
+            _expandPositions[0] = new Vector3(0, 0, 0);
+            _expandPositions[1] = new Vector3(3.5f, 0, 0);
+            _expandPositions[2] = new Vector3(7.0f, 0, 0);
         }
     }
 
