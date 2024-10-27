@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16949cc3f09bca64fb641f13be1f80cd, type: 3}
-  m_Name: Test_2
+  m_Name: Cleric
   m_EditorClassIdentifier: 
-  _diceType: 2
   _diceFaces:
+  - {fileID: 11400000, guid: 7eb8eda8dd754bd46a03884df877c70c, type: 2}
+  - {fileID: 11400000, guid: 7eb8eda8dd754bd46a03884df877c70c, type: 2}
+  - {fileID: 11400000, guid: 46ec1980f7477484da52316a3e607d9f, type: 2}
+  - {fileID: 11400000, guid: 46ec1980f7477484da52316a3e607d9f, type: 2}
   - {fileID: 11400000, guid: 4ee2b4569d74aac4f87e375375c035e4, type: 2}
-  - {fileID: 11400000, guid: a6a443cd5118a96449ec7884a9ba669f, type: 2}
-  - {fileID: 11400000, guid: 5095d3ab4893d3e49a380bf9a968bab6, type: 2}
   - {fileID: 11400000, guid: 4ee2b4569d74aac4f87e375375c035e4, type: 2}
-  - {fileID: 11400000, guid: a6a443cd5118a96449ec7884a9ba669f, type: 2}
-  - {fileID: 11400000, guid: 5095d3ab4893d3e49a380bf9a968bab6, type: 2}

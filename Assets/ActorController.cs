@@ -6,8 +6,11 @@ using DG.Tweening;
 
 public class ActorController : MonoBehaviour
 {
-    public static ActorController Instance { get; private set; }   
-    
+    public static ActorController Instance { get; private set; }
+    public Action PartyModified;
+
+    //settings
+    [SerializeField] float[] _xOffsets_Player = { -6f, -9.5f, -13f };
 
     //state
     //Dictionary<ActorLibrary.ActorTypes, List<GameObject>> _currentActors = new Dictionary<ActorLibrary.ActorTypes, List<GameObject>>();
@@ -15,6 +18,7 @@ public class ActorController : MonoBehaviour
 
     [SerializeField] List<ActorHandler> _party = new List<ActorHandler>();
     public ActorHandler PartyLead => _party[0];
+    public List<ActorHandler> Party => _party;
     [SerializeField] List<GameObject> _encounter = new List<GameObject>();
     public List<GameObject> EncounterThing => _encounter;
 
@@ -86,21 +90,57 @@ public class ActorController : MonoBehaviour
         return ah;
     }
 
+
     public void SelectCharacter(ActorHandler character)
     {
-        AddActorToParty(character);
+        if (_party.Contains(character))
+        {
+            RemoveActorFromParty(character);
+        }
+        else
+        {
+            AddActorToParty(character);
+        }
+
+
+        if (_party.Count == 3)
+        {
+            // Display "click to start" panel
+
+
+        }
+    }
+
+
+    [ContextMenu("click to start")]
+
+    public void HandleClickToStart()
+    {
         GameController.Instance.SetGameMode(GameController.GameModes.WalkingToNextEncounter);
 
-        character.transform.DOMove(Vector3.zero, 3f);
+        for (int i = 0; i < _party.Count; i++)
+        {
+            _party[i].transform.DOMove(new Vector3(_xOffsets_Player[i], 0, 0), 3f);
+        }
+
         CameraController.Instance.EngageCameraMouse(Vector3.zero, 3f);
     }
+
+
 
     public void AddActorToParty(ActorHandler actor)
     {
         _party.Add(actor);
         _encounter.Remove(actor.gameObject);
+        PartyModified?.Invoke();
     }
 
+    public void RemoveActorFromParty(ActorHandler actor)
+    {
+        _party.Remove(actor);
+        _encounter.Add(actor.gameObject);
+        PartyModified?.Invoke();
+    }
     
 
     #region Party Actions
@@ -230,6 +270,13 @@ public class ActorController : MonoBehaviour
             }
         }
     }
+
+
+    public void SweepObject(GameObject objectToSweep)
+    {
+        _encounter.Remove(objectToSweep);
+        Destroy(objectToSweep);
+    } 
 
     #endregion
 

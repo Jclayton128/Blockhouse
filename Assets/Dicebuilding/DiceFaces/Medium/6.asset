@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: 6
   m_EditorClassIdentifier: 
   _faceSprite: {fileID: 1130622466, guid: 1be739bcce75b4b4e87987ca4f974606, type: 3}
-  _diceType: 1
+  _diceSpeeds: 1
   _faceType: 5
   _diceLevel: 2

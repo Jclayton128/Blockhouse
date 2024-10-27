@@ -22,8 +22,10 @@ public class ActorAnimationHandler : MonoBehaviour
         _ah.ActorModeChanged += HandleActorModeChanged;
         _ah.ActorHighlighted += HandleActorHighlighted;
         _ah.ActorDehighlighted += HandleActorDehighlighted;
+        _ah.ActorSelected += HandleActorSelected;
         _pos = transform.position + LayerLibrary.GetNextVisualLayer();
     }
+
 
     private void HandleActorModeChanged(ActorHandler.ActorModes newMode)
     {
@@ -36,8 +38,6 @@ public class ActorAnimationHandler : MonoBehaviour
             case ActorHandler.ActorModes.Walking:
                 TriggerWalking();
                 break;
-
-
         }
     }
 
@@ -52,12 +52,21 @@ public class ActorAnimationHandler : MonoBehaviour
     }
 
 
+    private void HandleActorSelected()
+    {
+        TriggerCheerLoop();
+    }
 
     #region Basic Animations
 
     public void TriggerCheer()
     {
         _anim.SetTrigger("TriggerCheer");
+    }
+    
+    public void TriggerCheerLoop()
+    {
+        _anim.SetTrigger("TriggerCheerLoop");
     }
 
     public void TriggerIdle()

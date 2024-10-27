@@ -14,7 +14,7 @@ public class UIController : MonoBehaviour
     public Action FadeToWhiteCompleted;
 
     [SerializeField] PanelDriver[] _introPanel = null;
-    [SerializeField] PanelDriver[] _titlePanel = null;
+    [SerializeField] PanelDriver[] _heroSelectPanel = null;
     [SerializeField] PanelDriver[] _encounterIntroPanel = null;
     [SerializeField] PanelDriver[] _encounterInspectPanel = null;
     [SerializeField] PanelDriver[] _optionsPanel = null;
@@ -44,7 +44,7 @@ public class UIController : MonoBehaviour
     private void Start()
     {
         foreach (var panel in _introPanel) panel?.InitializePanel(this);
-        foreach (var panel in _titlePanel) panel?.InitializePanel(this);
+        foreach (var panel in _heroSelectPanel) panel?.InitializePanel(this);
         foreach (var panel in _encounterIntroPanel) panel?.InitializePanel(this);
         foreach (var panel in _encounterInspectPanel) panel?.InitializePanel(this);
         foreach (var panel in _optionsPanel) panel?.InitializePanel(this);
@@ -63,10 +63,29 @@ public class UIController : MonoBehaviour
     {
         switch (newGameMode)
         {
+            case GameController.GameModes.HeroSelect:
+                foreach (var panel in _heroSelectPanel) panel?.ActivatePanel(false);
+
+                foreach (var panel in _encounterIntroPanel) panel?.RestPanel(false);
+                foreach (var panel in _introPanel) panel?.RestPanel(false);
+                foreach (var panel in _optionsPanel) panel?.RestPanel(false);
+                foreach (var panel in _encounterInspectPanel) panel?.RestPanel(false);
+                break;
+
+            case GameController.GameModes.WalkingToNextEncounter:
+
+                foreach (var panel in _heroSelectPanel) panel?.RestPanel(false);
+                foreach (var panel in _encounterIntroPanel) panel?.RestPanel(false);
+                foreach (var panel in _introPanel) panel?.RestPanel(false);
+                foreach (var panel in _optionsPanel) panel?.RestPanel(false);
+                foreach (var panel in _encounterInspectPanel) panel?.RestPanel(false);
+                break;
+
             case GameController.GameModes.EncounterIntro:
                 foreach (var panel in _encounterIntroPanel) panel?.ActivatePanel(false);
+
                 foreach (var panel in _introPanel) panel?.RestPanel(false);
-                foreach (var panel in _titlePanel) panel?.RestPanel(false);
+                foreach (var panel in _heroSelectPanel) panel?.RestPanel(false);
                 foreach (var panel in _optionsPanel) panel?.RestPanel(false);
                 foreach (var panel in _encounterInspectPanel) panel?.RestPanel(false);
                 break;
@@ -76,7 +95,7 @@ public class UIController : MonoBehaviour
 
                 foreach (var panel in _encounterIntroPanel) panel?.RestPanel(false);
                 foreach (var panel in _introPanel) panel?.RestPanel(false);
-                foreach (var panel in _titlePanel) panel?.RestPanel(false);
+                foreach (var panel in _heroSelectPanel) panel?.RestPanel(false);
                 foreach (var panel in _optionsPanel) panel?.RestPanel(false);
                 break;
 
@@ -84,7 +103,7 @@ public class UIController : MonoBehaviour
 
                 foreach (var panel in _encounterIntroPanel) panel?.RestPanel(false);
                 foreach (var panel in _introPanel) panel?.RestPanel(false);
-                foreach (var panel in _titlePanel) panel?.RestPanel(false);
+                foreach (var panel in _heroSelectPanel) panel?.RestPanel(false);
                 foreach (var panel in _optionsPanel) panel?.RestPanel(false);
                 foreach (var panel in _encounterInspectPanel) panel?.RestPanel(false);
                 break;

@@ -11,6 +11,7 @@ public class ActorHandler : MonoBehaviour
 {
     public Action ActorHighlighted;
     public Action ActorDehighlighted;
+    public Action ActorSelected;
     public Action<ActorModes> ActorModeChanged;
     public enum ActorModes { Idling, Acting, Walking, AwaitingTitleScreenSelection}
 
@@ -227,11 +228,20 @@ public class ActorHandler : MonoBehaviour
     {
         if (_actorMode == ActorModes.AwaitingTitleScreenSelection)
         {
-            //Select this as player char
-            //Debug.Log("Selected this player", this);
-            HideDice(false);
-            _iff.SetAllegiance(IFFHandler.Allegiances.Player);
+            //HideDice(false);
             ActorController.Instance.SelectCharacter(this);
+            if (ActorController.Instance.Party.Contains(this))
+            {
+                ActorSelected?.Invoke();
+                _iff.SetAllegiance(IFFHandler.Allegiances.Player);
+            }
+            else
+            {
+                ActorDehighlighted?.Invoke();
+                _iff.SetAllegiance(IFFHandler.Allegiances.Undefined);
+            }
+
+
             return;
         }
 

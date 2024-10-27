@@ -12,8 +12,6 @@ public class Dice : ScriptableObject
 
 
     //state
-    [SerializeField] DiceSpeeds _diceType = DiceSpeeds.Light;
-    public DiceSpeeds DiceType => _diceType;
     [SerializeField] DiceFace[] _diceFaces = null;
 
 
@@ -21,16 +19,6 @@ public class Dice : ScriptableObject
     //Validates the dice and then returns it if valid, else Null;
     public DiceFace[] GetFaces()
     {
-        foreach (var face in _diceFaces)
-        {
-            if (face.DiceSpeed != _diceType)
-            {
-                Debug.LogWarning("Dice Type Mismatch!");
-            }
-        }
-
-
-
         if (_diceFaces.Length == 0)
         {
             Debug.LogWarning("Dice has no faces on it!");

@@ -29,6 +29,11 @@ public class GameController : MonoBehaviour
         {
             ActorHandler ah = ActorController.Instance.SpawnActor(_startingCharacters[i], _characterStartingPosition[i], IFFHandler.Allegiances.Undefined);
         }
+        Invoke(nameof(Delay_Start), 0.01f);
+    }
+
+    private void Delay_Start()
+    {
         SetGameMode(GameModes.HeroSelect);
     }
 

@@ -19,7 +19,6 @@ public class EncounterController : MonoBehaviour
     [SerializeField] Vector3 _encounterOffset = new Vector3(13, 0, 0);
     //[SerializeField] float _additionalWalkDistance = 10f;
     [SerializeField] float[] _xOffsets_Encounter = { 2.5f, 6f, 9.5f, 13f };
-    [SerializeField] float[] _xOffsets_Player = { -6f, -9.5f, -13f };
 
     //state 
     [SerializeField] float _timeOfNextCheck = 0;
@@ -118,4 +117,5 @@ public class EncounterController : MonoBehaviour
     }
 
     #endregion
+
 }
