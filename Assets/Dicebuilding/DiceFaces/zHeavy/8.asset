@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4210d28e34776d9428ebe7f6639d20b3, type: 3}
   m_Name: 8
   m_EditorClassIdentifier: 
+  _faceName: Crashing Blow
+  _diceLevel: 2
   _faceSprite: {fileID: -1526343623, guid: f5d99e1e25a05bf44833ecc30277def5, type: 3}
   _diceSpeeds: 2
   _faceType: 1
-  _diceLevel: 2

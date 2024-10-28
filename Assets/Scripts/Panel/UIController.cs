@@ -17,8 +17,14 @@ public class UIController : MonoBehaviour
     [SerializeField] PanelDriver[] _heroSelectPanel = null;
     [SerializeField] PanelDriver[] _encounterIntroPanel = null;
     [SerializeField] PanelDriver[] _encounterInspectPanel = null;
+
     [SerializeField] PanelDriver[] _optionsPanel = null;
     [SerializeField] PanelDriver[] _inspectionPanels = null;
+    [SerializeField] PanelDriver[] _inventoryPanels = null;
+
+
+    [SerializeField] InspectionPanelDriver _isp = null;
+    public InspectionPanelDriver Inspector => _isp;
 
     [SerializeField] Image _blackoutImage = null;
     [SerializeField] Image _whiteoutImage = null;
@@ -49,6 +55,7 @@ public class UIController : MonoBehaviour
         foreach (var panel in _encounterInspectPanel) panel?.InitializePanel(this);
         foreach (var panel in _optionsPanel) panel?.InitializePanel(this);
         foreach (var panel in _inspectionPanels) panel?.InitializePanel(this);
+        foreach (var panel in _inventoryPanels) panel?.InitializePanel(this);
 
         GameController.Instance.GameModeChanged += HandleGameModeChanged;
     }
@@ -133,7 +140,7 @@ public class UIController : MonoBehaviour
         }       
     }
 
-    #region Inspection Panels
+    #region Inspection/Inventory Panels
 
     public void ShowInspectionPanels()
     {
@@ -143,6 +150,16 @@ public class UIController : MonoBehaviour
     public void HideInspectionPanels()
     {
         foreach (var panel in _inspectionPanels) panel?.RestPanel(false);
+    }
+
+    public void ShowInventoryPanels()
+    {
+        foreach (var panel in _inventoryPanels) panel?.ActivatePanel(false);
+    }
+
+    public void HideInventoryPanels()
+    {
+        foreach (var panel in _inventoryPanels) panel?.RestPanel(false);
     }
 
     #endregion  

@@ -218,14 +218,15 @@ public class FaceHandler : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (!_isGrabbable) return;
-
+        //if (!_isGrabbable) return;
+        UIController.Instance.Inspector.DisplayFaceInformation(_diceFaceRepresented);
         _scaleTween.Kill();
         _scaleTween = transform.DOScale(Vector3.one * _scaleWhenSelected, _scaleTime);
     }
 
     private void OnMouseExit()
     {
+        UIController.Instance.Inspector.ClearFaceInformation();
         _scaleTween.Kill();
         _scaleTween = transform.DOScale(Vector3.one, _scaleTime);
     }
