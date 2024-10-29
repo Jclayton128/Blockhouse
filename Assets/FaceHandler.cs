@@ -122,29 +122,29 @@ public class FaceHandler : MonoBehaviour
 
         _iconSR.sprite = diceFace.FaceSprite;
 
-        switch (_diceFaceRepresented.FaceType)
+        switch (_diceFaceRepresented.FaceAlignment)
         {
-            case DiceFace.FaceAlignment.Beast:
+            case DiceFace.FaceAlignments.Beast:
                 _fillSR.color = DiceLibrary.Instance.ColorBeast;
                 break;
 
-            case DiceFace.FaceAlignment.Discord:
+            case DiceFace.FaceAlignments.Discord:
                 _fillSR.color = DiceLibrary.Instance.ColorDiscord;
                 break;
 
-            case DiceFace.FaceAlignment.Hearth:
+            case DiceFace.FaceAlignments.Hearth:
                 _fillSR.color = DiceLibrary.Instance.ColorHearth;
                 break;
 
-            case DiceFace.FaceAlignment.Order:
+            case DiceFace.FaceAlignments.Order:
                 _fillSR.color = DiceLibrary.Instance.ColorOrder;
                 break;
 
-            case DiceFace.FaceAlignment.Arcane:
+            case DiceFace.FaceAlignments.Arcane:
                 _fillSR.color = DiceLibrary.Instance.ColorArcane;
                 break;
 
-            case DiceFace.FaceAlignment.Nomad:
+            case DiceFace.FaceAlignments.Nomad:
                 _fillSR.color = DiceLibrary.Instance.ColorNomad;
                 break;
 
