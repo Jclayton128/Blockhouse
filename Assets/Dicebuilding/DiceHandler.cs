@@ -11,7 +11,7 @@ public class DiceHandler : MonoBehaviour
     public enum DiceModes { Compact, Expand}
 
     
-    [SerializeField] FaceHandler _presentationFaceHandler = null;
+    //[SerializeField] FaceHandler _presentationFaceHandler = null;
     [SerializeField] SlotHandler[] _slotHandlers = null;
     //[SerializeField] FaceHandler[] _reserveFaceHandlers = null;
 
@@ -31,8 +31,8 @@ public class DiceHandler : MonoBehaviour
     //Dice.DiceTypes _diceType;
     //public Dice.DiceTypes DiceType => _diceType;
 
-    [SerializeField] DiceFace _activeFace;
-    public DiceFace ActiveFace => _activeFace;
+    [SerializeField] SlotHandler _activeSlot;
+    public SlotHandler ActiveFace => _activeSlot;
     float _elapsedRollTime;
     int _rand;
     float _rollTime;
@@ -88,9 +88,9 @@ public class DiceHandler : MonoBehaviour
         //    face.SetDiceParent(this);
         //}
 
-        _activeFace = loadedFaces[0];
+        _activeSlot = _slotHandlers[0];
         //HideDice(true);
-        RenderPresentationFace(_activeFace);
+        //RenderPresentationFace(_activeSlot);
         SetDiceMode(DiceModes.Compact, true);
 
     }
@@ -142,49 +142,64 @@ public class DiceHandler : MonoBehaviour
     private void SetRandomDiceFaceAsActiveFace()
     {
         _rand = UnityEngine.Random.Range(0, _slotHandlers.Length);
-        if (_slotHandlers[_rand].DiceFaceInSlot)
+        if (_slotHandlers[_rand] != null)
         {
             Debug.Log("valid face");
-            _activeFace = _slotHandlers[_rand].DiceFaceInSlot;
+            _activeSlot = _slotHandlers[_rand];
         }
         else
         {
             Debug.Log($"null @ {_rand}");
-            _activeFace = null;
+            _activeSlot = null;
         }
-        RenderPresentationFace(_activeFace);
+        //RenderPresentationFace(_activeSlot);
+        RenderPresentationFace();
     }
 
-    private void RenderPresentationFace(DiceFace faceToRender)
+    private void RenderPresentationFace()
     {
-        if (_isHidden)
+        foreach (var slot in _slotHandlers)
         {
-           //_presentationFaceHandler.gameObject.SetActive(false);   
+            slot.gameObject.SetActive(false);
+        }
 
-        }
-        else
-        {
-            //_presentationFaceHandler.gameObject.SetActive(true);
-            _presentationFaceHandler.SetFace(faceToRender);
-            _presentationFaceHandler.SetBaseSortOrder(99);
-        }
+        _activeSlot.gameObject.SetActive(true);
+        //if (_isHidden)
+        //{
+        //   //_presentationFaceHandler.gameObject.SetActive(false);   
+
+        //}
+        //else
+        //{
+        //    //_presentationFaceHandler.gameObject.SetActive(true);
+        //    _presentationFaceHandler.SetFace(faceToRender);
+        //    _presentationFaceHandler.SetBaseSortOrder(99);
+        //}
     }
 
     #region Show Hide
 
-    public void ShowDice()
+ 
+    public void FadeInDice()
     {
-        var srs = GetComponentsInChildren<SpriteRenderer>();
+        Debug.Log("Showing Dice", this);
+
+        //_activeFace = _slotHandlers[0].DiceFaceInSlot;
+        //RenderPresentationFace(_activeFace);
+        //_presentationFaceHandler.gameObject.SetActive(true);
+
+        var srs = GetComponentsInChildren<SpriteRenderer>(true);
         foreach (var sr in srs)
         {
             sr.DOFade(1, _fadeTime);
         }
         _isHidden = false;
     }
-
-    public void HideDice(bool isInstant)
+    
+    public void FadeAwayDice(bool isInstant)
     {
-        var srs = GetComponentsInChildren<SpriteRenderer>();
+        Debug.Log("Hiding Dice", this);
+        var srs = GetComponentsInChildren<SpriteRenderer>(true);
         float fade = isInstant ? 0.001f : _fadeTime;
         foreach (var sr in srs)
         {
@@ -217,7 +232,7 @@ public class DiceHandler : MonoBehaviour
 
     private void ExpandReserveDiceFaces(float time)
     {
-        _presentationFaceHandler.gameObject.SetActive(false);
+        //_presentationFaceHandler.gameObject.SetActive(false);
         foreach (var slot in _slotHandlers)
         {
             slot.gameObject.SetActive(true);
@@ -342,12 +357,17 @@ public class DiceHandler : MonoBehaviour
     private void HandleCompactCompleted()
     {
 
-        _activeFace = _slotHandlers[0].DiceFaceInSlot;
-        RenderPresentationFace(_activeFace);
+        //_activeSlot = _slotHandlers[0].DiceFaceInSlot;
+        //RenderPresentationFace(_activeSlot);
+
         foreach (var slot in _slotHandlers)
         {
             slot.gameObject.SetActive(false);
         }
+        _activeSlot.gameObject.SetActive(true);
+
+        //if (shouldShowActiveFaceStill) _activeSlot.gameObject.SetActive(true);
+
         _diceMode = DiceModes.Compact;
         foreach (var slot in _slotHandlers)
         {

@@ -55,6 +55,7 @@ public class ActorController : MonoBehaviour
                 ShowPartyDice();
                 ShowEncounterDice();  
                 Invoke(nameof(Delay_ModeChangedToEncounterActionSelectionMode), 1f);
+               
                 break;
         }
     }
@@ -63,6 +64,7 @@ public class ActorController : MonoBehaviour
     {
         RollPartyDice();
         RollEncounterDice();
+        UIController.Instance.ShowInspectionPanels();
     }
 
 
@@ -97,9 +99,13 @@ public class ActorController : MonoBehaviour
         {
             RemoveActorFromParty(character);
         }
-        else
+        else if (_party.Count < 3)
         {
             AddActorToParty(character);
+        }
+        else
+        {
+            Debug.Log("Party can only be three characters");
         }
 
 
@@ -117,6 +123,12 @@ public class ActorController : MonoBehaviour
     public void HandleClickToStart()
     {
         GameController.Instance.SetGameMode(GameController.GameModes.WalkingToNextEncounter);
+
+        if (_party.Count < 3)
+        {
+            Debug.Log("Select 3 characters to begin");
+            return;
+        }
 
         for (int i = 0; i < _party.Count; i++)
         {
@@ -166,18 +178,28 @@ public class ActorController : MonoBehaviour
 
     public void ShowPartyDice()
     {
-        //AUDIO Play a many dice being rolled sound. This is the point where all the dice are rolled together.
         foreach (var actor in _party)
         {
-            actor.ShowDice();
+            actor.FadeInDice();
+            //actor.GetComponent<MovementHandler>().SetDestination(999f);      
+        }
+    }
+
+    public void HidePartyDice()
+    {
+        foreach (var actor in _party)
+        {
+            actor.FadeAwayDice(false);
             //actor.GetComponent<MovementHandler>().SetDestination(999f);      
         }
     }
 
     public void RollPartyDice()
-    {
+    {        //AUDIO Play a many dice being rolled sound. This is the point where all the dice are rolled together.
         foreach (var actor in _party)
         {
+            actor.CompactDice();
+            //actor.FadeInDice();
             actor.RollDice();
         }
     }
@@ -190,13 +212,13 @@ public class ActorController : MonoBehaviour
         }
     }
 
-    public void CompactHideAllPartyDiceExceptThis(ActorHandler actorToIgnore)
+    public void CompactAllPartyDiceExceptThis(ActorHandler actorToIgnore)
     {
         foreach (var actor in _party)
         {
             if (actor == actorToIgnore) continue;
 
-            actor.HideDice(false);
+            //actor.HideDice(false);
             actor.CompactDice();
         }
     }
@@ -212,7 +234,7 @@ public class ActorController : MonoBehaviour
         {
             if (thing.TryGetComponent<ActorHandler>(out ah))
             {
-                ah.ShowDice();
+                ah.FadeInDice();
             }
         }
     }
@@ -224,7 +246,7 @@ public class ActorController : MonoBehaviour
         {
             if (thing.TryGetComponent<ActorHandler>(out ah))
             {
-                ah.HideDice(false);
+                ah.FadeAwayDice(false);
             }
         }
     }
@@ -249,12 +271,14 @@ public class ActorController : MonoBehaviour
         {
             if (thing.TryGetComponent<ActorHandler>(out ah))
             {
+                ah.CompactDice();
+                ah.FadeInDice();
                 ah.RollDice();
             }
         }
     }
 
-    public void CompactHideAllEncounterDiceExceptThis(ActorHandler actorToIgnore)
+    public void CompactAllEncounterDiceExceptThis(ActorHandler actorToIgnore)
     {
         ActorHandler ah;
         foreach (var thing in _encounter)
@@ -265,7 +289,7 @@ public class ActorController : MonoBehaviour
             }
             else
             {
-                ah.HideDice(false);
+                //ah.HideDice(false);
                 ah.CompactDice();
             }
         }

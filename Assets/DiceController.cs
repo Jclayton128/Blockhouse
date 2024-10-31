@@ -29,12 +29,5 @@ public class DiceController : MonoBehaviour
         }
     }
 
-    [ContextMenu("Roll All Dice Handlers")]
-    public void RollAllDiceHandlers()
-    {
-        foreach (var dice in _diceInPlay)
-        {
-            dice.RollDice();
-        }
-    }
+  
 }

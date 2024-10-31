@@ -51,7 +51,7 @@ public class ActorHandler : MonoBehaviour
                 _diceHandlers[i].LoadWithDice(_startingDice[i]);
             }            
         }
-        HideDice(true);
+        FadeAwayDice(true);
         CompactDice();
 
         _iff = GetComponentInChildren<IFFHandler>();
@@ -113,11 +113,11 @@ public class ActorHandler : MonoBehaviour
 
     [ContextMenu("Show Dice")]
 
-    public void ShowDice()
+    public void FadeInDice()
     {
         foreach (var handler in _diceHandlers)
         {
-            handler.ShowDice();
+            handler.FadeInDice();
         }
     }
 
@@ -145,13 +145,13 @@ public class ActorHandler : MonoBehaviour
     }
 
     [ContextMenu("Hide Dice")]
-    public void HideDice(bool isInstant)
+    public void FadeAwayDice(bool isInstant)
     {
         //if (!isInstant && _areDiceExpanded) CompactDice();
 
         foreach (var handler in _diceHandlers)
         {
-            handler.HideDice(isInstant);
+            handler.FadeAwayDice(isInstant);
         }
     }
 
@@ -204,7 +204,7 @@ public class ActorHandler : MonoBehaviour
         if (_actorMode == ActorModes.AwaitingTitleScreenSelection)
         {
             ExpandDice();
-            ShowDice();
+            FadeInDice();
 
             ActorHighlighted?.Invoke();
         }
@@ -215,7 +215,7 @@ public class ActorHandler : MonoBehaviour
     {
         if (_actorMode == ActorModes.AwaitingTitleScreenSelection)
         {
-            HideDice(false);
+            FadeAwayDice(false);
             CompactDice();
 
 
@@ -228,19 +228,7 @@ public class ActorHandler : MonoBehaviour
     {
         if (_actorMode == ActorModes.AwaitingTitleScreenSelection)
         {
-            //HideDice(false);
-            ActorController.Instance.SelectCharacter(this);
-            if (ActorController.Instance.Party.Contains(this))
-            {
-                ActorSelected?.Invoke();
-                _iff.SetAllegiance(IFFHandler.Allegiances.Player);
-            }
-            else
-            {
-                ActorDehighlighted?.Invoke();
-                _iff.SetAllegiance(IFFHandler.Allegiances.Undefined);
-            }
-
+            HandleSelectionToParty();
 
             return;
         }
@@ -250,17 +238,35 @@ public class ActorHandler : MonoBehaviour
             _areDiceExpanded = !_areDiceExpanded;
             if (_areDiceExpanded)
             {
-
                 Invoke(nameof(Delay_HandleInspectClick), 0.4f);
-                ActorController.Instance.CompactHideAllPartyDiceExceptThis(this);
-                ActorController.Instance.CompactHideAllEncounterDiceExceptThis(this);
+                ActorController.Instance.HideEncounterDice();
+                ActorController.Instance.HidePartyDice();
+                ActorController.Instance.CompactAllPartyDiceExceptThis(this);
+                ActorController.Instance.CompactAllEncounterDiceExceptThis(this);
             }
             else
             {
                 UIController.Instance.HideInspectionPanels();
                 //Invoke(nameof(Delay_HandleInspectClick), 0.4f);
                 CompactDice();
+                FadeAwayDice(false);
             }
+        }
+    }
+
+    private void HandleSelectionToParty()
+    {
+        //HideDice(false);
+        ActorController.Instance.SelectCharacter(this);
+        if (ActorController.Instance.Party.Contains(this))
+        {
+            ActorSelected?.Invoke();
+            _iff.SetAllegiance(IFFHandler.Allegiances.Player);
+        }
+        else
+        {
+            ActorDehighlighted?.Invoke();
+            _iff.SetAllegiance(IFFHandler.Allegiances.Undefined);
         }
     }
 
@@ -268,7 +274,7 @@ public class ActorHandler : MonoBehaviour
     {
         UIController.Instance.ShowInspectionPanels();
         ExpandDice();
-        ShowDice();
+        FadeInDice();
 
         //if (_areDiceExpanded)
         //{

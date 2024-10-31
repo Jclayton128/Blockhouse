@@ -336,6 +336,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiceHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 7651079219090084929, guid: 780f91044b5532c448d41c2a6972f489, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7758088717722055902, guid: 780f91044b5532c448d41c2a6972f489, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.5
