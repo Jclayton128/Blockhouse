@@ -220,15 +220,14 @@ public class FaceHandler : MonoBehaviour
     {
         //if (!_isGrabbable) return;
         UIController.Instance.Inspector.DisplayFaceInformation(_diceFaceRepresented);
-        _scaleTween.Kill();
-        _scaleTween = transform.DOScale(Vector3.one * _scaleWhenSelected, _scaleTime);
+        //_scaleTween.Kill();
+        //_scaleTween = transform.DOScale(Vector3.one * _scaleWhenSelected, _scaleTime);
     }
 
     private void OnMouseExit()
     {
         UIController.Instance.Inspector.ClearFaceInformation();
-        _scaleTween.Kill();
-        _scaleTween = transform.DOScale(Vector3.one, _scaleTime);
+
     }
 
     private void OnMouseDown()
@@ -238,10 +237,13 @@ public class FaceHandler : MonoBehaviour
         _isGrabbed = true;
         _mouseTransformDelta = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
         _homePos = transform.position;
+        //_scaleTween.Kill();
+        //_scaleTween = transform.DOScale(Vector3.one * _scaleWhenSelected, _scaleTime);
     }
 
     private void OnMouseUp()
     {
+        if (!_isGrabbed) return;
         _isGrabbed = false;
         DeprioritizeSortOrder();
         _scaleTween.Kill();
@@ -253,7 +255,8 @@ public class FaceHandler : MonoBehaviour
 
         if (newHome && newHome.TryGetComponent<SlotHandler>(out sh))
         {
-            if (!sh.CheckDiceTypeAgainstSlotType(_diceFaceRepresented))
+            if (sh.transform.root != transform.root ||
+               !sh.CheckDiceTypeAgainstSlotType(_diceFaceRepresented))
             {
                 //AUDIO face install denied due to mismatch
                 SendHome();
@@ -279,7 +282,8 @@ public class FaceHandler : MonoBehaviour
             SendHome();
         }
 
-
+        //_scaleTween.Kill();
+        //_scaleTween = transform.DOScale(Vector3.one, _scaleTime);
     }
 
     private void SetNewHome(Collider2D hits, SlotHandler sh)

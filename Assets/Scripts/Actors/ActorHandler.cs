@@ -27,7 +27,7 @@ public class ActorHandler : MonoBehaviour
 
     //state
     public ActorLibrary.ActorTypes ActorType => _actorType;
-    DiceHandler _selectedDiceHandler;
+    //DiceHandler _selectedDiceHandler;
     [SerializeField] ActorModes _actorMode = ActorModes.Idling;
     public ActorModes ActorMode => _actorMode;
     bool _areDiceExpanded = true;
@@ -159,38 +159,38 @@ public class ActorHandler : MonoBehaviour
 
     #region Select/Lock Dice
 
-    public void AttemptSelectDice(DiceHandler selectedDiceHandler)
-    {
-        if (_selectedDiceHandler == selectedDiceHandler)
-        {
-            Debug.Log("deselected");
-            _selectedDiceHandler.ShowDiceAsDeselected();
-            DeselectDice();
-        }
-        else if (_selectedDiceHandler != null)
-        {
-            Debug.Log("cannot select a second");
-            //Cannot select a different dice if there is already a dice selected.
-            return;
-        }
-        else
-        {
-            Debug.Log("selected");
-            //Locks in the selected dice's active face as the move for this character
-            //Command some kind of visual for the DiceHandler to display
-            _selectedDiceHandler = selectedDiceHandler;
-            _selectedDiceHandler.ShowDiceAsSelected();
-        }
+    //public void AttemptSelectDice(DiceHandler selectedDiceHandler)
+    //{
+    //    if (_selectedDiceHandler == selectedDiceHandler)
+    //    {
+    //        Debug.Log("deselected");
+    //        _selectedDiceHandler.ShowDiceAsDeselected();
+    //        DeselectDice();
+    //    }
+    //    else if (_selectedDiceHandler != null)
+    //    {
+    //        Debug.Log("cannot select a second");
+    //        //Cannot select a different dice if there is already a dice selected.
+    //        return;
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("selected");
+    //        //Locks in the selected dice's active face as the move for this character
+    //        //Command some kind of visual for the DiceHandler to display
+    //        _selectedDiceHandler = selectedDiceHandler;
+    //        _selectedDiceHandler.ShowDiceAsSelected();
+    //    }
 
 
 
-    }
+    //}
 
-    public void DeselectDice()
-    {
-        //Clears the active face and allows another to be selected.
-        _selectedDiceHandler = null;
-    }
+    //public void DeselectDice()
+    //{
+    //    //Clears the active face and allows another to be selected.
+    //    _selectedDiceHandler = null;
+    //}
 
     #endregion
 

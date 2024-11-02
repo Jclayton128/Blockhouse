@@ -44,7 +44,7 @@ public class DiceHandler : MonoBehaviour
     Tween[] _reserveMoveTweens = new Tween[6];
     ActorHandler _owningActor;
     List<Vector3> _expandPositions = new List<Vector3>();
-    [SerializeField] bool _isHidden = false;
+    [SerializeField] bool _isLocked = false;
 
     private void Start()
     {
@@ -103,6 +103,14 @@ public class DiceHandler : MonoBehaviour
             Debug.Log("Cannot roll die while expanded");
             return;
         }
+
+        if (_isLocked)
+        {
+            Debug.Log("Can't roll while locked.");
+            transform.DOShakePosition(_rollTime / 2f, 1, 1, 30, false, true);
+            return;
+        }
+
         _elapsedRollTime = 0;
         _timeOnCurrentFace = 0;
         _timeFactor = 1;
@@ -191,9 +199,10 @@ public class DiceHandler : MonoBehaviour
         var srs = GetComponentsInChildren<SpriteRenderer>(true);
         foreach (var sr in srs)
         {
+            _activeSlot.gameObject.SetActive(true);
             sr.DOFade(1, _fadeTime);
         }
-        _isHidden = false;
+        //_isHidden = false;
     }
     
     public void FadeAwayDice(bool isInstant)
@@ -204,8 +213,9 @@ public class DiceHandler : MonoBehaviour
         foreach (var sr in srs)
         {
             sr.DOFade(0, fade);
+            _activeSlot.gameObject.SetActive(false);
         }
-        _isHidden = true;
+        //_isHidden = true;
     }
 
     #endregion
@@ -220,10 +230,18 @@ public class DiceHandler : MonoBehaviour
         switch (diceMode)
         {
             case DiceModes.Compact:
+                foreach (var slot in _slotHandlers)
+                {
+                    slot.gameObject.layer = 0;
+                }
                 CompactReserveDiceFaces(time);
                 break;
                  
             case DiceModes.Expand:
+                foreach (var slot in _slotHandlers)
+                {
+                    slot.gameObject.layer = 7;
+                }
                 ExpandReserveDiceFaces(time);
                 break;
         }
@@ -392,10 +410,17 @@ public class DiceHandler : MonoBehaviour
 
     #region Select Dice
 
-
     private void OnMouseUpAsButton()
     {
-        _owningActor.AttemptSelectDice(this);
+        if (GameController.Instance.GameMode == GameController.GameModes.EncounterActionSelection &&
+            !_isRolling)
+        {
+            _isLocked = !_isLocked;
+            if (_isLocked) ShowDiceAsSelected();
+            else ShowDiceAsDeselected();
+        }
+
+        //_owningActor.AttemptSelectDice(this);
     }
 
     public void ShowDiceAsSelected()

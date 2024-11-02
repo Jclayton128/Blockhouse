@@ -7,6 +7,7 @@ using UnityEngine;
 public class DiceFace : ScriptableObject
 {
     public enum FaceAlignments { Beast, Arcane, Hearth, Order, Nomad, Discord };
+    
 
     /// <summary>
     ///  MELEE: first enemy. SNIPE: last enemy. BARRAGE: Random single enemy. SPRAY: All enemies. PARTY: all party characters. SELF: self
