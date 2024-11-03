@@ -5,28 +5,25 @@ using UnityEngine;
 
 public class DiceController : MonoBehaviour
 {
-    [SerializeField] DiceHandler[] _diceInPlay = null;
+    //state
+    [SerializeField] List<DiceHandler> _diceInUse = new List<DiceHandler>();
 
-    [Header("Testing")]
-    [SerializeField] Dice[] _diceToLoad_Debug = null;
-
-    //state 
-    int count = 0;
-
-    private void Start()
+    public void AddDiceInUse(DiceHandler dice)
     {
-        //LoadDiceIntoDiceHandlers_Debug();
+        _diceInUse.Add(dice);
     }
 
-    [ContextMenu("Reload Dice Into DiceHandlers")]
-    private void LoadDiceIntoDiceHandlers_Debug()
+    public void RemoveDiceInUse(DiceHandler dice)
     {
-        count = 0;
-        foreach (var handler in _diceInPlay)
-        {   
-            handler.LoadWithDice(_diceToLoad_Debug[count]);
-            count++;
-        }
+        _diceInUse.Remove(dice);
+    }
+
+    public void Vis_HeroSelectMode(DiceHandler heroSelected)
+    {
+        //foreach (var dice in _diceInUse)
+        //{
+        //    dice.Vis
+        //}
     }
 
   

@@ -129,6 +129,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8961247109966770216, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _startingDice
+      value: 
+      objectReference: {fileID: 11400000, guid: 9a2ac453bbb51cc488673bae642877c8, type: 2}
+    - target: {fileID: 8961247109966770216, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: _startingDice.Array.size
       value: 1
       objectReference: {fileID: 0}

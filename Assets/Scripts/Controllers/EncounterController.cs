@@ -23,6 +23,7 @@ public class EncounterController : MonoBehaviour
     //state 
     [SerializeField] float _timeOfNextCheck = 0;
     [SerializeField] Encounter _currentEncounter;
+    int _diceRollsRemainingInEncounter;
 
     private void Awake()
     {
@@ -40,6 +41,7 @@ public class EncounterController : MonoBehaviour
         {
             _timeOfNextCheck = Time.time + _timeBetweenChecks;
         }
+
     }
     public void AdvanceEncounter()
     {
@@ -50,8 +52,29 @@ public class EncounterController : MonoBehaviour
         else if (GameController.Instance.GameMode == GameController.GameModes.EncounterInspection)
         {
 
-            GameController.Instance.SetGameMode(GameController.GameModes.EncounterActionSelection);
+            GameController.Instance.SetGameMode(GameController.GameModes.EncounterRollingLocking);
         }
+    }
+
+    public void AttemptRollDice()
+    {
+        if (_diceRollsRemainingInEncounter <= 0)
+        {
+            //unable to roll anymore, should replace Roll Dice panel with 'click to resolve'
+            return;
+        }
+
+        //ActorController.Instance.ActivateActiveFaceOfPartyDice();
+        //ActorController.Instance.ActivateActiveFaceOfEncounterDice();
+
+        Invoke(nameof(Delay_RollDice), 0.5f);
+        _diceRollsRemainingInEncounter--;
+    }
+
+    private void Delay_RollDice()
+    {
+        ActorController.Instance.RollPartyDice();
+        ActorController.Instance.RollEncounterDice();
     }
 
     #region Flow
@@ -91,6 +114,7 @@ public class EncounterController : MonoBehaviour
 
     private void StartEncounter()
     {
+        _diceRollsRemainingInEncounter = RunController.Instance.RollsPerEncounter;
         SpawnEncounterActors();
         //EncounterStarted?.Invoke(_encounterOffset);
         EncounterStarted?.Invoke(new Vector3(2.5f,0,0));

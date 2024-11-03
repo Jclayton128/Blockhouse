@@ -6,11 +6,7 @@ using DG.Tweening;
 
 
 public class DiceHandler : MonoBehaviour
-{
-
-    public enum DiceModes { Compact, Expand}
-
-    
+{    
     //[SerializeField] FaceHandler _presentationFaceHandler = null;
     [SerializeField] SlotHandler[] _slotHandlers = null;
     //[SerializeField] FaceHandler[] _reserveFaceHandlers = null;
@@ -26,11 +22,11 @@ public class DiceHandler : MonoBehaviour
     [SerializeField] float _fadeTime = 0.5f;
 
     //state
-    DiceModes _diceMode = DiceModes.Compact;
     [SerializeField] Dice _dice;
     //Dice.DiceTypes _diceType;
     //public Dice.DiceTypes DiceType => _diceType;
-
+    [SerializeField] bool _isExpanded = false;
+    public bool IsExpanded => _isExpanded;
     [SerializeField] SlotHandler _activeSlot;
     public SlotHandler ActiveFace => _activeSlot;
     float _elapsedRollTime;
@@ -60,18 +56,12 @@ public class DiceHandler : MonoBehaviour
     {
         _elapsedRollTime = 0;
         _dice = dice;
-        //_diceType = dice.DiceType;
 
-        Debug.Log($"Loading with {dice}");
         foreach (var slot in _slotHandlers)
         {
-            //slot.SetDiceType(_diceType);
-            //slot.SetAsSans(false);
             slot.SetAsSans(true);
             _expandPositions.Add(slot.transform.localPosition);
         }
-        //_slotHandlers[0].SetAsSans(true);
-
 
         DiceFace[] loadedFaces = _dice.GetFaces();
 
@@ -81,24 +71,15 @@ public class DiceHandler : MonoBehaviour
             _slotHandlers[i].RegisterNewFaceInSlot(loadedFaces[i], newFace);
             newFace.SetInitialSlotHandler(_slotHandlers[i]);
         }
-
-        //_activeFaceHandler.SetDiceParent(this);
-        //foreach (var face in _loadedFaces)
-        //{
-        //    face.SetDiceParent(this);
-        //}
-
         _activeSlot = _slotHandlers[0];
-        //HideDice(true);
-        //RenderPresentationFace(_activeSlot);
-        SetDiceMode(DiceModes.Compact, true);
-
+        _isExpanded = false;
+        Vis_DeactivateDice();
+        Vis_CompactFadeAwayDeactivateDice();
     }
 
-    [ContextMenu("Roll Dice")]
     public void RollDice()
     {
-        if (_diceMode == DiceModes.Expand)
+        if (_isExpanded)
         {
             Debug.Log("Cannot roll die while expanded");
             return;
@@ -107,7 +88,7 @@ public class DiceHandler : MonoBehaviour
         if (_isLocked)
         {
             Debug.Log("Can't roll while locked.");
-            transform.DOShakePosition(_rollTime / 2f, 1, 1, 30, false, true);
+            transform.DOPunchPosition(transform.up/2f, _rollTime/4, 8);
             return;
         }
 
@@ -152,12 +133,12 @@ public class DiceHandler : MonoBehaviour
         _rand = UnityEngine.Random.Range(0, _slotHandlers.Length);
         if (_slotHandlers[_rand] != null)
         {
-            Debug.Log("valid face");
+            //Debug.Log("valid face");
             _activeSlot = _slotHandlers[_rand];
         }
         else
         {
-            Debug.Log($"null @ {_rand}");
+            //Debug.Log($"null @ {_rand}");
             _activeSlot = null;
         }
         //RenderPresentationFace(_activeSlot);
@@ -172,99 +153,113 @@ public class DiceHandler : MonoBehaviour
         }
 
         _activeSlot.gameObject.SetActive(true);
-        //if (_isHidden)
-        //{
-        //   //_presentationFaceHandler.gameObject.SetActive(false);   
-
-        //}
-        //else
-        //{
-        //    //_presentationFaceHandler.gameObject.SetActive(true);
-        //    _presentationFaceHandler.SetFace(faceToRender);
-        //    _presentationFaceHandler.SetBaseSortOrder(99);
-        //}
     }
 
-    #region Show Hide
+    #region Visuals
+    /// <summary>
+    /// All dice visual interactions must go through one of these functions.
+    /// </summary>
+    /// 
 
- 
-    public void FadeInDice()
+    public bool Vis_ToggleExpandCompactDice()
     {
-        Debug.Log("Showing Dice", this);
+        _isExpanded = !_isExpanded;
+        if (_isExpanded)
+        {
+            ExpandFaces();
+        }
+        else
+        {
+            CompactFaces();
+        }
+        return _isExpanded;
+    }
+   
+    public void Vis_DeactivateDice()
+    {
+        DeactivateFaces();
+    }
 
-        //_activeFace = _slotHandlers[0].DiceFaceInSlot;
-        //RenderPresentationFace(_activeFace);
-        //_presentationFaceHandler.gameObject.SetActive(true);
+    public void Vis_ActivateFadeInActiveFace()
+    {
+        ActivateActiveFace();
+        FadeInDice();
+    }
 
+    public void Vis_ActivateFadeInExpandDice()
+    {
+        ActivateFaces();
+        FadeInDice();
+        ExpandFaces();
+    }
+
+    public void Vis_CompactFadeAwayDeactivateDice()
+    {
+        CompactFaces();
+        FadeAwayDice();
+        Invoke(nameof(DeactivateFaces), _fadeTime);
+    }
+
+    public void Vis_CompactToSingleVisibleDice()
+    {
+        CompactFaces();
+        ActivateActiveFace();
+    }
+
+
+    #endregion
+
+    #region Visual Helpers
+    private void FadeInDice()
+    {
         var srs = GetComponentsInChildren<SpriteRenderer>(true);
         foreach (var sr in srs)
         {
-            _activeSlot.gameObject.SetActive(true);
+
             sr.DOFade(1, _fadeTime);
         }
         //_isHidden = false;
     }
-    
-    public void FadeAwayDice(bool isInstant)
+
+    //private void FadeInActiveFace()
+    //{
+    //    var srs = _activeSlot.GetComponentsInChildren<SpriteRenderer>(true);
+    //    foreach (var sr in srs)
+    //    {
+    //        sr.DOFade(1, _fadeTime);
+    //    }
+    //}
+
+    private void FadeAwayDice()
     {
-        Debug.Log("Hiding Dice", this);
+        //Debug.Log("Hiding Dice", this);
         var srs = GetComponentsInChildren<SpriteRenderer>(true);
-        float fade = isInstant ? 0.001f : _fadeTime;
+        //float fade = isInstant ? 0.001f : _fadeTime;
         foreach (var sr in srs)
         {
-            sr.DOFade(0, fade);
-            _activeSlot.gameObject.SetActive(false);
-        }
-        //_isHidden = true;
-    }
-
-    #endregion
-
-    #region Dice Mode
-    public void SetDiceMode(DiceModes diceMode, bool isInstantChange)
-    {
-        if (_isRolling) return;
-
-        float time = isInstantChange ? 0.001f : _expandTime;
-
-        switch (diceMode)
-        {
-            case DiceModes.Compact:
-                foreach (var slot in _slotHandlers)
-                {
-                    slot.gameObject.layer = 0;
-                }
-                CompactReserveDiceFaces(time);
-                break;
-                 
-            case DiceModes.Expand:
-                foreach (var slot in _slotHandlers)
-                {
-                    slot.gameObject.layer = 7;
-                }
-                ExpandReserveDiceFaces(time);
-                break;
+            sr.DOFade(0, _fadeTime);
         }
     }
-
-
-    private void ExpandReserveDiceFaces(float time)
+    private void ExpandFaces()
     {
-        //_presentationFaceHandler.gameObject.SetActive(false);
         foreach (var slot in _slotHandlers)
         {
-            slot.gameObject.SetActive(true);
+            slot.gameObject.layer = 7;
         }
 
         ModifyExpandPositionBasedOnParentPosition();
 
         for (int i = 0; i < _slotHandlers.Length; i++)
         {
-            //_reserveFaceHandlers[i].SetFace(reserveFaces[i]);
             _reserveMoveTweens[i].Kill();
             _reserveMoveTweens[i] = _slotHandlers[i].transform.DOLocalMove(
-                _expandPositions[i], time).
+                _expandPositions[i], _expandTime).
                 SetEase(Ease.OutBack).OnComplete(HandleExpandCompleted);
+        }
+
+        if (GameController.Instance.GameMode == GameController.GameModes.EncounterInspection)
+        {
+            UIController.Instance.ShowInspectionPanels();
         }
     }
 
@@ -353,74 +348,82 @@ public class DiceHandler : MonoBehaviour
 
     private void HandleExpandCompleted()
     {
-
-        _diceMode = DiceModes.Expand;
+        _isExpanded = true;
         foreach (var slot in _slotHandlers)
         {
-            slot.FaceHandlerInSlot.SetNewDiceMode(DiceModes.Expand);
+            slot.FaceHandlerInSlot.SetGrabbableStatus(_isExpanded);
         }
     }
 
-    private void CompactReserveDiceFaces(float time)
+    private void CompactFaces()
     {
+        foreach (var slot in _slotHandlers)
+        {
+            slot.gameObject.layer = 0;
+        }
+
         for (int i = 0; i < _slotHandlers.Length; i++)
         {
             _reserveMoveTweens[i].Kill();
             _reserveMoveTweens[i] = _slotHandlers[i].transform.DOLocalMove(
-                Vector3.zero, time).
+                Vector3.zero, _expandTime).
                 SetEase(Ease.InBack).OnComplete(HandleCompactCompleted);
         }
     }
 
     private void HandleCompactCompleted()
     {
+        //foreach (var slot in _slotHandlers)
+        //{
+        //    slot.gameObject.SetActive(false);
+        //}
 
-        //_activeSlot = _slotHandlers[0].DiceFaceInSlot;
-        //RenderPresentationFace(_activeSlot);
+        _isExpanded = false;
+        foreach (var slot in _slotHandlers)
+        {
+            slot.FaceHandlerInSlot?.SetGrabbableStatus(_isExpanded);
+        }
+    }
 
+    private void ActivateFaces()
+    {
+        foreach (var slot in _slotHandlers)
+        {
+            slot.gameObject.SetActive(true);
+        }
+    }
+
+    private void ActivateActiveFace()
+    {
         foreach (var slot in _slotHandlers)
         {
             slot.gameObject.SetActive(false);
         }
         _activeSlot.gameObject.SetActive(true);
+    }
 
-        //if (shouldShowActiveFaceStill) _activeSlot.gameObject.SetActive(true);
-
-        _diceMode = DiceModes.Compact;
+    private void DeactivateFaces()
+    {
         foreach (var slot in _slotHandlers)
         {
-            slot.FaceHandlerInSlot?.SetNewDiceMode(DiceModes.Compact);
+            slot.gameObject.SetActive(false);
         }
-    }
-
-
-    [ContextMenu("Expand")]
-    public void Expand_Debug()
-    {
-        SetDiceMode(DiceModes.Expand, false);
-    }
-
-    [ContextMenu("Compact")]
-    public void Compact_Debug()
-    {
-        SetDiceMode(DiceModes.Compact, false);
     }
 
     #endregion
 
     #region Select Dice
 
-    private void OnMouseUpAsButton()
+    public bool ToggleDiceLockStatus()
     {
-        if (GameController.Instance.GameMode == GameController.GameModes.EncounterActionSelection &&
-            !_isRolling)
-        {
-            _isLocked = !_isLocked;
-            if (_isLocked) ShowDiceAsSelected();
-            else ShowDiceAsDeselected();
-        }
+        if (_isRolling) return false;
 
-        //_owningActor.AttemptSelectDice(this);
+        _isLocked = !_isLocked;
+        Debug.Log("lock status toggled");
+        if (_isLocked) ShowDiceAsSelected();
+        else ShowDiceAsDeselected();
+
+        return _isLocked;
     }
 
     public void ShowDiceAsSelected()

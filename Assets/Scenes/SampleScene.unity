@@ -1944,7 +1944,6 @@ MonoBehaviour:
   - {fileID: 726844390}
   - {fileID: 1793981713}
   _encounterInspectPanel:
-  - {fileID: 1617085940}
   - {fileID: 1596663258}
   - {fileID: 840846275}
   _optionsPanel: []
@@ -1952,6 +1951,8 @@ MonoBehaviour:
   - {fileID: 1524646732}
   _inventoryPanels:
   - {fileID: 1415525123}
+  _rollDicePanels:
+  - {fileID: 1617085940}
   _isp: {fileID: 1524646734}
   _blackoutImage: {fileID: 0}
   _whiteoutImage: {fileID: 0}
@@ -3197,7 +3198,7 @@ GameObject:
   - component: {fileID: 1617085940}
   - component: {fileID: 1617085939}
   m_Layer: 5
-  m_Name: EncounterInspectPanel_ClickToContinue
+  m_Name: RollDicePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3293,8 +3294,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _activePosition: {x: 350, y: 150}
-  _moveTime: 3
-  _fadeTime: 0.1
+  _moveTime: 1
+  _fadeTime: 1
   _startsFaded: 0
   _fadeWhenRested: 0
 --- !u!222 &1617085941

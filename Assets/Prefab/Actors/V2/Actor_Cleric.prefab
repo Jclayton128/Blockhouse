@@ -117,6 +117,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: bf47500cfa3d1584390bc740018f4d2e, type: 3}
     - target: {fileID: 8961247109966770216, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
+      propertyPath: _startingDice
+      value: 
+      objectReference: {fileID: 11400000, guid: 814cbdda229cda84eabcac586a4255fb, type: 2}
+    - target: {fileID: 8961247109966770216, guid: 0f1282e0f4f54b141aea327ff624193e, type: 3}
       propertyPath: _startingDice.Array.size
       value: 1
       objectReference: {fileID: 0}

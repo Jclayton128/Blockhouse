@@ -11,7 +11,7 @@ public class SlotHandler : MonoBehaviour
     [SerializeField] FaceHandler _faceHandlerInSlot;
     public FaceHandler FaceHandlerInSlot => _faceHandlerInSlot;
 
-    [SerializeField] Dice.DiceSpeeds _slotSpeed;
+    [SerializeField] Dice.DiceSpeeds _slotSpeed = Dice.DiceSpeeds.Undefined;
     public Dice.DiceSpeeds SlotSpeed => _slotSpeed;
 
     public void SetAsSans(bool isSans)
@@ -57,13 +57,9 @@ public class SlotHandler : MonoBehaviour
 
     }
 
-    public void SetDiceType(Dice.DiceSpeeds diceType)
-    {
-        //_slotType = diceType;
-    }
-
     public void RegisterNewFaceInSlot(DiceFace newDiceFace, FaceHandler newFaceHandler)
     {
+        _slotSpeed = newDiceFace.DiceSpeed;
         _diceFaceInSlot = newDiceFace;
         _faceHandlerInSlot = newFaceHandler;
     }
@@ -75,7 +71,8 @@ public class SlotHandler : MonoBehaviour
 
     internal bool CheckDiceTypeAgainstSlotType(DiceFace diceFaceRepresented)
     {
-        if (diceFaceRepresented.DiceSpeed == _slotSpeed) return true;
+        if (_slotSpeed == Dice.DiceSpeeds.Undefined ||
+            diceFaceRepresented.DiceSpeed == _slotSpeed) return true;
         else return false;
     }
 }

@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class FaceHandler : MonoBehaviour
 {
-    [SerializeField] DiceFace _startingDiceFace_Debug = null;
+    //[SerializeField] DiceFace _startingDiceFace_Debug = null;
     [SerializeField] SpriteRenderer _edgeSR = null;
     [SerializeField] SpriteRenderer _bandSR = null;
     [SerializeField] SpriteRenderer _fillSR = null;
@@ -26,12 +26,12 @@ public class FaceHandler : MonoBehaviour
 
     private void Start()
     {
-        if (_startingDiceFace_Debug)
-        {
-            SetBaseSortOrder(0);
-            _diceFaceRepresented = _startingDiceFace_Debug;
-            SetFace(_startingDiceFace_Debug);
-        }
+        //if (_startingDiceFace_Debug)
+        //{
+        //    SetBaseSortOrder(0);
+        //    _diceFaceRepresented = _startingDiceFace_Debug;
+        //    SetFace(_startingDiceFace_Debug);
+        //}
     }
 
     //public void SetDiceParent(DiceHandler parent)
@@ -45,16 +45,9 @@ public class FaceHandler : MonoBehaviour
     }
 
     #region Displaying
-    public void SetNewDiceMode(DiceHandler.DiceModes newDiceMode)
+    public void SetGrabbableStatus(bool isGrabbable)
     {
-        if (newDiceMode == DiceHandler.DiceModes.Compact)
-        {
-            _isGrabbable = false;
-        }
-        if (newDiceMode == DiceHandler.DiceModes.Expand)
-        {
-            _isGrabbable = true;
-        }
+        _isGrabbable = isGrabbable;
     }
 
     public void SetBaseSortOrder(int sortOrder)
@@ -255,9 +248,17 @@ public class FaceHandler : MonoBehaviour
 
         if (newHome && newHome.TryGetComponent<SlotHandler>(out sh))
         {
-            if (sh.transform.root != transform.root ||
-               !sh.CheckDiceTypeAgainstSlotType(_diceFaceRepresented))
+            if (!sh.CheckDiceTypeAgainstSlotType(_diceFaceRepresented))
             {
+                Debug.Log("sending home due to tile/slot speed mismatch");
+                //AUDIO face install denied due to mismatch
+                SendHome();
+                return;
+            }
+
+            if (sh.transform.root != transform.root)
+            {
+                Debug.Log("sending home due to different root gameobject");
                 //AUDIO face install denied due to mismatch
                 SendHome();
                 return;
@@ -278,12 +279,23 @@ public class FaceHandler : MonoBehaviour
         }
         else
         {
+            Debug.Log("sending home due to no slot handler found");
             //If no, then return Home via tween
             SendHome();
         }
 
         //_scaleTween.Kill();
         //_scaleTween = transform.DOScale(Vector3.one, _scaleTime);
+    }
+
+    private void OnMouseUpAsButton()
+    {
+        if (GameController.Instance.GameMode == GameController.GameModes.EncounterRollingLocking)
+        {
+            GetComponentInParent<DiceHandler>()?.ToggleDiceLockStatus();
+        }
+
+        //_owningActor.AttemptSelectDice(this);
     }
 
     private void SetNewHome(Collider2D hits, SlotHandler sh)

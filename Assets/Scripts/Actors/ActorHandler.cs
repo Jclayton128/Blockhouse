@@ -17,43 +17,27 @@ public class ActorHandler : MonoBehaviour
 
 
     //refs
-    [SerializeField] DiceHandler[] _diceHandlers = null;
+    [SerializeField] DiceHandler _diceHandler = null;
+    public DiceHandler MyDiceHandler => _diceHandler;
     IFFHandler _iff;
 
 
     //settings
-    [SerializeField] Dice[] _startingDice = null;
+    [SerializeField] Dice _startingDice = null;
     [SerializeField] ActorLibrary.ActorTypes _actorType = ActorLibrary.ActorTypes.Cleric0;
 
     //state
     public ActorLibrary.ActorTypes ActorType => _actorType;
-    //DiceHandler _selectedDiceHandler;
     [SerializeField] ActorModes _actorMode = ActorModes.Idling;
     public ActorModes ActorMode => _actorMode;
-    bool _areDiceExpanded = true;
 
 
-
-    [ContextMenu("Init Debug")]
-    public void InitAsPlayer_Debug()
-    {
-        Initialize(IFFHandler.Allegiances.Player);
-    }
 
     public void Initialize(IFFHandler.Allegiances allegiance)
     {
         GameController.Instance.GameModeChanged += HandleGameModeChanged;
-        for (int i = 0; i < _diceHandlers.Length; i++)
-        {
-            _diceHandlers[i].SetOwningActor(this);
-            if (i < _startingDice.Length)
-            {
-                _diceHandlers[i].LoadWithDice(_startingDice[i]);
-            }            
-        }
-        FadeAwayDice(true);
-        CompactDice();
-
+        MyDiceHandler.LoadWithDice(_startingDice);
+        
         _iff = GetComponentInChildren<IFFHandler>();
         _iff.SetAllegiance(allegiance);
     }
@@ -99,100 +83,6 @@ public class ActorHandler : MonoBehaviour
         ActorModeChanged?.Invoke(_actorMode);
     }
 
-    [ContextMenu("Roll Dice")]
-    public void RollDice()
-    {
-        foreach (var handler in _diceHandlers)
-        {
-            handler.RollDice();
-        }
-    }
-
-
-    #region Show/Hide Dice Handlers
-
-    [ContextMenu("Show Dice")]
-
-    public void FadeInDice()
-    {
-        foreach (var handler in _diceHandlers)
-        {
-            handler.FadeInDice();
-        }
-    }
-
-    [ContextMenu("Expand Dice")]
-    public void ExpandDice()
-    {
-        //if (_iff.Allegiance != IFFHandler.Allegiances.Player) return;
-        foreach (var handler in _diceHandlers)
-        {
-
-            handler.Expand_Debug();
-        }
-        _areDiceExpanded = true;
-    }
-
-    [ContextMenu("Compact Dice")]
-    public void CompactDice()
-    {
-        
-        foreach (var handler in _diceHandlers)
-        {
-            handler.Compact_Debug();
-        }
-        _areDiceExpanded = false;
-    }
-
-    [ContextMenu("Hide Dice")]
-    public void FadeAwayDice(bool isInstant)
-    {
-        //if (!isInstant && _areDiceExpanded) CompactDice();
-
-        foreach (var handler in _diceHandlers)
-        {
-            handler.FadeAwayDice(isInstant);
-        }
-    }
-
-    #endregion
-
-    #region Select/Lock Dice
-
-    //public void AttemptSelectDice(DiceHandler selectedDiceHandler)
-    //{
-    //    if (_selectedDiceHandler == selectedDiceHandler)
-    //    {
-    //        Debug.Log("deselected");
-    //        _selectedDiceHandler.ShowDiceAsDeselected();
-    //        DeselectDice();
-    //    }
-    //    else if (_selectedDiceHandler != null)
-    //    {
-    //        Debug.Log("cannot select a second");
-    //        //Cannot select a different dice if there is already a dice selected.
-    //        return;
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("selected");
-    //        //Locks in the selected dice's active face as the move for this character
-    //        //Command some kind of visual for the DiceHandler to display
-    //        _selectedDiceHandler = selectedDiceHandler;
-    //        _selectedDiceHandler.ShowDiceAsSelected();
-    //    }
-
-
-
-    //}
-
-    //public void DeselectDice()
-    //{
-    //    //Clears the active face and allows another to be selected.
-    //    _selectedDiceHandler = null;
-    //}
-
-    #endregion
 
     #region Select Character
 
@@ -203,9 +93,7 @@ public class ActorHandler : MonoBehaviour
 
         if (_actorMode == ActorModes.AwaitingTitleScreenSelection)
         {
-            ExpandDice();
-            FadeInDice();
-
+            MyDiceHandler.Vis_ActivateFadeInExpandDice();
             ActorHighlighted?.Invoke();
         }
 
@@ -215,8 +103,7 @@ public class ActorHandler : MonoBehaviour
     {
         if (_actorMode == ActorModes.AwaitingTitleScreenSelection)
         {
-            FadeAwayDice(false);
-            CompactDice();
+            MyDiceHandler.Vis_CompactFadeAwayDeactivateDice();
 
 
         //ActorDehighlighted?.Invoke();
@@ -229,27 +116,21 @@ public class ActorHandler : MonoBehaviour
         if (_actorMode == ActorModes.AwaitingTitleScreenSelection)
         {
             HandleSelectionToParty();
-
             return;
         }
 
         if (GameController.Instance.GameMode == GameController.GameModes.EncounterInspection)
         {
-            _areDiceExpanded = !_areDiceExpanded;
-            if (_areDiceExpanded)
+            bool isExpanded = MyDiceHandler.Vis_ToggleExpandCompactDice();
+            if (isExpanded)
             {
                 Invoke(nameof(Delay_HandleInspectClick), 0.4f);
-                ActorController.Instance.HideEncounterDice();
-                ActorController.Instance.HidePartyDice();
-                ActorController.Instance.CompactAllPartyDiceExceptThis(this);
-                ActorController.Instance.CompactAllEncounterDiceExceptThis(this);
+                ActorController.Instance.CompactHideAllDiceExceptThis(this);
             }
             else
             {
                 UIController.Instance.HideInspectionPanels();
-                //Invoke(nameof(Delay_HandleInspectClick), 0.4f);
-                CompactDice();
-                FadeAwayDice(false);
+                MyDiceHandler.Vis_CompactFadeAwayDeactivateDice();
             }
         }
     }
@@ -273,20 +154,7 @@ public class ActorHandler : MonoBehaviour
     private void Delay_HandleInspectClick()
     {
         UIController.Instance.ShowInspectionPanels();
-        ExpandDice();
-        FadeInDice();
-
-        //if (_areDiceExpanded)
-        //{
-        //    ExpandDice();
-        //    ShowDice();
-
-        //}
-        //else
-        //{
-        //    ActorController.Instance.ShowEncounterDice();
-        //    ActorController.Instance.ShowPartyDice();
-        //}
+        MyDiceHandler.Vis_ActivateFadeInExpandDice();
     }
 
     #endregion

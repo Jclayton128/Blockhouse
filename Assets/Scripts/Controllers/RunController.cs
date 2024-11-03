@@ -15,8 +15,12 @@ public class RunController : MonoBehaviour
 
     //settings
     [SerializeField] float _moveSpeed = 3;
+    [SerializeField] int _rollsPerEncounter_starting = 3;
 
     //state
+    int _rollsPerEncounter_current;
+    public int RollsPerEncounter => _rollsPerEncounter_current;
+
     [SerializeField] float _distanceTraveled = 0;
     public float DistanceTraveled => _distanceTraveled;
     [SerializeField] float _targetDistance;
@@ -25,7 +29,11 @@ public class RunController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+    }
 
+    private void Start()
+    {
+        _rollsPerEncounter_current = _rollsPerEncounter_starting;
     }
 
     private void Update()

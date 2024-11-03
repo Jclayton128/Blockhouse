@@ -13,14 +13,18 @@ public class UIController : MonoBehaviour
     public Action FadeToBlackCompleted;
     public Action FadeToWhiteCompleted;
 
+    //single mode panels
     [SerializeField] PanelDriver[] _introPanel = null;
     [SerializeField] PanelDriver[] _heroSelectPanel = null;
     [SerializeField] PanelDriver[] _encounterIntroPanel = null;
     [SerializeField] PanelDriver[] _encounterInspectPanel = null;
 
+    //multi mode panels
     [SerializeField] PanelDriver[] _optionsPanel = null;
     [SerializeField] PanelDriver[] _inspectionPanels = null;
     [SerializeField] PanelDriver[] _inventoryPanels = null;
+    [SerializeField] PanelDriver[] _rollDicePanels = null;
+
 
 
     [SerializeField] InspectionPanelDriver _isp = null;
@@ -56,6 +60,7 @@ public class UIController : MonoBehaviour
         foreach (var panel in _optionsPanel) panel?.InitializePanel(this);
         foreach (var panel in _inspectionPanels) panel?.InitializePanel(this);
         foreach (var panel in _inventoryPanels) panel?.InitializePanel(this);
+        foreach (var panel in _rollDicePanels) panel?.InitializePanel(this);
 
         GameController.Instance.GameModeChanged += HandleGameModeChanged;
     }
@@ -99,6 +104,7 @@ public class UIController : MonoBehaviour
 
             case GameController.GameModes.EncounterInspection:
                 foreach (var panel in _encounterInspectPanel) panel?.ActivatePanel(false);
+                ShowRollDicePanels();
 
                 foreach (var panel in _encounterIntroPanel) panel?.RestPanel(false);
                 foreach (var panel in _introPanel) panel?.RestPanel(false);
@@ -106,7 +112,7 @@ public class UIController : MonoBehaviour
                 foreach (var panel in _optionsPanel) panel?.RestPanel(false);
                 break;
 
-            case GameController.GameModes.EncounterActionSelection:
+            case GameController.GameModes.EncounterRollingLocking:
 
                 foreach (var panel in _encounterIntroPanel) panel?.RestPanel(false);
                 foreach (var panel in _introPanel) panel?.RestPanel(false);
@@ -140,7 +146,7 @@ public class UIController : MonoBehaviour
         }       
     }
 
-    #region Inspection/Inventory Panels
+    #region Multi-Mode Panels
 
     public void ShowInspectionPanels()
     {
@@ -160,6 +166,16 @@ public class UIController : MonoBehaviour
     public void HideInventoryPanels()
     {
         foreach (var panel in _inventoryPanels) panel?.RestPanel(false);
+    }
+
+    public void ShowRollDicePanels()
+    {
+        foreach (var panel in _rollDicePanels) panel?.ActivatePanel(false);
+    }
+
+    public void HideRollDicePanels()
+    {
+        foreach (var panel in _rollDicePanels) panel?.RestPanel(false);
     }
 
     #endregion  

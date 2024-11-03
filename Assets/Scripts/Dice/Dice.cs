@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Dice")]
 public class Dice : ScriptableObject
 {
-    public enum DiceSpeeds { Light, Medium, Heavy }
+    public enum DiceSpeeds { Light, Medium, Heavy, Undefined }
 
     //settings
     int _faceLimit = 6;
