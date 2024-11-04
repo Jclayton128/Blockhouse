@@ -43,7 +43,7 @@ public class RunController : MonoBehaviour
             _distanceTraveled += _moveSpeed * Time.deltaTime;
             RunDistanceIncreased?.Invoke(_moveSpeed * Time.deltaTime);
 
-            foreach (var thing in ActorController.Instance.EncounterThing)
+            foreach (var thing in ActorController.Instance.Encounter)
             {
                 thing.transform.position -= Vector3.right * _moveSpeed * Time.deltaTime;
             }

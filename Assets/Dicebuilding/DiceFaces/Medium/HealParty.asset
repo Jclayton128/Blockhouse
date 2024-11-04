@@ -10,10 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4210d28e34776d9428ebe7f6639d20b3, type: 3}
-  m_Name: 8
+  m_Name: HealParty
   m_EditorClassIdentifier: 
-  _faceName: Crashing Blow
-  _diceLevel: 2
-  _faceSprite: {fileID: -1526343623, guid: f5d99e1e25a05bf44833ecc30277def5, type: 3}
-  _diceSpeeds: 2
-  _faceType: 1
+  _faceName: Chop
+  _faceSprite: {fileID: -148164117, guid: 1be739bcce75b4b4e87987ca4f974606, type: 3}
+  _diceSpeeds: 1
+  _range: 4
+  _effect: 2
+  _magnitude: 2
+  _animation: 1
+  _faceType: 3
+  _diceLevel: 0
+  OwningActor: {fileID: 0}

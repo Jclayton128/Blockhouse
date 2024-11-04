@@ -16,6 +16,7 @@ public class FaceHandler : MonoBehaviour
     //state
     int _restingSortIndex;
     DiceFace _diceFaceRepresented;
+    public DiceFace ActiveDiceFace => _diceFaceRepresented;
     SlotHandler _mostRecentSlotHandler;
 
 

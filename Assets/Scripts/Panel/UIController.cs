@@ -24,6 +24,7 @@ public class UIController : MonoBehaviour
     [SerializeField] PanelDriver[] _inspectionPanels = null;
     [SerializeField] PanelDriver[] _inventoryPanels = null;
     [SerializeField] PanelDriver[] _rollDicePanels = null;
+    [SerializeField] PanelDriver[] _resolveDicePanels = null;
 
 
 
@@ -61,6 +62,7 @@ public class UIController : MonoBehaviour
         foreach (var panel in _inspectionPanels) panel?.InitializePanel(this);
         foreach (var panel in _inventoryPanels) panel?.InitializePanel(this);
         foreach (var panel in _rollDicePanels) panel?.InitializePanel(this);
+        foreach (var panel in _resolveDicePanels) panel?.InitializePanel(this);
 
         GameController.Instance.GameModeChanged += HandleGameModeChanged;
     }
@@ -177,7 +179,15 @@ public class UIController : MonoBehaviour
     {
         foreach (var panel in _rollDicePanels) panel?.RestPanel(false);
     }
+    public void ShowResolveDicePanels()
+    {
+        foreach (var panel in _resolveDicePanels) panel?.ActivatePanel(false);
+    }
 
+    public void HideResolveDicePanels()
+    {
+        foreach (var panel in _resolveDicePanels) panel?.RestPanel(false);
+    }
     #endregion  
 
     #region Fades

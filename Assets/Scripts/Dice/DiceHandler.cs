@@ -41,6 +41,7 @@ public class DiceHandler : MonoBehaviour
     ActorHandler _owningActor;
     List<Vector3> _expandPositions = new List<Vector3>();
     [SerializeField] bool _isLocked = false;
+    public bool IsLocked => _isLocked;
 
     private void Start()
     {
@@ -57,11 +58,7 @@ public class DiceHandler : MonoBehaviour
         _elapsedRollTime = 0;
         _dice = dice;
 
-        foreach (var slot in _slotHandlers)
-        {
-            slot.SetAsSans(true);
-            _expandPositions.Add(slot.transform.localPosition);
-        }
+
 
         DiceFace[] loadedFaces = _dice.GetFaces();
 
@@ -71,6 +68,13 @@ public class DiceHandler : MonoBehaviour
             _slotHandlers[i].RegisterNewFaceInSlot(loadedFaces[i], newFace);
             newFace.SetInitialSlotHandler(_slotHandlers[i]);
         }
+
+        foreach (var slot in _slotHandlers)
+        {
+            slot.SetAsSans(true);
+            _expandPositions.Add(slot.transform.localPosition);
+        }
+
         _activeSlot = _slotHandlers[0];
         _isExpanded = false;
         Vis_DeactivateDice();
@@ -125,6 +129,11 @@ public class DiceHandler : MonoBehaviour
             //Show the final dice face
             SetRandomDiceFaceAsActiveFace();
             _isRolling = false;
+
+            if (transform.parent.GetComponentInChildren<IFFHandler>().Allegiance == IFFHandler.Allegiances.Enemy)
+            {
+                SetDiceAsLocked();
+            }
         }
     }
 
@@ -419,20 +428,42 @@ public class DiceHandler : MonoBehaviour
         if (_isRolling) return false;
 
         _isLocked = !_isLocked;
-        Debug.Log("lock status toggled");
-        if (_isLocked) ShowDiceAsSelected();
-        else ShowDiceAsDeselected();
+        if (_isLocked)
+        {
+            SetDiceAsLocked();
+        }
+        else
+        {
+            SetDiceAsUnlocked();
+        }
 
         return _isLocked;
     }
 
-    public void ShowDiceAsSelected()
+    public void SetDiceAsLocked()
+    {
+        if (_isRolling) return;
+        _isLocked = true;
+        ActorController.Instance.CheckAllDiceForLocked();
+        ShowDiceAsLocked();
+    }
+
+    public void SetDiceAsUnlocked()
+    {
+        if (_isRolling) return;
+        _isLocked = false;
+        ActorController.Instance.CheckAllDiceForLocked();
+        ShowDiceAsUnlocked();
+    }
+
+
+    public void ShowDiceAsLocked()
     {
         //Depict dice as selected
         transform.localScale = Vector3.one * 1.2f;
     }
 
-    public void ShowDiceAsDeselected()
+    public void ShowDiceAsUnlocked()
     {
         //Depict dice as no longer selected
         transform.localScale = Vector3.one ;

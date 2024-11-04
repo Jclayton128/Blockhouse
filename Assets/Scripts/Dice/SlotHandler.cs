@@ -16,7 +16,7 @@ public class SlotHandler : MonoBehaviour
 
     public void SetAsSans(bool isSans)
     {
-        switch (_slotSpeed)
+        switch (_diceFaceInSlot.DiceSpeed)
         {
             case Dice.DiceSpeeds.Light:
                 if (isSans)
@@ -53,6 +53,11 @@ public class SlotHandler : MonoBehaviour
                 }
                 break;
 
+            default:
+                GetComponent<SpriteRenderer>().sprite = DiceLibrary.Instance.VoidMediumSans;
+                break;
+
+
         }
 
     }
@@ -62,6 +67,7 @@ public class SlotHandler : MonoBehaviour
         _slotSpeed = newDiceFace.DiceSpeed;
         _diceFaceInSlot = newDiceFace;
         _faceHandlerInSlot = newFaceHandler;
+        _diceFaceInSlot.OwningActor = transform.root.GetComponent<ActorHandler>();
     }
 
     public void ClearFaceHandlerFromSlot()

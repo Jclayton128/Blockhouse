@@ -21,9 +21,14 @@ public class EncounterController : MonoBehaviour
     [SerializeField] float[] _xOffsets_Encounter = { 2.5f, 6f, 9.5f, 13f };
 
     //state 
-    [SerializeField] float _timeOfNextCheck = 0;
-    [SerializeField] Encounter _currentEncounter;
+    float _timeOfNextCheck = 0;
+    Encounter _currentEncounter;
     int _diceRollsRemainingInEncounter;
+    [SerializeField] List<FaceHandler> _fastFaces = new List<FaceHandler>();
+    [SerializeField] List<FaceHandler> _mediumFaces = new List<FaceHandler>();
+    [SerializeField] List<FaceHandler> _heavyFaces = new List<FaceHandler>();
+    [SerializeField] List<FaceHandler> _slowedFaces = new List<FaceHandler>();
+
 
     private void Awake()
     {
@@ -75,6 +80,295 @@ public class EncounterController : MonoBehaviour
     {
         ActorController.Instance.RollPartyDice();
         ActorController.Instance.RollEncounterDice();
+    }
+
+    public void StartResolvingDice()
+    {
+        Debug.Log("Resolving Dice");
+
+        _fastFaces.Clear();
+        _mediumFaces.Clear();
+        _heavyFaces.Clear();
+        _slowedFaces.Clear();
+
+        CollectFaces();
+
+        ResolveNextFastFace();
+
+        //PushEffectsFromParty(_fastFaces_Party);
+        //PushEffectsFromEncounter(_fastFaces_Enc);
+        ////Resolve effects of fast
+
+        //PushEffectsFromParty(_mediumFaces_Party);
+        //PushEffectsFromEncounter(_mediumFaces_Enc);
+        ////Resolve effects of medium
+
+
+        //PushEffectsFromParty(_heavyFaces_Party);
+        //PushEffectsFromParty(_heavyFaces_Enc);
+        ////Resolve effects of medium
+
+    }
+
+    private void ResolveNextFastFace()
+    {
+        if (_fastFaces.Count > 0)
+        {
+            FaceHandler nextFace = _fastFaces[0];
+            if (nextFace.transform.root.GetComponentInChildren<IFFHandler>().Allegiance == IFFHandler.Allegiances.Player)
+            {
+                PushEffectsFromParty(nextFace);
+
+            }
+            else
+            {
+                PushEffectsFromEncounter(nextFace);
+            }
+            nextFace.transform.root.GetComponentInChildren<ActorAnimationHandler>().ExecuteEffectAnimation(nextFace.ActiveDiceFace.Animation);
+
+            _fastFaces.RemoveAt(0);
+            Invoke(nameof(ResolveNextFastFace),2f);
+        }
+        else
+        {
+            ResolveNextMediumFace();
+        }
+        
+    }
+
+    private void ResolveNextMediumFace()
+    {
+        if (_mediumFaces.Count > 0)
+        {
+            FaceHandler nextFace = _mediumFaces[0];
+            if (nextFace.transform.root.GetComponentInChildren<IFFHandler>().Allegiance == IFFHandler.Allegiances.Player)
+            {
+                PushEffectsFromParty(nextFace);
+
+            }
+            else
+            {
+                PushEffectsFromEncounter(nextFace);
+            }
+            nextFace.transform.root.GetComponentInChildren<ActorAnimationHandler>().ExecuteEffectAnimation(nextFace.ActiveDiceFace.Animation);
+
+            _mediumFaces.RemoveAt(0);
+            Invoke(nameof(ResolveNextMediumFace), 2f);
+        }
+        else
+        {
+            ResolveNextHeavyFace();
+        }
+    }
+
+    private void ResolveNextHeavyFace()
+    {
+        if (_heavyFaces.Count > 0)
+        {
+            FaceHandler nextFace = _heavyFaces[0];
+            if (nextFace.transform.root.GetComponentInChildren<IFFHandler>().Allegiance == IFFHandler.Allegiances.Player)
+            {
+                PushEffectsFromParty(nextFace);
+
+            }
+            else
+            {
+                PushEffectsFromEncounter(nextFace);
+            }
+            nextFace.transform.root.GetComponentInChildren<ActorAnimationHandler>().ExecuteEffectAnimation(nextFace.ActiveDiceFace.Animation);
+
+            _heavyFaces.RemoveAt(0);
+            Invoke(nameof(ResolveNextHeavyFace), 2f);
+        }
+        else
+        {
+            ResolveNextSlowFace();
+        }
+    }
+
+    private void ResolveNextSlowFace()
+    {
+        if (_slowedFaces.Count > 0)
+        {
+            FaceHandler nextFace = _slowedFaces[0];
+            if (nextFace.transform.root.GetComponentInChildren<IFFHandler>().Allegiance == IFFHandler.Allegiances.Player)
+            {
+                PushEffectsFromParty(nextFace);
+
+            }
+            else
+            {
+                PushEffectsFromEncounter(nextFace);
+            }
+            nextFace.transform.root.GetComponentInChildren<ActorAnimationHandler>().ExecuteEffectAnimation(nextFace.ActiveDiceFace.Animation);
+
+            _slowedFaces.RemoveAt(0);
+            Invoke(nameof(ResolveNextHeavyFace), 2f);
+        }
+        else
+        {
+            Debug.Log("completed resolution!");
+        }
+    }
+
+    private void CollectFaces()
+    {
+        FaceHandler face;
+        foreach (var party in ActorController.Instance.Party)
+        {
+            face = party.MyDiceHandler.ActiveFace.FaceHandlerInSlot;
+
+            if (face.ActiveDiceFace.DiceSpeed == Dice.DiceSpeeds.Light)
+            {
+                _fastFaces.Add(face);
+            }
+            else if (face.ActiveDiceFace.DiceSpeed == Dice.DiceSpeeds.Medium)
+            {
+                _mediumFaces.Add(face);
+            }
+            else if (face.ActiveDiceFace.DiceSpeed == Dice.DiceSpeeds.Heavy)
+            {
+                _heavyFaces.Add(face);
+            }
+            else if (face.ActiveDiceFace.DiceSpeed == Dice.DiceSpeeds.Slowed)
+            {
+                _slowedFaces.Add(face);
+            }
+        }       
+
+        Debug.Log($"In Party, found {_fastFaces.Count} fast faces, {_mediumFaces.Count} medium faces, and {_heavyFaces.Count} heavy faces");
+
+        foreach(var enc in ActorController.Instance.Encounter)
+        {
+            ActorHandler ah;
+            if (enc.TryGetComponent<ActorHandler>(out ah))
+            {
+                face = ah.MyDiceHandler.ActiveFace.FaceHandlerInSlot;
+
+                if (face.ActiveDiceFace.DiceSpeed == Dice.DiceSpeeds.Light)
+                {
+                    _fastFaces.Add(face);
+                }
+                else if (face.ActiveDiceFace.DiceSpeed == Dice.DiceSpeeds.Medium)
+                {
+                    _mediumFaces.Add(face);
+                }
+                else if (face.ActiveDiceFace.DiceSpeed == Dice.DiceSpeeds.Heavy)
+                {
+                    _heavyFaces.Add(face);
+                }
+                else if (face.ActiveDiceFace.DiceSpeed == Dice.DiceSpeeds.Slowed)
+                {
+                    _slowedFaces.Add(face);
+                }
+            }
+        }
+
+        Debug.Log($"In Encounter, found {_fastFaces.Count} fast faces, {_mediumFaces.Count} medium faces, and {_heavyFaces.Count} heavy faces");
+
+    }
+
+
+
+
+    private void PushEffectsFromParty(FaceHandler face)
+    {
+        EffectsHandler eh;
+        EffectPacket ep = new EffectPacket(face.ActiveDiceFace.Effect, face.ActiveDiceFace.Magnitude);
+        switch (face.ActiveDiceFace.Range)
+        {
+            case DiceFace.Ranges.FirstEnemy:
+                eh = ActorController.Instance.Encounter[0].GetComponent<EffectsHandler>();
+                eh.ReceiveEffect(ep);
+                break;
+
+            case DiceFace.Ranges.RandomEnemy:
+                int count = ActorController.Instance.Encounter.Count;
+                int rand = UnityEngine.Random.Range(0, count);
+                eh = ActorController.Instance.Encounter[rand].GetComponent<EffectsHandler>();
+                eh.ReceiveEffect(ep);
+                break;
+
+            case DiceFace.Ranges.LastEnemy:
+                int last = ActorController.Instance.Encounter.Count - 1;
+                eh = ActorController.Instance.Encounter[last].GetComponent<EffectsHandler>();
+                eh.ReceiveEffect(ep);
+                break;
+
+            case DiceFace.Ranges.AllEnemy:
+                var list = ActorController.Instance.Encounter;
+                foreach (var item in list)
+                {
+                    item.GetComponent<EffectsHandler>().ReceiveEffect(ep);
+                }                    
+                break;
+
+            case DiceFace.Ranges.AllParty:
+                var list2 = ActorController.Instance.Party;
+                foreach (var item in list2)
+                {
+                    item.GetComponent<EffectsHandler>().ReceiveEffect(ep);
+                }
+                break;
+
+            case DiceFace.Ranges.Self:
+                face.transform.root.GetComponent<EffectsHandler>().ReceiveEffect(ep);
+                break;
+
+
+
+        }
+        
+    }
+
+    private void PushEffectsFromEncounter(FaceHandler face)
+    {
+        EffectsHandler eh;
+        EffectPacket ep = new EffectPacket(face.ActiveDiceFace.Effect, face.ActiveDiceFace.Magnitude);
+        switch (face.ActiveDiceFace.Range)
+        {
+            case DiceFace.Ranges.FirstEnemy:
+                eh = ActorController.Instance.Party[0].GetComponent<EffectsHandler>();
+                eh.ReceiveEffect(ep);
+                break;
+
+            case DiceFace.Ranges.RandomEnemy:
+                int count = ActorController.Instance.Party.Count;
+                int rand = UnityEngine.Random.Range(0, count);
+                eh = ActorController.Instance.Party[rand].GetComponent<EffectsHandler>();
+                eh.ReceiveEffect(ep);
+                break;
+
+            case DiceFace.Ranges.LastEnemy:
+                int last = ActorController.Instance.Party.Count - 1;
+                eh = ActorController.Instance.Party[last].GetComponent<EffectsHandler>();
+                eh.ReceiveEffect(ep);
+                break;
+
+            case DiceFace.Ranges.AllEnemy:
+                var list = ActorController.Instance.Party;
+                foreach (var item in list)
+                {
+                    item.GetComponent<EffectsHandler>().ReceiveEffect(ep);
+                }
+                break;
+
+            case DiceFace.Ranges.AllParty:
+                var list2 = ActorController.Instance.Encounter;
+                foreach (var item in list2)
+                {
+                    item.GetComponent<EffectsHandler>().ReceiveEffect(ep);
+                }
+                break;
+
+            case DiceFace.Ranges.Self:
+                face.transform.root.GetComponent<EffectsHandler>().ReceiveEffect(ep);
+                break;
+
+
+
+        }
+        
     }
 
     #region Flow

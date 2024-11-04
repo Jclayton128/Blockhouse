@@ -19,8 +19,8 @@ public class ActorController : MonoBehaviour
     [SerializeField] List<ActorHandler> _party = new List<ActorHandler>();
     public ActorHandler PartyLead => _party[0];
     public List<ActorHandler> Party => _party;
-    [SerializeField] List<GameObject> _encounter = new List<GameObject>();
-    public List<GameObject> EncounterThing => _encounter;
+    [SerializeField] List<ActorHandler> _encounter = new List<ActorHandler>();
+    public List<ActorHandler> Encounter => _encounter;
 
     private void Awake()
     {
@@ -76,7 +76,7 @@ public class ActorController : MonoBehaviour
         GameObject newGO = Instantiate(prefabGO, spawnPos, Quaternion.identity);
         ActorHandler ah = newGO.GetComponent<ActorHandler>();
         ah.Initialize(allegiance);
-        _encounter.Add(ah.gameObject);
+        _encounter.Add(ah);
 
         if (allegiance == IFFHandler.Allegiances.Player)
         {
@@ -112,8 +112,6 @@ public class ActorController : MonoBehaviour
     }
 
 
-    [ContextMenu("click to start")]
-
     public void HandleClickToStart()
     {
         if (_party.Count < 3)
@@ -130,12 +128,10 @@ public class ActorController : MonoBehaviour
         CameraController.Instance.EngageCameraMouse(Vector3.zero, 3f);
     }
 
-
-
     public void AddActorToParty(ActorHandler actor)
     {
         _party.Add(actor);
-        _encounter.Remove(actor.gameObject);
+        _encounter.Remove(actor);
         PartyModified?.Invoke();
     }
 
@@ -165,10 +161,48 @@ public class ActorController : MonoBehaviour
     public void RemoveActorFromParty(ActorHandler actor)
     {
         _party.Remove(actor);
-        _encounter.Add(actor.gameObject);
+        _encounter.Add(actor);
         PartyModified?.Invoke();
     }
     
+    public void CheckAllDiceForLocked()
+    {
+        bool areAllDiceLocked = true;
+        foreach (var thing in _party)
+        {
+            if (!thing.MyDiceHandler.IsLocked)
+            {
+                areAllDiceLocked = false;
+                break;
+            }
+        }
+
+        ActorHandler ah;
+        foreach (var thing in _encounter)
+        {
+            if (thing.TryGetComponent<ActorHandler>(out ah))
+            {
+                if (!ah.MyDiceHandler.IsLocked)
+                {
+                    areAllDiceLocked = false;
+                    break;
+                }
+            }
+        }
+
+        if (areAllDiceLocked)
+        {
+            //change panel to show "resolve phase"
+            UIController.Instance.HideRollDicePanels();
+            UIController.Instance.ShowResolveDicePanels();
+        }
+        else
+        {
+            UIController.Instance.ShowRollDicePanels();
+            UIController.Instance.HideResolveDicePanels();
+        }
+
+    }
 
     #region Party Actions
 
@@ -283,7 +317,7 @@ public class ActorController : MonoBehaviour
 
     public void SweepObject(GameObject objectToSweep)
     {
-        _encounter.Remove(objectToSweep);
+        _encounter.Remove(objectToSweep.GetComponent<ActorHandler>());
         Destroy(objectToSweep);
     } 
 

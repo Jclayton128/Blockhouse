@@ -57,6 +57,26 @@ public class ActorAnimationHandler : MonoBehaviour
         TriggerCheerLoop();
     }
 
+    public void ExecuteEffectAnimation(DiceFace.Animations animation)
+    {
+        switch (animation)
+        {
+            case DiceFace.Animations.Attack:
+                TriggerAttack();
+                break;
+
+            case DiceFace.Animations.Cast:
+                TriggerCasting();
+                break;
+
+            case DiceFace.Animations.Cheer:
+                TriggerCheer();
+                break;
+
+
+        }
+    }
+
     #region Basic Animations
 
     public void TriggerCheer()

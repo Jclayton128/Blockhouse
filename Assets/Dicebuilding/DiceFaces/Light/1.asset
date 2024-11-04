@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   _faceName: Slash
-  _diceLevel: 3
   _faceSprite: {fileID: -1205677782, guid: 1be739bcce75b4b4e87987ca4f974606, type: 3}
   _diceSpeeds: 0
+  _range: 0
+  _effect: 0
+  _magnitude: 1
+  _animation: 2
   _faceType: 0
+  _diceLevel: 3
+  OwningActor: {fileID: 0}

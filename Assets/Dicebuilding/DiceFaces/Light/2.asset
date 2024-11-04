@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4210d28e34776d9428ebe7f6639d20b3, type: 3}
   m_Name: 2
   m_EditorClassIdentifier: 
-  _faceName: Stab
-  _diceLevel: 2
+  _faceName: Snapshot
   _faceSprite: {fileID: -600396025, guid: 1be739bcce75b4b4e87987ca4f974606, type: 3}
   _diceSpeeds: 0
+  _range: 2
+  _effect: 0
+  _magnitude: 2
+  _animation: 0
   _faceType: 2
+  _diceLevel: 2
+  OwningActor: {fileID: 0}

@@ -10,10 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4210d28e34776d9428ebe7f6639d20b3, type: 3}
-  m_Name: 4
+  m_Name: Wallop
   m_EditorClassIdentifier: 
-  _faceName: Chop
-  _diceLevel: 0
-  _faceSprite: {fileID: -148164117, guid: 1be739bcce75b4b4e87987ca4f974606, type: 3}
+  _faceName: Whack
+  _faceSprite: {fileID: 10386189, guid: 1be739bcce75b4b4e87987ca4f974606, type: 3}
   _diceSpeeds: 1
-  _faceType: 3
+  _range: 0
+  _effect: 0
+  _magnitude: 2
+  _animation: 0
+  _faceType: 4
+  _diceLevel: 1
+  OwningActor: {fileID: 0}

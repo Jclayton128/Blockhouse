@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: 3
   m_EditorClassIdentifier: 
   _faceName: Flick
-  _diceLevel: 1
   _faceSprite: {fileID: 553973931, guid: 1be739bcce75b4b4e87987ca4f974606, type: 3}
   _diceSpeeds: 0
+  _range: 1
+  _effect: 0
+  _magnitude: 1
+  _animation: 0
   _faceType: 4
+  _diceLevel: 1
+  OwningActor: {fileID: 0}

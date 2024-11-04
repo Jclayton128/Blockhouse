@@ -10,10 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4210d28e34776d9428ebe7f6639d20b3, type: 3}
-  m_Name: 7
+  m_Name: SmiteLast
   m_EditorClassIdentifier: 
-  _faceName: Wallop
-  _diceLevel: 3
-  _faceSprite: {fileID: 925529831, guid: 1be739bcce75b4b4e87987ca4f974606, type: 3}
-  _diceSpeeds: 2
-  _faceType: 0
+  _faceName: Sting
+  _faceSprite: {fileID: 1130622466, guid: 1be739bcce75b4b4e87987ca4f974606, type: 3}
+  _diceSpeeds: 1
+  _range: 1
+  _effect: 0
+  _magnitude: 34
+  _animation: 0
+  _faceType: 5
+  _diceLevel: 2
+  OwningActor: {fileID: 0}
