@@ -93,7 +93,7 @@ public class EncounterController : MonoBehaviour
 
         CollectFaces();
 
-        ResolveNextFastFace();
+        ResolveNextFaceAnimation();
 
         //PushEffectsFromParty(_fastFaces_Party);
         //PushEffectsFromEncounter(_fastFaces_Enc);
@@ -110,7 +110,37 @@ public class EncounterController : MonoBehaviour
 
     }
 
-    private void ResolveNextFastFace()
+    private void ResolveNextFaceAnimation()
+    {
+        FaceHandler nextFace;
+        if (_fastFaces.Count > 0)
+        {
+            nextFace = _fastFaces[0];
+        }
+        else if (_mediumFaces.Count > 0)
+        {
+            nextFace = _mediumFaces[0];
+        }
+        else if (_heavyFaces.Count > 0)
+        {
+            nextFace = _heavyFaces[0]; 
+        }
+        else if (_slowedFaces.Count > 0)
+        {
+            nextFace = _slowedFaces[0];
+        }
+        else
+        {
+            Debug.Log("complete with resolving");
+            //trigger the next game mode, or maybe another round of dice rolling?
+            return;
+        }
+
+        nextFace.transform.root.GetComponentInChildren<ActorAnimationHandler>().ExecuteEffectAnimation(nextFace.ActiveDiceFace.Animation);
+        Invoke(nameof(ResolveNextFace), 2f);
+    }
+
+    private void ResolveNextFace()
     {
         if (_fastFaces.Count > 0)
         {
@@ -124,21 +154,9 @@ public class EncounterController : MonoBehaviour
             {
                 PushEffectsFromEncounter(nextFace);
             }
-            nextFace.transform.root.GetComponentInChildren<ActorAnimationHandler>().ExecuteEffectAnimation(nextFace.ActiveDiceFace.Animation);
-
             _fastFaces.RemoveAt(0);
-            Invoke(nameof(ResolveNextFastFace),2f);
         }
-        else
-        {
-            ResolveNextMediumFace();
-        }
-        
-    }
-
-    private void ResolveNextMediumFace()
-    {
-        if (_mediumFaces.Count > 0)
+        else if (_mediumFaces.Count > 0)
         {
             FaceHandler nextFace = _mediumFaces[0];
             if (nextFace.transform.root.GetComponentInChildren<IFFHandler>().Allegiance == IFFHandler.Allegiances.Player)
@@ -150,20 +168,10 @@ public class EncounterController : MonoBehaviour
             {
                 PushEffectsFromEncounter(nextFace);
             }
-            nextFace.transform.root.GetComponentInChildren<ActorAnimationHandler>().ExecuteEffectAnimation(nextFace.ActiveDiceFace.Animation);
 
             _mediumFaces.RemoveAt(0);
-            Invoke(nameof(ResolveNextMediumFace), 2f);
         }
-        else
-        {
-            ResolveNextHeavyFace();
-        }
-    }
-
-    private void ResolveNextHeavyFace()
-    {
-        if (_heavyFaces.Count > 0)
+        else if (_heavyFaces.Count > 0)
         {
             FaceHandler nextFace = _heavyFaces[0];
             if (nextFace.transform.root.GetComponentInChildren<IFFHandler>().Allegiance == IFFHandler.Allegiances.Player)
@@ -175,20 +183,10 @@ public class EncounterController : MonoBehaviour
             {
                 PushEffectsFromEncounter(nextFace);
             }
-            nextFace.transform.root.GetComponentInChildren<ActorAnimationHandler>().ExecuteEffectAnimation(nextFace.ActiveDiceFace.Animation);
 
             _heavyFaces.RemoveAt(0);
-            Invoke(nameof(ResolveNextHeavyFace), 2f);
         }
-        else
-        {
-            ResolveNextSlowFace();
-        }
-    }
-
-    private void ResolveNextSlowFace()
-    {
-        if (_slowedFaces.Count > 0)
+        else if (_slowedFaces.Count > 0)
         {
             FaceHandler nextFace = _slowedFaces[0];
             if (nextFace.transform.root.GetComponentInChildren<IFFHandler>().Allegiance == IFFHandler.Allegiances.Player)
@@ -200,15 +198,15 @@ public class EncounterController : MonoBehaviour
             {
                 PushEffectsFromEncounter(nextFace);
             }
-            nextFace.transform.root.GetComponentInChildren<ActorAnimationHandler>().ExecuteEffectAnimation(nextFace.ActiveDiceFace.Animation);
-
             _slowedFaces.RemoveAt(0);
-            Invoke(nameof(ResolveNextHeavyFace), 2f);
         }
         else
         {
-            Debug.Log("completed resolution!");
+            Debug.Log("completed resolution - but should't be seeing this.");
+            return;
         }
+        Invoke(nameof(ResolveNextFaceAnimation), 1f);
+
     }
 
     private void CollectFaces()

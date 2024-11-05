@@ -100,8 +100,11 @@ public class PanelDriver : MonoBehaviour
     {
         MovePanel(_restPosition, shouldMoveInstantly);
         ToggleButtons(false);
-        if (_fadeWhenRested) FadeUnfadePanel(true, shouldMoveInstantly);
-        Invoke(nameof(HandleRestPanelCompleted), _moveTime*.99f);
+        if (_fadeWhenRested)
+        {
+            FadeUnfadePanel(true, shouldMoveInstantly);
+            Invoke(nameof(HandleRestPanelCompleted), _moveTime * 1.01f); //*.99f
+        }
     }
 
     private void HandleRestPanelCompleted()
