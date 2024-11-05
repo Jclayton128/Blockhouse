@@ -204,9 +204,23 @@ public class ActorController : MonoBehaviour
 
     }
 
+    public void PartiallyFadeAllActors(bool shouldBeFaded)
+    {
+        foreach (var part in _party)
+        {
+            part.GetComponentInChildren<ActorVisualsHandler>().SetPartialFade(shouldBeFaded);
+        }
+        foreach (var enc in _encounter)
+        {
+            enc.GetComponentInChildren<ActorVisualsHandler>().SetPartialFade(shouldBeFaded);
+        }
+    }
+
+
+
     #region Party Actions
 
-    
+
     public void WalkParty()
     {
         foreach (var actor in _party)

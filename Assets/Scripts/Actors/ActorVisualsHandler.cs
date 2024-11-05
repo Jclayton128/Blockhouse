@@ -2,17 +2,22 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
-public class ActorAnimationHandler : MonoBehaviour
+public class ActorVisualsHandler : MonoBehaviour
 {
     //refs
     ActorHandler _ah;
     Animator _anim;
+    SpriteRenderer _sr;
 
     //settings
+    [SerializeField] float _partialFadeAmount = 0.5f;
+    [SerializeField] float _fadeTime = 0.3f;
 
     //state
     Vector2 _pos;
+    Tween _fadeTween;
 
     private void Awake()
     {
@@ -24,8 +29,47 @@ public class ActorAnimationHandler : MonoBehaviour
         _ah.ActorDehighlighted += HandleActorDehighlighted;
         _ah.ActorSelected += HandleActorSelected;
         _pos = transform.position + LayerLibrary.GetNextVisualLayer();
+
+        _sr = GetComponent<SpriteRenderer>();
     }
 
+
+    #region Publics
+    public void ExecuteEffectAnimation(DiceFace.Animations animation)
+    {
+        switch (animation)
+        {
+            case DiceFace.Animations.Attack:
+                TriggerAttack();
+                break;
+
+            case DiceFace.Animations.Cast:
+                TriggerCasting();
+                break;
+
+            case DiceFace.Animations.Cheer:
+                TriggerCheer();
+                break;
+
+
+        }
+    }
+
+    public void SetPartialFade(bool shouldBePartiallyFaded)
+    {
+        if (shouldBePartiallyFaded)
+        {
+            _fadeTween.Kill();
+            _fadeTween = _sr.DOFade(_partialFadeAmount, _fadeTime);
+        }
+        else
+        {
+            _fadeTween.Kill();
+            _fadeTween = _sr.DOFade(1, _fadeTime);
+        }
+    }
+
+    #endregion
 
     private void HandleActorModeChanged(ActorHandler.ActorModes newMode)
     {
@@ -57,25 +101,7 @@ public class ActorAnimationHandler : MonoBehaviour
         TriggerCheerLoop();
     }
 
-    public void ExecuteEffectAnimation(DiceFace.Animations animation)
-    {
-        switch (animation)
-        {
-            case DiceFace.Animations.Attack:
-                TriggerAttack();
-                break;
 
-            case DiceFace.Animations.Cast:
-                TriggerCasting();
-                break;
-
-            case DiceFace.Animations.Cheer:
-                TriggerCheer();
-                break;
-
-
-        }
-    }
 
     #region Basic Animations
 

@@ -303,9 +303,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7682605216736393617}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 254be0800f709e24ab69811b3d156a91, type: 3}
+  m_Script: {fileID: 11500000, guid: 0555d99732b85f341b665ce8c0935def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _partialFadeAmount: 0.3
+  _fadeTime: 0.3
 --- !u!1 &8165240443598985202
 GameObject:
   m_ObjectHideFlags: 0

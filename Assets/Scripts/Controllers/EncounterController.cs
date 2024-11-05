@@ -28,7 +28,7 @@ public class EncounterController : MonoBehaviour
     [SerializeField] List<FaceHandler> _mediumFaces = new List<FaceHandler>();
     [SerializeField] List<FaceHandler> _heavyFaces = new List<FaceHandler>();
     [SerializeField] List<FaceHandler> _slowedFaces = new List<FaceHandler>();
-
+    List<ActorVisualsHandler> _actorsToBeUnfaded;
 
     private void Awake()
     {
@@ -112,6 +112,7 @@ public class EncounterController : MonoBehaviour
 
     private void ResolveNextFaceAnimation()
     {
+
         FaceHandler nextFace;
         if (_fastFaces.Count > 0)
         {
@@ -136,8 +137,37 @@ public class EncounterController : MonoBehaviour
             return;
         }
 
-        nextFace.transform.root.GetComponentInChildren<ActorAnimationHandler>().ExecuteEffectAnimation(nextFace.ActiveDiceFace.Animation);
+        _actorsToBeUnfaded = DetermineActorsToBeUnfaded(nextFace);
+        ActorController.Instance.PartiallyFadeAllActors(true);
+        foreach (var actor in _actorsToBeUnfaded)
+        {
+            actor.SetPartialFade(false);
+        }
+
+        ActorVisualsHandler avh = nextFace.transform.root.GetComponentInChildren<ActorVisualsHandler>();
+        avh.ExecuteEffectAnimation(nextFace.ActiveDiceFace.Animation);
+
+
+
         Invoke(nameof(ResolveNextFace), 2f);
+    }
+
+    private List<ActorVisualsHandler> DetermineActorsToBeUnfaded(FaceHandler nextFace)
+    {
+        List<ActorVisualsHandler> avhs;
+        
+
+        if (nextFace.transform.root.GetComponentInChildren<IFFHandler>().Allegiance == IFFHandler.Allegiances.Player)
+        {
+           avhs = GatherAVHsInvolvedWithPartyEffect(nextFace);
+
+        }
+        else
+        {
+            avhs = GatherAVHsInvolvedWithEncounterEffect(nextFace);
+        }
+        avhs.Add(nextFace.transform.root.GetComponentInChildren<ActorVisualsHandler>());
+        return avhs;
     }
 
     private void ResolveNextFace()
@@ -205,6 +235,7 @@ public class EncounterController : MonoBehaviour
             Debug.Log("completed resolution - but should't be seeing this.");
             return;
         }
+        ActorController.Instance.PartiallyFadeAllActors(false);
         Invoke(nameof(ResolveNextFaceAnimation), 1f);
 
     }
@@ -312,11 +343,7 @@ public class EncounterController : MonoBehaviour
             case DiceFace.Ranges.Self:
                 face.transform.root.GetComponent<EffectsHandler>().ReceiveEffect(ep);
                 break;
-
-
-
         }
-        
     }
 
     private void PushEffectsFromEncounter(FaceHandler face)
@@ -367,6 +394,110 @@ public class EncounterController : MonoBehaviour
 
         }
         
+    }
+
+    private List<ActorVisualsHandler> GatherAVHsInvolvedWithPartyEffect(FaceHandler face)
+    {
+        List<ActorVisualsHandler> avhs = new List<ActorVisualsHandler>();
+
+        switch (face.ActiveDiceFace.Range)
+        {        
+
+            case DiceFace.Ranges.FirstEnemy:
+                var avh0 = ActorController.Instance.Encounter[0].GetComponentInChildren<ActorVisualsHandler>();
+                avhs.Add(avh0);
+                break;
+
+            case DiceFace.Ranges.RandomEnemy:
+                int count = ActorController.Instance.Encounter.Count;
+                int rand = UnityEngine.Random.Range(0, count);
+
+                var avh1 = ActorController.Instance.Encounter[rand].GetComponentInChildren<ActorVisualsHandler>();
+                avhs.Add(avh1);
+                break;
+
+            case DiceFace.Ranges.LastEnemy:
+                int last = ActorController.Instance.Encounter.Count - 1;
+                var avh2 = ActorController.Instance.Encounter[last].GetComponentInChildren<ActorVisualsHandler>();
+                avhs.Add(avh2);
+                break;
+
+            case DiceFace.Ranges.AllEnemy:
+                var list = ActorController.Instance.Encounter;
+                foreach (var item in list)
+                {
+                    var avh3 = item.GetComponentInChildren<ActorVisualsHandler>();
+                    avhs.Add(avh3);
+                }
+                break;
+
+            case DiceFace.Ranges.AllParty:
+                var list2 = ActorController.Instance.Party;
+                foreach (var item in list2)
+                {
+                    var avh4 = item.GetComponentInChildren<ActorVisualsHandler>();
+                    avhs.Add(avh4);
+                }
+                break;
+
+            case DiceFace.Ranges.Self:
+                var avh5 = face.transform.root.GetComponentInChildren<ActorVisualsHandler>();
+                avhs.Add(avh5);
+                break;
+        }
+        return avhs;
+    }
+
+    private List<ActorVisualsHandler> GatherAVHsInvolvedWithEncounterEffect(FaceHandler face)
+    {
+        List<ActorVisualsHandler> avhs = new List<ActorVisualsHandler>();
+
+        switch (face.ActiveDiceFace.Range)
+        {
+
+            case DiceFace.Ranges.FirstEnemy:
+                var avh0 = ActorController.Instance.Party[0].GetComponentInChildren<ActorVisualsHandler>();
+                avhs.Add(avh0);
+                break;
+
+            case DiceFace.Ranges.RandomEnemy:
+                int count = ActorController.Instance.Party.Count;
+                int rand = UnityEngine.Random.Range(0, count);
+
+                var avh1 = ActorController.Instance.Party[rand].GetComponentInChildren<ActorVisualsHandler>();
+                avhs.Add(avh1);
+                break;
+
+            case DiceFace.Ranges.LastEnemy:
+                int last = ActorController.Instance.Party.Count - 1;
+                var avh2 = ActorController.Instance.Party[last].GetComponentInChildren<ActorVisualsHandler>();
+                avhs.Add(avh2);
+                break;
+
+            case DiceFace.Ranges.AllEnemy:
+                var list = ActorController.Instance.Party;
+                foreach (var item in list)
+                {
+                    var avh3 = item.GetComponentInChildren<ActorVisualsHandler>();
+                    avhs.Add(avh3);
+                }
+                break;
+
+            case DiceFace.Ranges.AllParty:
+                var list2 = ActorController.Instance.Encounter;
+                foreach (var item in list2)
+                {
+                    var avh4 = item.GetComponentInChildren<ActorVisualsHandler>();
+                    avhs.Add(avh4);
+                }
+                break;
+
+            case DiceFace.Ranges.Self:
+                var avh5 = face.transform.root.GetComponentInChildren<ActorVisualsHandler>();
+                avhs.Add(avh5);
+                break;
+        }
+        return avhs;
     }
 
     #region Flow
