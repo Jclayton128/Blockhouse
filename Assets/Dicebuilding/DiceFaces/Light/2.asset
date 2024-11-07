@@ -15,7 +15,7 @@ MonoBehaviour:
   _faceName: Snapshot
   _faceSprite: {fileID: -600396025, guid: 1be739bcce75b4b4e87987ca4f974606, type: 3}
   _diceSpeeds: 0
-  _range: 2
+  _range: 0
   _effect: 0
   _magnitude: 2
   _animation: 0

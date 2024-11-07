@@ -18,6 +18,7 @@ public class UIController : MonoBehaviour
     [SerializeField] PanelDriver[] _heroSelectPanel = null;
     [SerializeField] PanelDriver[] _encounterIntroPanel = null;
     [SerializeField] PanelDriver[] _encounterInspectPanel = null;
+    [SerializeField] PanelDriver[] _phasePanels = null;
 
     //multi mode panels
     [SerializeField] PanelDriver[] _optionsPanel = null;
@@ -63,6 +64,7 @@ public class UIController : MonoBehaviour
         foreach (var panel in _inventoryPanels) panel?.InitializePanel(this);
         foreach (var panel in _rollDicePanels) panel?.InitializePanel(this);
         foreach (var panel in _resolveDicePanels) panel?.InitializePanel(this);
+        foreach (var panel in _phasePanels) panel?.InitializePanel(this);
 
         GameController.Instance.GameModeChanged += HandleGameModeChanged;
     }
@@ -84,6 +86,7 @@ public class UIController : MonoBehaviour
                 foreach (var panel in _introPanel) panel?.RestPanel(false);
                 foreach (var panel in _optionsPanel) panel?.RestPanel(false);
                 foreach (var panel in _encounterInspectPanel) panel?.RestPanel(false);
+                foreach (var panel in _phasePanels) panel?.RestPanel(this);
                 break;
 
             case GameController.GameModes.WalkingToNextEncounter:
@@ -93,6 +96,7 @@ public class UIController : MonoBehaviour
                 foreach (var panel in _introPanel) panel?.RestPanel(false);
                 foreach (var panel in _optionsPanel) panel?.RestPanel(false);
                 foreach (var panel in _encounterInspectPanel) panel?.RestPanel(false);
+                foreach (var panel in _phasePanels) panel?.RestPanel(this);
                 break;
 
             case GameController.GameModes.EncounterIntro:
@@ -102,6 +106,7 @@ public class UIController : MonoBehaviour
                 foreach (var panel in _heroSelectPanel) panel?.RestPanel(false);
                 foreach (var panel in _optionsPanel) panel?.RestPanel(false);
                 foreach (var panel in _encounterInspectPanel) panel?.RestPanel(false);
+                foreach (var panel in _phasePanels) panel?.RestPanel(this);
                 break;
 
             case GameController.GameModes.EncounterInspection:
@@ -112,15 +117,18 @@ public class UIController : MonoBehaviour
                 foreach (var panel in _introPanel) panel?.RestPanel(false);
                 foreach (var panel in _heroSelectPanel) panel?.RestPanel(false);
                 foreach (var panel in _optionsPanel) panel?.RestPanel(false);
+                foreach (var panel in _phasePanels) panel?.RestPanel(this);
                 break;
 
             case GameController.GameModes.EncounterRollingLocking:
+                ShowInspectionPanels();
 
                 foreach (var panel in _encounterIntroPanel) panel?.RestPanel(false);
                 foreach (var panel in _introPanel) panel?.RestPanel(false);
                 foreach (var panel in _heroSelectPanel) panel?.RestPanel(false);
                 foreach (var panel in _optionsPanel) panel?.RestPanel(false);
                 foreach (var panel in _encounterInspectPanel) panel?.RestPanel(false);
+                foreach (var panel in _phasePanels) panel?.RestPanel(this);
                 break;
         }
     }
@@ -146,6 +154,23 @@ public class UIController : MonoBehaviour
             _timeThatTweensWillBeComplete = time;
             IsUIActivelyTweening = true;
         }       
+    }
+
+    /// <summary>
+    /// 0= Fast, 1 = Medium, 2= Heavy. 3= Slow. Any else hides all phase panels.
+    /// </summary>
+    /// <param name="phase"></param>
+    public void ShowPhasePanel(int phase)
+    {
+        foreach (var panel in _phasePanels)
+        {
+            panel.RestPanel(false);
+        }
+        if (phase >= 0 && phase < _phasePanels.Length)
+        {
+            _phasePanels[phase].ActivatePanel(false);
+
+        }
     }
 
     #region Multi-Mode Panels

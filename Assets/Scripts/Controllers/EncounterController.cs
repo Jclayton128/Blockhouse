@@ -29,6 +29,7 @@ public class EncounterController : MonoBehaviour
     [SerializeField] List<FaceHandler> _heavyFaces = new List<FaceHandler>();
     [SerializeField] List<FaceHandler> _slowedFaces = new List<FaceHandler>();
     List<ActorVisualsHandler> _actorsToBeUnfaded;
+    int _lastPhaseDisplayed = 0;
 
     private void Awake()
     {
@@ -84,8 +85,6 @@ public class EncounterController : MonoBehaviour
 
     public void StartResolvingDice()
     {
-        Debug.Log("Resolving Dice");
-
         _fastFaces.Clear();
         _mediumFaces.Clear();
         _heavyFaces.Clear();
@@ -93,7 +92,8 @@ public class EncounterController : MonoBehaviour
 
         CollectFaces();
 
-        ResolveNextFaceAnimation();
+        _lastPhaseDisplayed = -1;
+        DetermineResolutionPhase();
 
         //PushEffectsFromParty(_fastFaces_Party);
         //PushEffectsFromEncounter(_fastFaces_Enc);
@@ -110,9 +110,66 @@ public class EncounterController : MonoBehaviour
 
     }
 
-    private void ResolveNextFaceAnimation()
-    {
+    #region Dice Round Resolution
 
+    private void DetermineResolutionPhase()
+    {
+        if (_fastFaces.Count > 0)
+        {
+            if (_lastPhaseDisplayed != 0)
+            {
+                UIController.Instance.ShowPhasePanel(0);
+                _lastPhaseDisplayed = 0;
+            }
+
+
+        }
+        else if (_mediumFaces.Count > 0)
+        {
+            Debug.Log("Medium Actions");
+            if (_lastPhaseDisplayed != 1)
+            {
+                UIController.Instance.ShowPhasePanel(1);
+                _lastPhaseDisplayed = 1;
+            }
+        }
+        else if (_heavyFaces.Count > 0)
+        {
+            Debug.Log("Heavy Actions");
+            if (_lastPhaseDisplayed != 2)
+            {
+                UIController.Instance.ShowPhasePanel(2);
+                _lastPhaseDisplayed = 2;
+            }
+
+        }
+        else if (_slowedFaces.Count > 0)
+        {
+            Debug.Log("Slowed Actions");
+            if (_lastPhaseDisplayed != 3)
+            {
+                UIController.Instance.ShowPhasePanel(3);
+                _lastPhaseDisplayed = 3;
+            }
+
+        }
+        else
+        {
+            Debug.Log("complete with resolving");
+            //trigger the next game mode, or maybe another round of dice rolling?
+            return;
+        }
+        Invoke(nameof(HidePhasePanel), 1f);
+        Invoke(nameof(ResolveNextFaceAnimation), 2f);
+    }
+
+    private void HidePhasePanel()
+    {
+        UIController.Instance.ShowPhasePanel(-1);
+    }
+    
+    private void ResolveNextFaceAnimation()
+    { 
         FaceHandler nextFace;
         if (_fastFaces.Count > 0)
         {
@@ -132,8 +189,6 @@ public class EncounterController : MonoBehaviour
         }
         else
         {
-            Debug.Log("complete with resolving");
-            //trigger the next game mode, or maybe another round of dice rolling?
             return;
         }
 
@@ -146,8 +201,6 @@ public class EncounterController : MonoBehaviour
 
         ActorVisualsHandler avh = nextFace.transform.root.GetComponentInChildren<ActorVisualsHandler>();
         avh.ExecuteEffectAnimation(nextFace.ActiveDiceFace.Animation);
-
-
 
         Invoke(nameof(ResolveNextFace), 2f);
     }
@@ -236,8 +289,8 @@ public class EncounterController : MonoBehaviour
             return;
         }
         ActorController.Instance.PartiallyFadeAllActors(false);
-        Invoke(nameof(ResolveNextFaceAnimation), 1f);
-
+        //Invoke(nameof(DetermineResolutionPhase), 1f);
+        DetermineResolutionPhase();
     }
 
     private void CollectFaces()
@@ -499,6 +552,8 @@ public class EncounterController : MonoBehaviour
         }
         return avhs;
     }
+
+    #endregion
 
     #region Flow
 
